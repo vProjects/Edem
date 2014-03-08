@@ -1,0 +1,269 @@
+body {
+	font-family: 'PT Sans Caption', sans-serif;
+}
+.main-container {
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.mynav {
+	height: 75px;
+	margin-bottom: 0px;
+}
+.enroll-button {
+	width: 105px;
+	margin: 10px;
+	margin-top: 18px;
+	height: 36px;
+}
+.mycarousel {
+	margin-top: 75px;
+}
+.item img {
+	width: 100%;
+}
+.btn-black {
+	background: #474852;
+	color: #ededed;
+	border: #ededed
+}
+.parallax {
+	width: 100%;
+	max-height: 550px;
+	min-height: 300px;
+	overflow: hidden;
+}
+.parallax img {
+	width: 100%;
+	min-height: 300px;
+}
+.jumbotron {
+	text-align: center;
+	background: none;
+	color: #ededed;
+	margin-top: 100px;
+}
+.jumbotron h1 {
+	font-size: 3em;
+}
+.jumbotron h2 {
+	font-size: 1.8em;
+	line-height: 2.5em;
+}
+ul {
+	padding: 0px;
+	list-style-type: none;
+}
+.step-panel {
+	background: #EDEDED;
+	padding: 3%;
+	text-align: center;
+	border-bottom: 1px solid #000000;
+}
+.step-panel .col-lg-4{
+	padding: 3%;
+	text-align: center;
+}
+.step-panel .col-lg-4 img{
+	padding: 3%;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+}
+.step-content {
+	margin-bottom: 5%;
+}
+.step-box {
+	padding: 1% 0% 1% 1%;
+}
+.step-ins {
+	border: 3px solid #b4b4b4;
+	display: block;
+	padding: 10% 0 10% 0;
+}
+.state-art {
+	background: #FFFFFF;
+	padding: 3%;
+}
+.about-founder {
+	background: #FFFFFF;
+	padding: 3%;
+	margin-top: 75px;	
+}
+.about-founder img {
+	margin: 0 auto;
+}
+.state-art .col-lg-6 {
+	padding: 5%;
+}
+.state-art .col-lg-6 h3{
+	color: #000000;
+	font-size: 2.4em;
+}
+.state-art .col-lg-6 p {
+	color: #575759
+	font-size: 1.5em;
+}
+.state-art .col-lg-6 {
+	padding: 5%;
+}
+.mng-inst {
+	background: #EDEDED;
+	border-top: 3px solid #b4b4b4;
+	border-bottom: 3px solid #b4b4b4;
+}
+.newsletter {
+	margin-bottom: 2%;
+}
+.social {
+	height: 75px
+	margin-bottom: 0px;
+}
+.social a {
+	padding: 10px 10px;
+}
+.footer .col-lg-6 .navbar-nav > li > a {
+	padding: 10px 10px;
+	text-decoration: none;
+	margin-top: 15px;
+	display: block;
+}
+.contact-map {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+/* contact page css
+	Author: Dipanjan */
+
+.contact_info_outline{
+	margin-top:75px;
+	padding:1% 3% 3%;
+	background-color:#EDEDED;
+	min-height:700px;
+	border-bottom: 1px solid #000000;
+}
+.contact_heading{
+	color: #999;
+	margin-top:0.5em;
+	border-bottom: 1px solid #8F8F8F;
+}
+.contact_part_outline{
+	margin:0px auto;
+}
+.contact_form_textbox{
+	border:1px solid #C4C4C4;
+}
+.contact_form_textarea{
+	resize:vertical;
+}
+
+/* faq page css
+   Aithor: Dipanjan */
+.faq_info_outline{
+	margin-top:75px;
+	padding:3%;
+	background-color:#EDEDED;
+	min-height:700px;
+}
+.faq_answer_search{
+	width:75% !important;
+}
+.faq_answer_form{
+	margin-bottom:2.2em;
+}
+.faq_qusetions_outline{
+	background-color:#FFF;
+	margin-bottom:1.5em;
+	border:1px solid #cdcdcd;
+	padding:1% 2% 1% 3%;
+}
+.faq_qusetions_part{
+	padding:0.5em 1.6em 0 0;
+	border-bottom:1px solid #cdcdcd;
+}
+.faq_qusetions_text{
+	color:#0279FD;
+	font-weight:bold;
+}
+.faq_qusetions_text a{
+	color:inherit;
+}
+.faq_qusetions_para{
+	font-size:0.8em;
+	margin-bottom:0.7em;
+}
+.faq_answer_outline{
+	padding:0.8em 0;
+}
+
+
+
+/* bootstrap override */
+.navbar-nav > li > a {
+padding-top: 38px;
+padding-bottom: 15px;
+}
+.nav > li > a {
+position: relative;
+display: block;
+padding: 30px 32px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+color: #555;
+background-color: #e7e7e7;
+padding: 24px 32px;
+border-top: 6px solid #99cc33;
+}
+.nav {
+	background: #f8f8f8;
+}
+
+
+
+
+
+/* css for parallax effect */
+.layer:nth-child(1) {
+  opacity: 1.0;
+}
+.layer:nth-child(2) {
+  opacity: 0.90;
+}
+.layer:nth-child(3) {
+  opacity: 0.45;
+}
+.layer:nth-child(4) {
+  opacity: 0.60;
+}
+.layer:nth-child(5) {
+  opacity: 0.75;
+}
+.layer:nth-child(6) {
+  opacity: 0.90;
+}
+
+
+
+@media all and (max-width: 768px) {
+	.parallax {
+		width: 100%;
+		max-height: 600px;
+		min-height: 300px;
+		overflow: none;
+	}
+	.parallax ul li img {
+		height: 800px;
+		width: 500%
+	}
+	.footer .col-lg-6 .navbar-nav .mynav {
+		height: 19px;
+		margin-bottom: 0px;
+		text-align: center;
+	}
+	.footer .col-lg-6 .navbar-nav .social {
+		text-align: center;
+		height: 24px;
+	}
+	
+}
