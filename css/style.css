@@ -225,11 +225,11 @@ border-top: 6px solid #99cc33;
 	background: #f8f8f8;
 }
 .modal-header{
-	background-color:#5a8bc5 ;
+	background-color:#5cb85c ;
 	color:#ffffff ;
 }
 .modal-footer{
-	background-color:#5a8bc5 ;
+	background-color:#5cb85c ;
 	color:#ffffff ;
 }
 .modal-content {
@@ -247,6 +247,23 @@ border-top: 6px solid #99cc33;
 }
 .input-group-addon{
 	background-color:#ffffff ;
+}
+.glyphicon{
+	color:#ffffff ;
+}
+.input-group-addon{
+	background-color:#5cb85c ;
+}
+.grey_text{
+	color:#999;
+}
+.video_container{
+	width:100% ;
+}
+.video_box{
+	width: 100%;
+	height: 320px;
+	background-color: #000;
 }
 /* css for parallax effect */
 .layer:nth-child(1) {
@@ -267,9 +284,6 @@ border-top: 6px solid #99cc33;
 .layer:nth-child(6) {
   opacity: 0.90;
 }
-
-
-
 @media all and (max-width: 768px) {
 	.parallax {
 		width: 100%;
