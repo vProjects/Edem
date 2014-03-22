@@ -26,6 +26,7 @@
         margin: 0 0 0 250px;
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
+		min-height:870px;
     }
 }
 
@@ -326,10 +327,8 @@ table.dataTable thead .sorting:after {
 	color: #ffffff;
 }
 .page-header {
-	color: #ffffff;
-	background-color: #5CB8C8;
+	color: #36538c;
 	padding: 8px 15px;
-	font-size: 26px;
 	margin: 17px 0px 10px 0;
 }
 .panel-default>.panel-heading {
@@ -343,4 +342,14 @@ table.dataTable thead .sorting:after {
 .panel-default {
 	border-color: #ddd;
 	border-radius: 0;
+}
+
+/* code added by Dipanjan */
+/* student admin page css */
+.stu_adm_row{
+	margin-top:1em;
+	padding:0 0 0.5em;
+}
+.stu_adm_category_heading{
+	font-size:1.5em;
 }
