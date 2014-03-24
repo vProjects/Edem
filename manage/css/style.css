@@ -24,7 +24,7 @@
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 250px;
-        padding: 0 30px;
+        padding: 0 30px 50px;
         border-left: 1px solid #e7e7e7;
 		min-height:870px;
     }
@@ -353,3 +353,37 @@ table.dataTable thead .sorting:after {
 .stu_adm_category_heading{
 	font-size:1.5em;
 }
+
+/* create student page css */
+.cs_page_info{
+	color:#0160FE;
+}
+.cs_page_form_caption{
+	color:#D22D2D;
+	margin-top:0px;
+}
+.cs_form_label{
+	font-size:1em;
+}
+.cs_form_textbox{
+	border: 1px solid #B6B6B6;
+}
+.cs_form_radio_label{
+	margin-right:6em;
+}
+
+/* add an event page css */
+.ae_form_label{
+	font-size:1em;
+	text-align:right;
+	padding-top:0.5em;
+}
+.ae_form_textbox{
+	border: 1px solid #B6B6B6;
+}
+.ae_form_textarea{
+	resize:vertical;
+	border: 1px solid #B6B6B6;
+}
+
+

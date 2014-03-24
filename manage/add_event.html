@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Schedule</title>
+    <title>Add Event</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,13 +15,14 @@
     <!-- Page-Level Plugin CSS - Dashboard -->
     <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
-    
-    <!-- css for calender view -->
-	<link href="css/calendar.css" rel="stylesheet">
+	
+	<!-- Time Picker plugin css -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+
+    <link href="css/plugins/ptTimeSelect/jquery.ptTimeSelect.css" rel="stylesheet">
     
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
-    
 
 </head>
 
@@ -272,13 +273,16 @@
                         <a href="admin.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="admin.html"><i class="fa fa-edit fa-fw"></i> Add an event</a>
+                        <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Lorem Ipsum<span class="fa arrow"></span></a>
+                        <a href="add_event.html"><i class="fa fa-edit fa-fw"></i> Add an event</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Student<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Lorem Ipsum</a>
+                                <a href="create_student.html">Create Student</a>
                             </li>
                             <li>
                                 <a href="#">Lorem Ipsum</a>
@@ -287,7 +291,16 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table fa-fw"></i> Lorem Ipsum</a>
+                        <a href="#"><i class="fa fa-table fa-fw"></i> Faculty<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="create_faculty.html">Create Faculty</a>
+                            </li>
+                            <li>
+                                <a href="#">Lorem Ipsum</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-edit fa-fw"></i> Lorem Ipsum</a>
@@ -314,7 +327,7 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Lorem Ipsum<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Lorem Ipsum<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -361,89 +374,108 @@
             <!-- /.sidebar-collapse -->
         </nav>
         <!-- /.navbar-static-side -->
-        
-        <!-- page content starts here -->
+
         <div id="page-wrapper">
-        	<div class="row">
+            <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Student Schedule</h1>
+                    <h1 class="page-header">Add An Event</h1>
+                    <h4 class="cs_page_info">Please fill up details about new event of your institution.</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+            <div class="row stu_adm_row">
                 <div class="col-lg-12">
-                    <div class="page-header">
-
-		<div class="pull-right form-inline">
-			<div class="btn-group">
-				<button class="btn btn-primary" data-calendar-nav="prev"><< Prev</button>
-				<button class="btn btn-default" data-calendar-nav="today">Today</button>
-				<button class="btn btn-primary" data-calendar-nav="next">Next >></button>
-			</div>
-			<div class="btn-group">
-				<button class="btn btn-warning" data-calendar-view="year">Year</button>
-				<button class="btn btn-warning active" data-calendar-view="month">Month</button>
-				<button class="btn btn-warning" data-calendar-view="week">Week</button>
-				<button class="btn btn-warning" data-calendar-view="day">Day</button>
-			</div>
-		</div>
-
-		<h3></h3>
-		<small>To see example with events navigate to march 2013</small>
-	</div>
-
+                	<form class="form-horizontal" role="form">
+                    	<div class="form-group">
+                            <label class="col-sm-3 ae_form_label">Event Title</label>
+                            <div class="col-sm-6">
+                            	<input type="text" class="form-control ae_form_textbox">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 ae_form_label">Date</label>
+                            <div class="col-sm-3">
+                            	<input type="text" class="form-control ae_form_textbox" id="calender_date">
+                            </div>
+                            <label class="col-sm-1 ae_form_label">Time</label>
+                            <div class="col-sm-2">
+                            	<input type="text" class="form-control ae_form_textbox" id="event_time">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 ae_form_label">Place</label>
+                            <div class="col-sm-6">
+                            	<input type="text" class="form-control ae_form_textbox">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 ae_form_label">Description</label>
+                            <div class="col-sm-6">
+                            	<textarea rows="6" class="form-control ae_form_textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 ae_form_label">Contact Number</label>
+                            <div class="col-sm-6">
+                            	<input type="text" class="form-control ae_form_textbox">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3">
+                            	<button type="submit" class="btn btn-success btn-lg">Submit Data</button>
+                                <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-            	<div class="col-lg-12">
-                	<div id="calendar"></div>
-                </div>
-            </div>
         </div>
-        <!-- page content end here-->
-        
+        <!-- /#page-wrapper -->
+
     </div>
     <!-- /#wrapper -->
 
-    
     <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     
-    <script type="text/javascript" src="components/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="components/underscore/underscore-min.js"></script>
-	<script type="text/javascript" src="components/bootstrap3/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    
-    <!-- js for calender view -->
-	<script src="js/calendar.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Time Picker plugin css -->
+    <script src="js/plugins/ptTimeSelect/jquery.ptTimeSelect.js"></script>
     <script type="text/javascript">
-        var calendar = $('#calendar').calendar({
-		events_source: function() { return [
-		{
-		"id": 293,
-		"title": "mar jania tere min mar jania",
-		"url": "http://www.google.com",
-		"class": 'event-important',
-		"start": 12039485678000, // Milliseconds
-		"end": 1234576967000 // Milliseconds
-		}]}
-		});
-        
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $('#event_time').ptTimeSelect();
+        });
     </script>
-	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    
+     <!--- cdn for calendar view date -->
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      $( "#calender_date" ).datepicker();
+      $( "#calender_date" ).datepicker("option", "dateFormat","yy-mm-dd");
+     });
+     
+     $(function() {
+      $( "#calender_date2" ).datepicker();
+      $( "#calender_date2" ).datepicker("option", "dateFormat","yy-mm-dd");
+     });
+    </script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
     <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <!-- <script src="js/plugins/morris/morris.js"></script> -->
+    <script src="js/plugins/morris/morris.js"></script>
 
     <!--  Admin Scripts - Include with every page -->
     <script src="js/admin.js"></script>
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <!-- <script src="js/demo/dashboard-demo.js"></script> -->
+    <script src="js/demo/dashboard-demo.js"></script>
+    
     
 
 </body>
