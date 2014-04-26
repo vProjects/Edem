@@ -77,9 +77,9 @@
 			"id": "101",
 			"title": "Dipanjan",
 			"url": "#",
-			"class": "event-success",
-			"start": "1364117400000",
-			"end":   "1364121900000"
+			"class": "event-info",
+			"start": "1395657900000",
+			"end":   "1395841500000"
 		}
 	]
 }
