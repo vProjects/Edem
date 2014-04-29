@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manage Institutions</title>
+    <title>Froze System</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,12 @@
     <!-- Page-Level Plugin CSS - Dashboard -->
     <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
+	
+	<!-- Time Picker plugin css -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
 
+    <link href="css/plugins/ptTimeSelect/jquery.ptTimeSelect.css" rel="stylesheet">
+    
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -382,144 +387,40 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Froze System</h1>
+                    <h4 class="cs_page_info">Please fill up the form to froze the system.</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row stu_adm_row">
-                <div class="col-lg-4">
-                	<div class="panel panel-primary">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Upload Documents
+                <div class="col-lg-12">
+                	<form class="form-horizontal" role="form">
+                    	<div class="form-group fz_form_group">
+                            <label class="col-sm-3 ae_form_label">Froze System At</label>
+                            <div class="col-sm-6">
+                            	<select class="form-control fz_selectbox" name="froze_date">
+                                	<option>Select The Date</option>
+                                    <option>Today</option>
+                                    <option>Tomorrow</option>
+                                    <option>28-04-2014</option>
+                                    <option>29-04-2014</option>
+                                    <option>30-04-2014</option>
+                                    <option>01-05-2014</option>
+                                    <option>02-05-2014</option>
+                                    <option>03-05-2014</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3">
+                            	<button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-danger">Reset Data</button>
+                            </div>
                         </div>
-                        <div class="panel-footer">
-                            <a href="student_schedule.html"><button class="btn btn-primary">View More</button></a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-danger">
-                        <div class="panel-heading stu_adm_category_heading">
-                            View Data
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-danger">View More</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-success">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Froze System
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="froze_system.html"><button class="btn btn-success">View More</button></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-            </div>
-            <!-- /.row -->
-            <div class="row stu_adm_row">
-                <div class="col-lg-4">
-                	<div class="panel panel-primary">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Create Student
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="create_student.html"><button class="btn btn-primary">View More</button></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-danger">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Create Faculty
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="create_faculty.html"><button class="btn btn-danger">View More</button></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-success">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Check Schedule
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-success">View More</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-            </div>
-            <!-- /.row -->
-            <div class="row stu_adm_row">
-                <div class="col-lg-4">
-                	<div class="panel panel-primary">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Create Courses
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="create_student.html"><button class="btn btn-primary">View More</button></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-danger">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Add an Event
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <a href="create_faculty.html"><button class="btn btn-danger">View More</button></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
-                <div class="col-lg-4">
-                	<div class="panel panel-success">
-                        <div class="panel-heading stu_adm_category_heading">
-                            Event List
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-success">View More</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /. col-lg-4 -->
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
@@ -532,6 +433,30 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    
+    <!-- Time Picker plugin css -->
+    <script src="js/plugins/ptTimeSelect/jquery.ptTimeSelect.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $('#from_time').ptTimeSelect();
+			$('#to_time').ptTimeSelect();
+        });
+    </script>
+    
+     <!--- cdn for calendar view date -->
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      $( "#from_date" ).datepicker();
+      $( "#from_date" ).datepicker("option", "dateFormat","yy-mm-dd");
+     });
+     
+     $(function() {
+      $( "#to_date" ).datepicker();
+      $( "#to_date" ).datepicker("option", "dateFormat","yy-mm-dd");
+     });
+    </script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
     <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
@@ -542,6 +467,8 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
+    
+    
 
 </body>
 
