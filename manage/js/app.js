@@ -1,13 +1,22 @@
 (function($) {
 
 	"use strict";
+	/* coded by dipanjan */
+	//loading the calendar with present date
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} var today = yyyy+'-'+mm+'-'+dd;
+	/* code ends here */
 
 	var options = {
 		events_source: 'events.json.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
-		day: '2013-03-12',
+		day: today,
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Create Courses</title>
+    <title>Froze System</title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,9 +15,12 @@
     <!-- Page-Level Plugin CSS - Dashboard -->
     <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
-    
+	
+	<!-- Time Picker plugin css -->
     <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
 
+    <link href="css/plugins/ptTimeSelect/jquery.ptTimeSelect.css" rel="stylesheet">
+    
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -384,53 +387,37 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Create Corses</h1>
-                    <h4 class="cs_page_info">You can add data about courses manualy or you can just upload file directly.</h4>
+                    <h1 class="page-header">Froze System</h1>
+                    <h4 class="cs_page_info">Please fill up the form to froze the system.</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row stu_adm_row">
-                <div class="col-lg-6">
-                	<form role="form">
-                    	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
-                    	<div class="form-group">
-                            <label class="cs_form_label">Course Name</label>
-                            <input type="text" class="form-control cs_form_textbox">
+                <div class="col-lg-12">
+                	<form class="form-horizontal" role="form">
+                    	<div class="form-group fz_form_group">
+                            <label class="col-sm-3 ae_form_label">Froze System At</label>
+                            <div class="col-sm-6">
+                            	<select class="form-control fz_selectbox" name="froze_date">
+                                	<option>Select The Date</option>
+                                    <option>Today</option>
+                                    <option>Tomorrow</option>
+                                    <option>28-04-2014</option>
+                                    <option>29-04-2014</option>
+                                    <option>30-04-2014</option>
+                                    <option>01-05-2014</option>
+                                    <option>02-05-2014</option>
+                                    <option>03-05-2014</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="cs_form_label">Skills</label>
-                            <input type="text" class="form-control cs_form_textbox">
+                            <div class="col-sm-6 col-sm-offset-3">
+                            	<button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-danger">Reset Data</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="cs_form_label">Time Duration</label>
-                            <input type="text" class="form-control cs_form_textbox">
-                        </div>
-                        <div class="form-group">
-                            <label class="cs_form_label">Course Details</label>
-                            <textarea rows="4" class="form-control ae_form_textarea"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="cs_form_label">Eligibility Criteria</label>
-                            <input type="text" class="form-control cs_form_textbox">
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
-                        <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
-                    </form>
-                </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">	
-                	<form role="form" enctype="multipart/form-data">
-                    	<h4 class="cs_page_form_caption">Upload The File</h4>
-                        <div class="form-group">
-                            <label class="cs_form_label">Information File</label>
-                            <input type="file">
-                        </div>
-                        <div class="form-group">
-                            <label class="cs_form_label">NOTE</label>
-                            <textarea rows="4" class="form-control ae_form_textarea" placeholder="Upload Info"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
                     </form>
                 </div>
                 <!-- /.col-lg-6 -->
@@ -447,17 +434,27 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     
-    <!--- cdn for calendar view date -->
+    <!-- Time Picker plugin css -->
+    <script src="js/plugins/ptTimeSelect/jquery.ptTimeSelect.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // find the input fields and apply the time select to them.
+            $('#from_time').ptTimeSelect();
+			$('#to_time').ptTimeSelect();
+        });
+    </script>
+    
+     <!--- cdn for calendar view date -->
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">
     $(function() {
-      $( "#calender_date" ).datepicker();
-      $( "#calender_date" ).datepicker("option", "dateFormat","yy-mm-dd");
+      $( "#from_date" ).datepicker();
+      $( "#from_date" ).datepicker("option", "dateFormat","yy-mm-dd");
      });
      
      $(function() {
-      $( "#calender_date2" ).datepicker();
-      $( "#calender_date2" ).datepicker("option", "dateFormat","yy-mm-dd");
+      $( "#to_date" ).datepicker();
+      $( "#to_date" ).datepicker("option", "dateFormat","yy-mm-dd");
      });
     </script>
 

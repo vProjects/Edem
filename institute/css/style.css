@@ -395,3 +395,17 @@ table.dataTable thead .sorting:after {
 	position:relative;
 	z-index:1;
 }
+
+/* froze system css */
+.fz_selectbox{
+	border: 1px solid #B6B6B6;
+}
+.fz_selectbox option{
+	overflow:visible;
+}
+.fz_form_group{
+	margin-bottom:2.5em;
+}
+
+
+
