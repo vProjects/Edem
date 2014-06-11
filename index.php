@@ -1,5 +1,5 @@
 <?php
-	$page = 'Home'; //page title
+	$title = 'Home'; //page title
 	
 	//include the templates
 	include 'v-templates/header.php';

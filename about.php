@@ -1,5 +1,5 @@
 <?php
-	$page = 'Home'; //page title
+	$title = 'About'; //page title
 	
 	//include the templates
 	include 'v-templates/header.php';
@@ -13,7 +13,7 @@
 				
 			</div>
 			<div class="col-lg-6">
-				<img src="img/edem.png" class="img-responsive" alt="about edem" />
+				<img src="images/edem.png" class="img-responsive" alt="about edem" />
 			</div>
 			
 		</div>
@@ -26,29 +26,29 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<img src="img/process1.png" alt="process1" class="img-responsive"/>
+					<img src="images/process1.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 				<div class="col-lg-4">
-					<img src="img/process2.png" alt="process1" class="img-responsive"/>
+					<img src="images/process2.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 				<div class="col-lg-4">
-					<img src="img/process3.png" alt="process1" class="img-responsive"/>
+					<img src="images/process3.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<img src="img/process4.png" alt="process1" class="img-responsive"/>
+					<img src="images/process4.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 				<div class="col-lg-4">
-					<img src="img/process5.png" alt="process1" class="img-responsive"/>
+					<img src="images/process5.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 				<div class="col-lg-4">
-					<img src="img/process6.png" alt="process1" class="img-responsive"/>
+					<img src="images/process6.png" alt="process1" class="img-responsive"/>
 					<P>Lorem ipsum dolor sit amet</P>
 				</div>
 			</div>
