@@ -14,10 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse v_navbar" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active mynav"><a href="index.php">Home</a></li>
-        <li class="mynav"><a href="faq.php">FAQ</a></li>
+        <li class="mynav <?php if($title == 'Home'){ echo 'active';} ?>"><a href="index.php">Home</a></li>
+        <li class="mynav <?php if($title == 'FAQ'){ echo 'active';} ?>"><a href="faq.php">FAQ</a></li>
         <li class="mynav"><a href="#">Pricing</a></li>
-        <li class="mynav"><a href="about.php">About</a></li>
+        <li class="mynav  <?php if($title == 'About'){ echo 'active';} ?>"><a href="about.php">About</a></li>
         <li class="mynav"><button class="btn btn-success enroll-button" data-toggle="modal" data-target="#mySignUp">Sign Up</button></li>
         <li class="mynav"><button class="btn btn-success enroll-button" data-toggle="modal" data-target="#myModal">Login</button></li>
       </ul>

@@ -34,25 +34,27 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title login-header" id="myModalLabel">Login</h4>
               </div>
-              <div class="modal-body">
-              	<div class="input-group v-form-element">
-                	<p class="grey_text">Please login to continue using the application.</p>
-                </div>
-              	<!--form components starts here-->
-                <div class="input-group v-form-element">
-                    <span class="input-group-addon glyphicon glyphicon-user"></span>
-                    <input type="text" class="form-control v-textbox" placeholder="Username">
-                </div>
-                <div class="input-group v-form-element">
-                    <span class="input-group-addon glyphicon glyphicon-info-sign"></span>
-                    <input type="password" class="form-control v-textbox" placeholder="Password">
-                </div>
-                <!--form component ends here-->
-              </div>
-              <div class="modal-footer">
-                <!--<button type="button" class="btn btn-default btn-black" data-dismiss="modal">Close</button>-->
-                <button type="button" class="btn btn-default btn-black">LOGIN</button>
-              </div>
+              <form action="v-includes/function/function.login.php" method="post">
+	              <div class="modal-body">
+	              	<div class="input-group v-form-element">
+	                	<p class="grey_text">Please login to continue using the application.</p>
+	                </div>
+	              	<!--form components starts here-->
+	                <div class="input-group v-form-element">
+	                    <span class="input-group-addon glyphicon glyphicon-user"></span>
+	                    <input type="text" class="form-control v-textbox" name="uname" placeholder="Username">
+	                </div>
+	                <div class="input-group v-form-element">
+	                    <span class="input-group-addon glyphicon glyphicon-info-sign"></span>
+	                    <input type="password" class="form-control v-textbox" name="password" placeholder="Password">
+	                </div>
+	                <!--form component ends here-->
+	              </div>
+	              <div class="modal-footer">
+	                <!--<button type="button" class="btn btn-default btn-black" data-dismiss="modal">Close</button>-->
+	                <button type="submit" class="btn btn-default btn-black">LOGIN</button>
+	              </div>
+              </form>
             </div>
           </div>
         </div>

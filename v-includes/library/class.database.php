@@ -3,7 +3,7 @@
 	
 	class dbConnection{
 		protected $db_conn;
-		public $db_name = "edem" ;
+		public $db_name = "course_management" ;
 		public $db_username = "root" ;
 		public $db_password = "root" ;
 		public $db_host = "localhost" ;

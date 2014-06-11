@@ -6,7 +6,7 @@
 	include 'v-templates/navbar.php';
 ?>
 	<div class="parallax">
-		<ul id="scene" class="scene"
+            <ul id="scene" class="scene"
             data-calibrate-x="false"
             data-calibrate-y="false"
             data-invert-x="false"
