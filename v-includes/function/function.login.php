@@ -47,7 +47,7 @@
 				{
 					$_index_redirect = 0;	//#false
 					
-					header('Location: ../../v-panel/admin.html');
+					header('Location: ../../v-panel/admin.php');
 				}
 			}
 			else

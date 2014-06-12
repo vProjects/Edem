@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manage Student</title>
+    <title><?php if( !empty($title) ){ echo $title; }else{ echo 'V-Panel';} ?></title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,11 @@
     <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
+	<!-- Time Picker plugin css -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+	<link href="css/plugins/ptTimeSelect/jquery.ptTimeSelect.css" rel="stylesheet">
+    
+    <!-- Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
 
 </head>
