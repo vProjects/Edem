@@ -1,3 +1,10 @@
+<?php
+	//include the BLL library
+	include 'v-includes/library/library.BLL.php';
+	
+	//create the BLL object to create the UI
+	$BLL_Obj = new BLL_Library();
+?>
 <!DOCTYPE html>
 <html>
 

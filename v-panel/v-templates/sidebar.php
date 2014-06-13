@@ -19,16 +19,19 @@
                 <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
             </li>
             <li>
-                <a href="admin.html"><i class="fa fa-edit fa-fw"></i> Add an event</a>
+                <a href="create-event.php"><i class="fa fa-edit fa-fw"></i>Create Event</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Student<span class="fa arrow"></span></a>
+                <a href="create-group.php"><i class="fa fa-edit fa-fw"></i>Create Group</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i> Student<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="create-student.php">Create Student</a>
                     </li>
                     <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="#">List Student</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -40,7 +43,19 @@
                         <a href="create-faculty.php">Create Faculty</a>
                     </li>
                     <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="#">List Faculty</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i>Chair Person<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="create-chairperson.php">Create Chair Person</a>
+                    </li>
+                    <li>
+                        <a href="#">List Chair Person</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -52,73 +67,31 @@
                         <a href="create-course.php">Create Courses</a>
                     </li>
                     <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="#">List Courses</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Lorem Ipsum</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> Lorem Ipsum<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-table fa-fw"></i>Curriculum<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="create-curriculum.php">Create Curriculum</a>
                     </li>
                     <li>
-                        <a href="#">Lorem Ipsum</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem Ipsum</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem Ipsum</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="#">List Curriculum</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Lorem Ipsum<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-table fa-fw"></i>Institute<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="create-institute.php">Create Institute</a>
                     </li>
                     <li>
-                        <a href="#">Second Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Third Level <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Item</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-third-level -->
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-files-o fa-fw"></i> Lorem Ipsum<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#">Lorem Ipsum</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem Ipsum</a>
+                        <a href="#">List Institute</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

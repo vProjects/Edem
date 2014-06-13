@@ -7,8 +7,8 @@
 	<div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Create Faculty</h1>
-                <h4 class="cs_page_info">You can add data about faculty manualy or you can just upload file directly.</h4>
+                <h1 class="page-header">Create Chair Person</h1>
+                <h4 class="cs_page_info">You can add data about chair person manualy or you can just upload file directly.</h4>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -16,7 +16,7 @@
         <div class="row stu_adm_row">
             <div class="col-lg-6">
             	<form role="form">
-                	<h4 class="cs_page_form_caption">Fill Up Student Information</h4>
+                	<h4 class="cs_page_form_caption">Fill Up Chair Person Information</h4>
                 	<div class="form-group">
                         <label class="cs_form_label">Name</label>
                         <input type="text" class="form-control cs_form_textbox">
@@ -25,6 +25,16 @@
                         <label class="cs_form_label">Email Id</label>
                         <input type="text" class="form-control cs_form_textbox">
                     </div>
+                    <div class="form-group">
+	                    <label class="cs_form_label">Institute</label>
+	                    <select name="" class="form-control cs_form_textbox">
+	                    	<option value="">Lorem Ipsum</option>
+	                    	<option value="">Lorem Ipsum</option>
+	                    	<option value="">Lorem Ipsum</option>
+	                    	<option value="">Lorem Ipsum</option>
+	                    	<option value="">Lorem Ipsum</option>
+	                    </select>
+	                </div>
                     <div class="form-group">
                         <label class="cs_form_label">Date of birth</label>
                         <input type="text" class="form-control cs_form_textbox" id="calender_date">
@@ -64,11 +74,16 @@
                     </div>
                     <div class="form-group">
                         <label class="cs_form_label">Country</label>
-                        <input type="text" class="form-control cs_form_textbox">
+                        <select name="" id="country" class="form-control cs_form_textbox">
+	                        <?php
+	                        	$BLL_Obj->getGeoSelectBox('country',"null");
+	                        ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">State</label>
-                        <input type="text" class="form-control cs_form_textbox">
+                        <label class="cs_form_label">State/Province</label>
+                        <select name="" id="province" class="form-control cs_form_textbox">
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="cs_form_label">City</label>

@@ -30,7 +30,22 @@
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
     
-    
+    <!-- codes country and states -->
+    <script type="text/javascript">
+		$('#country').change(function(){
+			var data = "id="+$(this).val();
+			
+			//make the ajax request
+			 $.ajax({
+	            type: "POST",
+	            url:"v-includes/ajax/function.getProvince.php",
+	            data: data,
+	            success:function(result){
+	            	$('#province').html(result);
+	                return false;
+	        }});
+		});
+    </script>
 
 </body>
 
