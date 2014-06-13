@@ -22,6 +22,16 @@
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
+                    <label class="cs_form_label">Curriculum</label>
+                    <select name="" class="form-control cs_form_textbox">
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="cs_form_label">Session</label>
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
