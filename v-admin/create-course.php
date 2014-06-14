@@ -7,8 +7,8 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Create Institute</h1>
-            <h4 class="cs_page_info">You can add data about institute manualy or you can just upload file directly.</h4>
+            <h1 class="page-header">Create Courses</h1>
+            <h4 class="cs_page_info">You can add data about courses manualy or you can just upload file directly.</h4>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -16,46 +16,32 @@
     <div class="row stu_adm_row">
         <div class="col-lg-6">
         	<form role="form">
-            	<h4 class="cs_page_form_caption">Fill Up Institute Details</h4>
+            	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
             	<div class="form-group">
                     <label class="cs_form_label">Name</label>
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Email</label>
+                    <label class="cs_form_label">Curriculum</label>
+                    <select name="" class="form-control cs_form_textbox">
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    	<option value="">Lorem Ipsum</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Session</label>
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Username</label>
+                    <label class="cs_form_label">Time Duration</label>
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Mobile No.</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Address Line 1</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Address Line 2</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Country</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">State</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">City</label>
-                    <input type="text" class="form-control cs_form_textbox">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Postal Code</label>
-                    <input type="text" class="form-control cs_form_textbox">
+                    <label class="cs_form_label">Course Details</label>
+                    <textarea rows="4" class="form-control ae_form_textarea"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>

@@ -22,12 +22,16 @@
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Email</label>
+                    <label class="cs_form_label">Username</label>
                     <input type="text" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Username</label>
-                    <input type="text" class="form-control cs_form_textbox">
+                    <label class="cs_form_label">Password</label>
+                    <input type="password" class="form-control cs_form_textbox">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Confirm Password</label>
+                    <input type="password" class="form-control cs_form_textbox">
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Mobile No.</label>
