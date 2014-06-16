@@ -59,5 +59,23 @@
 			}
 				
 		 }
+		 
+		  /*
+		 * Method to get the institute
+		 * Generate the selectbox UI 
+		 * Auth Singh 
+		 */
+		 public function getInstitute_SelectBox()
+		 {
+		 	$institutes = $this->_DAL_Obj->getValue('institute_info','*');
+			
+			if( !empty($institutes) )
+			{
+				foreach ($institutes as $institute)
+				{
+					echo '<option value="'.$institute['institute_id'].'">'.$institute['name'].'</option>';
+				}
+			}
+		 }
 	 }
 ?>

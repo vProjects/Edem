@@ -50,5 +50,37 @@
 			}
 		}
 		
+		function insertValue($insert_ar)
+		{
+			$table_name = $insert_ar['table'];
+			//initialize the values
+			$index_i = "";
+			$value_i = "";
+			$q_array = array();
+			
+			//get the values for the inserting
+			$values = $insert_ar['values'];
+			
+			foreach( $values as $valKey => $val )
+			{
+				$value_i .= '"'.$val.'", ';
+				$index_i .= '`'.$valKey.'`, ';
+			}
+			
+			//remove the commas from the end of the string
+			$value_i = substr($value_i, 0, -2);
+			$index_i = substr($index_i, 0, -2);
+		
+			//create the insert query
+			$sql = "INSERT INTO `".$table_name."` (".$index_i.") VALUES (".$value_i.")" ;
+			
+			$query = $this->link->prepare($sql);
+			$query->execute();
+		}
+		
+		function getValueAll( $query_array )
+		{
+			
+		}
 	}
 ?>

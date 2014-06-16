@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	//include the BLL library
 	include 'v-includes/library/library.BLL.php';
 	
