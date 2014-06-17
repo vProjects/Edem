@@ -12,8 +12,8 @@
 		$dob = $_POST['dob'] ;
 		$sex = $_POST['sex'] ;
 		$joining_date = $_POST['joining_date'] ;
-		$division = $_POST['division'] ;
-		$subject = $_POST['subject'];
+		$curriculum = $_POST['curriculum'] ;
+		$session = $_POST['session'];
 		$mobile = $_POST['mobile'] ;
 		$address_l_1 = $_POST['address_l_1'] ;
 		$address_l_2 = $_POST['address_l_2'] ;
@@ -27,8 +27,22 @@
 		$password = $_POST['password'];
 		$r_password = $_POST['r_password'];
 	}
+	
+	//initialize the variable
+	$curriculum_string = "" ;
+	
+	if( !empty($curriculum) )
+	{
+		foreach ($curriculum as $val)
+		{
+				$curriculum_string .= $val.",";
+		}
+		
+		$curriculum_string = substr($curriculum_string, 0, -1);
+	}
+	
 	//generate the user id
-	$user_id = "CHP".uniqid();
+	$user_id = "STU".uniqid();
 	
 	//initialize the variables
 	$username_insert_flg = 0 ;
@@ -45,7 +59,7 @@
 								'user_id' => $user_id ,
 								'password' => $password ,
 								'date' => date('Y-m-d') ,
-								'user_type' => 'chairperson' ,
+								'user_type' => 'student' ,
 								'user_status' => 1
 						)
 					);
@@ -56,8 +70,8 @@
 	
 	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($user_id) && ($username_insert_flg == 1))
 	{
-		$insert_cp = array(
-						'table' => 'chairperson_info' ,
+		$insert_student = array(
+						'table' => 'students_info' ,
 						'values' => array(
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
@@ -66,8 +80,8 @@
 										'dob' => $dob ,
 										'sex' => $sex ,
 										'mobile' => $mobile ,
-										'subject' => $subject ,
-										'division' => $division ,
+										'curriculum_id' => $curriculum_string ,
+										'session' => $session ,
 										'joining_date' => $joining_date ,
 										'address_l_1' => $address_l_1 ,
 										'address_l_2' => $address_l_2 ,
@@ -75,13 +89,13 @@
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
-										'chairman_status' => 1
+										'student_status' => 1
 									)
 						);
 						
-		$DAL_Obj->insertValue($insert_cp);
+		$DAL_Obj->insertValue($insert_student);
 		
-		$result = "Chairperson Id: ".$user_id."<br/>Chairperson addedd successfully.";
+		$result = "Student Id: ".$user_id."<br/>Student addedd successfully.";
 	}
 	else
 	{
@@ -92,5 +106,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	header('Location: ../../create-chairperson.php');
+	header('Location: ../../create-student.php');
 ?>

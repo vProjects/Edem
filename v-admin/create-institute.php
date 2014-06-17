@@ -14,17 +14,17 @@
     </div>
     <!-- /.row -->
     
-	  <?php
-    		//print the result of institute creation
-    		if( isset( $_SESSION['result'] ) && !empty( $_SESSION['result'] ) )
-			{
-				echo '<div class="alert alert-success alert-dismissable">
-	  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-				echo $_SESSION['result'];
-				echo '</div>';
-				unset( $_SESSION['result'] );
-			}
-    	?>
+  <?php
+		//print the result of institute creation
+		if( isset( $_SESSION['result'] ) && !empty( $_SESSION['result'] ) )
+		{
+			echo '<div class="alert alert-success alert-dismissable">
+  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+			echo $_SESSION['result'];
+			echo '</div>';
+			unset( $_SESSION['result'] );
+		}
+	?>
 	
     <div class="row stu_adm_row">
         <div class="col-lg-6">

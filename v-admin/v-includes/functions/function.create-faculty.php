@@ -27,8 +27,9 @@
 		$password = $_POST['password'];
 		$r_password = $_POST['r_password'];
 	}
+	
 	//generate the user id
-	$user_id = "CHP".uniqid();
+	$user_id = "FAC".uniqid();
 	
 	//initialize the variables
 	$username_insert_flg = 0 ;
@@ -45,7 +46,7 @@
 								'user_id' => $user_id ,
 								'password' => $password ,
 								'date' => date('Y-m-d') ,
-								'user_type' => 'chairperson' ,
+								'user_type' => 'faculty' ,
 								'user_status' => 1
 						)
 					);
@@ -56,8 +57,8 @@
 	
 	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($user_id) && ($username_insert_flg == 1))
 	{
-		$insert_cp = array(
-						'table' => 'chairperson_info' ,
+		$insert_faculty = array(
+						'table' => 'faculty_info' ,
 						'values' => array(
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
@@ -75,13 +76,13 @@
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
-										'chairman_status' => 1
+										'teachers_status' => 1
 									)
 						);
 						
-		$DAL_Obj->insertValue($insert_cp);
+		$DAL_Obj->insertValue($insert_faculty);
 		
-		$result = "Chairperson Id: ".$user_id."<br/>Chairperson addedd successfully.";
+		$result = "Faculty Id: ".$user_id."<br/>Faculty addedd successfully.";
 	}
 	else
 	{
@@ -92,5 +93,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	header('Location: ../../create-chairperson.php');
+	header('Location: ../../create-faculty.php');
 ?>
