@@ -77,5 +77,41 @@
 				}
 			}
 		 }
+		 
+		  /*
+		 * Method to get the course
+		 * Generate the selectbox UI 
+		 * Auth Singh 
+		 */
+		 public function getCourse_SelectBox()
+		 {
+		 	$courses = $this->_DAL_Obj->getValue('course_info','*');
+			
+			if( !empty($courses) )
+			{
+				foreach ($courses as $course)
+				{
+					echo '<option value="'.$course['course_id'].'">'.$course['name'].'</option>';
+				}
+			}
+		 }
+		 
+		  /*
+		 * Method to get the faculty
+		 * Generate the selectbox UI 
+		 * Auth Singh 
+		 */
+		 public function getFaculty_SelectBox()
+		 {
+		 	$faculties = $this->_DAL_Obj->getValue('faculty_info','*');
+			
+			if( !empty($faculties) )
+			{
+				foreach ($faculties as $faculty)
+				{
+					echo '<option value="'.$faculty['user_id'].'">'.$faculty['name'].'</option>';
+				}
+			}
+		 }
 	 }
 ?>

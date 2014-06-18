@@ -76,6 +76,8 @@
 			
 			$query = $this->link->prepare($sql);
 			$query->execute();
+			
+			return $query->rowCount();
 		}
 		
 		function getValueAll( $query_array )
