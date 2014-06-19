@@ -4,7 +4,7 @@
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
 	
-	//function to convert array into string seperated by commas
+	//function to convert array into string separated by commas
 	function convertArrayToString($val_array)
 	{
 		if( !empty($val_array) )
@@ -23,6 +23,7 @@
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
 		$name = $_POST['name'] ;
+		$course = $_POST['course'];
 		$advisor = $_POST['advisor'] ;
 		$session = $_POST['session'] ;
 		$duration = $_POST['duration'] ;
@@ -32,34 +33,38 @@
 		//as this is created by the admin
 		$created_user_id = 'admin';
 	}
-		
+	
+	//array to string
+	$advisor_str = convertArrayToString($advisor);
+	$course_str = convertArrayToString($course);
 	
 	//generate the course id
 	$curriculum_id = "CUR".uniqid();
 	
 	if( !empty($name) && !empty($advisor_str) && !empty($created_user_id) && !empty($duration) && !empty($duration)  )
 	{
-		$insert_course = array(
-						'table' => 'course_info' ,
+		$insert_curriculum = array(
+						'table' => 'curriculum_info' ,
 						'values' => array(
-										'course_id' => $course_id ,
-										'advisor' => $advisor_str ,
+										'curriculum_id' => $curriculum_id ,
 										'institute_id' => $institute_id ,
 										'created_by' => $created_user_id ,
 										'created_on' => date('Y-m-d') ,
 										'name' => $name ,
+										'course' => $course_str ,
+										'advisor' => $advisor_str ,
 										'session' => $session ,
 										'hours' => $duration ,
 										'detail' => $details ,
-										'course_status' => 1
+										'curriculum_status' => 1
 									)
 						);
 						
-		$return = $DAL_Obj->insertValue($insert_course);
+		$return = $DAL_Obj->insertValue($insert_curriculum);
 		
 		if( $return > 0 )
 		{
-			$result = "Course Id: ".$course_id."<br/>Course addedd successfully.";
+			$result = "Curriculum Id: ".$curriculum_id."<br/>Curriculum addedd successfully.";
 		}
 		else
 		{
@@ -76,5 +81,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	header('Location: ../../create-course.php');
+	header('Location: ../../create-curriculum.php');
 ?>
