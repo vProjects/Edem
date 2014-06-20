@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	//include the BLL library
 	include 'v-includes/library/library.BLL.php';
 	
@@ -13,7 +15,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?php if( !empty($title) ){ echo $title; }else{ echo 'V-Panel';} ?></title>
+    <title>V-PANEL <?php if( !empty($title) ){ echo "| ".$title; } ?></title>
 
     <!-- Core CSS - Include with every page -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Manager Panel</a>
+                <a class="navbar-brand" href="index.html">Chairperson Panel</a>
             </div>
             <!-- /.navbar-header -->
 

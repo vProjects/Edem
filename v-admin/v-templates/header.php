@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	
+	//include the config file
+	include 'config/config.php';
 	//include the BLL library
 	include 'v-includes/library/library.BLL.php';
 	
@@ -46,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Manager Panel</a>
+                <a class="navbar-brand" href="index.html">Admin Panel</a>
             </div>
             <!-- /.navbar-header -->
 

@@ -1,5 +1,5 @@
 <?php
-	session_start();
+    session_start();
 	//include the DAL library and create object
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
@@ -8,6 +8,12 @@
 	{
 		$name = $_POST['name'] ;
 		$email = $_POST['email'] ;
+		$institute = $_POST['institute'] ;
+		$dob = $_POST['dob'] ;
+		$sex = $_POST['sex'] ;
+		$joining_date = $_POST['joining_date'] ;
+		$curriculum = $_POST['curriculum'] ;
+		$session = $_POST['session'];
 		$mobile = $_POST['mobile'] ;
 		$address_l_1 = $_POST['address_l_1'] ;
 		$address_l_2 = $_POST['address_l_2'] ;
@@ -21,10 +27,22 @@
 		$password = $_POST['password'];
 		$r_password = $_POST['r_password'];
 	}
-		
 	
-	//generate the institute id
-	$institute_id = "INS".uniqid();
+	//initialize the variable
+	$curriculum_string = "" ;
+	
+	if( !empty($curriculum) )
+	{
+		foreach ($curriculum as $val)
+		{
+				$curriculum_string .= $val.",";
+		}
+		
+		$curriculum_string = substr($curriculum_string, 0, -1);
+	}
+	
+	//generate the user id
+	$user_id = "STU".uniqid();
 	
 	//initialize the variables
 	$username_insert_flg = 0 ;
@@ -38,10 +56,10 @@
 						'table' => 'users' ,
 						'values' => array(
 								'username' => $username ,
-								'user_id' => $institute_id ,
+								'user_id' => $user_id ,
 								'password' => $password ,
 								'date' => date('Y-m-d') ,
-								'user_type' => 'institute' ,
+								'user_type' => 'student' ,
 								'user_status' => 1
 						)
 					);
@@ -50,28 +68,34 @@
 		}
 	} 
 	
-	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($institute_id) && ($username_insert_flg == 1))
+	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($user_id) && ($username_insert_flg == 1))
 	{
-		$insert_institute = array(
-						'table' => 'institute_info' ,
+		$insert_student = array(
+						'table' => 'students_info' ,
 						'values' => array(
+										'user_id' => $user_id ,
+										'institute_id' => $institute ,
 										'name' => $name ,
-										'institute_id' => $institute_id ,
 										'email' => $email ,
+										'dob' => $dob ,
+										'sex' => $sex ,
+										'mobile' => $mobile ,
+										'curriculum_id' => $curriculum_string ,
+										'session' => $session ,
+										'joining_date' => $joining_date ,
 										'address_l_1' => $address_l_1 ,
 										'address_l_2' => $address_l_2 ,
-										'mobile' => $mobile ,
 										'city' => $city ,
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
-										'institute_status' => 1
+										'student_status' => 1
 									)
 						);
 						
-		$DAL_Obj->insertValue($insert_institute);
+		$DAL_Obj->insertValue($insert_student);
 		
-		$result = "Institute Id: ".$institute_id."<br/>Institute addedd successfully.";
+		$result = "Student Id: ".$user_id."<br/>Student addedd successfully.";
 	}
 	else
 	{
@@ -82,5 +106,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	header('Location: ../../create-institute.php');
+	header('Location: ../../create-student.php');
 ?>

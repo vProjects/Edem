@@ -1,5 +1,5 @@
 <?php
-	$title = 'Create Faculty';
+	$title = 'Create Chairperson';
 	//include the template files
 	include 'v-templates/header.php';
 	include 'v-templates/sidebar.php';
@@ -75,9 +75,14 @@
                         <input type="text" class="form-control cs_form_textbox" name="mobile">
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Subject</label>
-                        <input type="text" class="form-control cs_form_textbox" name="subject">
-                    </div>
+	                    <label class="cs_form_label">Add Courses</label>
+	                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
+	                    	<?php
+	                    		//get the courses from the BLL
+	                    		$BLL_Obj->getCourse_SelectBox();
+							?>                    	
+	                    </select>
+	                </div>
                     <div class="form-group">
                         <label class="cs_form_label">Division</label>
                         <input type="text" class="form-control cs_form_textbox" name="division">

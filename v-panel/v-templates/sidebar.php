@@ -84,18 +84,6 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
-                <a href="#"><i class="fa fa-table fa-fw"></i>Institute<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="create-institute.php">Create Institute</a>
-                    </li>
-                    <li>
-                        <a href="#">List Institute</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
         </ul>
         <!-- /#side-menu -->
     </div>

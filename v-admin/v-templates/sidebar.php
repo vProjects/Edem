@@ -96,6 +96,9 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="control-access.php"><i class="fa fa-dashboard fa-fw"></i> Control Access</a>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>
