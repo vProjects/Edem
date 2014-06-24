@@ -35,11 +35,10 @@
                 <div class="form-group">
                     <label class="cs_form_label">Add Advisor</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<option value="1">Lorem Ipsum</option>
-                    	<option value="2">Lorem Ipsum</option>
-                    	<option value="3">Lorem Ipsum</option>
-                    	<option value="4">Lorem Ipsum</option>
-                    	<option value="5">Lorem Ipsum</option>
+                    	<?php
+                    		//get the faculty from the BLL
+                    		$BLL_Obj->getFaculty_SelectBox();
+						?> 
                     </select>
                 </div>
                 <div class="form-group">

@@ -84,5 +84,35 @@
 		{
 			
 		}
+		
+		/*
+		- function to get the values from table with multiple conditions
+		- auth: Dipanjan
+		*/
+		function getValueMultipleCondtn($table_name,$col_value,$column_name,$column_values)
+		{
+			//declaring variables for preparing the query
+			$column = "";
+			$value = "";
+			
+			for($i=0;$i<count($column_name);$i++)
+			{
+				$column = $column." AND ".$column_name[$i]."='".$column_values[$i]."'";
+				
+			}
+			$column = substr($column,5);
+			
+			$query = $this->link->prepare("SELECT ". $col_value ." from ". $table_name ." where ". $column);
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+			
+		}
 	}
 ?>

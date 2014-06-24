@@ -31,7 +31,7 @@
                         <a href="create-student.php">Create Student</a>
                     </li>
                     <li>
-                        <a href="#">List Student</a>
+                        <a href="list-student.php">List Student</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -43,7 +43,7 @@
                         <a href="create-faculty.php">Create Faculty</a>
                     </li>
                     <li>
-                        <a href="#">List Faculty</a>
+                        <a href="list-faculty.php">List Faculty</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -55,7 +55,7 @@
                         <a href="create-chairperson.php">Create Chair Person</a>
                     </li>
                     <li>
-                        <a href="#">List Chair Person</a>
+                        <a href="list-chairperson.php">List Chair Person</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -67,7 +67,7 @@
                         <a href="create-course.php">Create Courses</a>
                     </li>
                     <li>
-                        <a href="#">List Courses</a>
+                        <a href="list-course.php">List Courses</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -79,7 +79,7 @@
                         <a href="create-curriculum.php">Create Curriculum</a>
                     </li>
                     <li>
-                        <a href="#">List Curriculum</a>
+                        <a href="list-curriculum.php">List Curriculum</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -91,7 +91,7 @@
                         <a href="create-institute.php">Create Institute</a>
                     </li>
                     <li>
-                        <a href="#">List Institute</a>
+                        <a href="list-institute.php">List Institute</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
