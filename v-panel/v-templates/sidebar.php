@@ -84,6 +84,9 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="submit-ticket.php"><i class="fa fa-envelope-o fa-fw"></i> Submit Ticket</a>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>

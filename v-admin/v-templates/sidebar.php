@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="admin.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="admin.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
                 <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
@@ -95,6 +95,9 @@
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="ticket-list.php"><i class="fa fa-envelope-o fa-fw"></i> Ticket List</a>
             </li>
             <li>
                 <a href="control-access.php"><i class="fa fa-dashboard fa-fw"></i> Control Access</a>

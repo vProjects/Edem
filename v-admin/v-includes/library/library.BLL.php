@@ -115,6 +115,37 @@
 		 }
 		 
 		 /*
+		 - Method to get the curriculum select box UI
+		 - Auth Dipanjan 
+		 */
+		 public function getCurriculum_SelectBox()
+		 {
+			$curriculums = $this->_DAL_Obj->getValue('curriculum_info','*');
+			
+			if( !empty($curriculums) )
+			{
+				foreach ($curriculums as $curriculum)
+				{
+					echo '<option value="'.$curriculum['curriculum_id'].'">'.$curriculum['name'].'</option>';
+				}
+			}
+		 }
+		 
+		 /*
+		 - Method to get the student info 
+		 - Auth Dipanjan 
+		 */
+		 public function getUserInfo($table_name,$column_name,$column_value)
+		 {
+			 //get values of this user id
+			 $users = $this->_DAL_Obj->getValueWhere($table_name,'*',$column_name,$column_value);
+			 if(!empty($users[0]))
+			 {
+				 return $users;
+			 }
+		 }
+		 
+		 /*
 		 - Method to get the student list 
 		 - Auth Dipanjan 
 		 */
@@ -143,7 +174,7 @@
 							<td>'.$student['dob'].'</td>
 							<td>'.$student['joining_date'].'</td>
 							<td>'.$student['session'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-student.php?uid='.$student['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -179,7 +210,7 @@
 							<td>'.$faculty['dob'].'</td>
 							<td>'.$faculty['course'].'</td>
 							<td>'.$faculty['division'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-faculty.php?uid='.$faculty['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -215,7 +246,7 @@
 							<td>'.$chairperson['dob'].'</td>
 							<td>'.$chairperson['course'].'</td>
 							<td>'.$chairperson['division'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-chairperson.php?uid='.$chairperson['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -251,7 +282,7 @@
 							<td>'.$course['created_on'].'</td>
 							<td>'.$course['session'].'</td>
 							<td>'.$course['hours'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-course.php?cid='.$course['course_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -312,7 +343,7 @@
 					
 					echo	'<td>'.$curriculam['session'].'</td>
 							<td>'.$curriculam['hours'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-curriculum.php?cid='.$curriculam['curriculum_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -346,7 +377,7 @@
 							<td>'.$institute['email'].'</td>
 							<td>'.$institute['institute_type'].'</td>
 							<td>'.$institute['mobile'].'</td>
-							<td><a><button class="btn btn-info">Edit</button></a></td>
+							<td><a href="edit-institute.php?uid='.$institute['institute_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
 				}
@@ -365,6 +396,65 @@
 			 {
 				 return $inst_name[0][$return_value];
 			 }
+		 }
+		 
+		 /*
+		 - Method to get selected item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedItemList($table_name,$selected_column_name,$selected_column_value,$return_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if($selected_value[$selected_column_name] == $selected_column_value)
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get selected multiple item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedMultipleItemList($table_name,$selected_column_name,$selected_column_value,$return_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get total number of category
+		 - Auth Dipanjan 
+		 */
+		 public function getTotalCategory($table_name,$column_name,$column_value)
+		 {
+			 //get all values from table
+			 $getValues = $this->_DAL_Obj->getRowValueMultipleCondition($table_name,$column_name,$column_value);
+			 echo $getValues;
 		 }
 	 }
 ?>

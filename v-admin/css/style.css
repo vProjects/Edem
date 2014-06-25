@@ -396,3 +396,11 @@ table.dataTable thead .sorting:after {
 	position:relative;
 	z-index:1;
 }
+.cat_counter_heading{
+	font-size:18px;
+}
+.cat_counter{
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}

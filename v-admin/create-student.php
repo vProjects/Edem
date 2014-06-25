@@ -77,12 +77,10 @@
                     <div class="form-group">
                         <label class="cs_form_label">Curriculum</label>
                         <select name="curriculum[]" class="form-control cs_form_textbox" multiple="multiple">
-                        	<option value="asd">Lorem Ipsum</option>
-                        	<option value="ds">Lorem Ipsum</option>
-                        	<option value="asdf">Lorem Ipsum</option>
-                        	<option value="qwdsa">Lorem Ipsum</option>
-                        	<option value="asdca">Lorem Ipsum</option>
-                        	<option value="asdwq">Lorem Ipsum</option>
+                        	<?php
+	                    		//get the curriculum from the BLL
+	                    		$BLL_Obj->getCurriculum_SelectBox();
+	                    	?>
                         </select>
                     </div>
                     <div class="form-group">

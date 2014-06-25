@@ -114,5 +114,64 @@
 			}
 			
 		}
+		
+		/*
+		- method for updating the values using where clause
+		- auth: Dipanjan
+		*/
+		function updateValueWhere($table_name,$update_column,$update_value,$column_name,$column_value)
+		{
+			$query = $this->link->prepare("UPDATE `$table_name` SET `$update_column`= '$update_value' WHERE `$column_name` = '$column_value'");
+			$query->execute();
+			$count = $query->rowCount();
+			return $count;
+		}
+		
+		/*
+		- method for updating the values using where clause with multiple conditions
+		- auth: Dipanjan
+		*/
+		function updateValueMultipleCondition($table_name,$update_column,$update_value,$column_name,$column_values)
+		{
+			//declaring variables for preparing the query
+			$column = "";
+			$value = "";
+			
+			for($i=0;$i<count($column_name);$i++)
+			{
+				$column = $column." AND ".$column_name[$i]."='".$column_values[$i]."'";
+				
+			}
+			$column = substr($column,5);
+			
+			$query = $this->link->prepare("UPDATE `$table_name` SET `$update_column`= '$update_value' WHERE ". $column);
+			$query->execute();
+			$count = $query->rowCount();
+			return $count;
+		}
+		
+		/*
+		- method for getting no of rows using multiple conditions
+		- auth: Dipanjan
+		*/
+		function getRowValueMultipleCondition($table_name,$column_name,$column_values)
+		{
+			//declaring variables for preparing the query
+			$column = "";
+			$value = "";
+			
+			for($i=0;$i<count($column_name);$i++)
+			{
+				$column = $column." AND ".$column_name[$i]."='".$column_values[$i]."'";
+				
+			}
+			$column = substr($column,5);
+			
+			$query = $this->link->prepare("SELECT * from ". $table_name ." where ". $column);
+			$query->execute();
+			$rowcount = $query->rowCount();
+			return $rowcount;
+			
+		}
 	}
 ?>
