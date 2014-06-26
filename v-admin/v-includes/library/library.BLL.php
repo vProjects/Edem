@@ -456,5 +456,73 @@
 			 $getValues = $this->_DAL_Obj->getRowValueMultipleCondition($table_name,$column_name,$column_value);
 			 echo $getValues;
 		 }
+		 
+		 /*
+		 - Method to get ticket list
+		 - Auth Dipanjan 
+		 */
+		 public function getTicketList($status)
+		 {
+			 //getting values of ticket
+			 $tickets = $this->_DAL_Obj->getValueWhere('submit_ticket','*','status',$status);
+			 if(!empty($tickets[0]))
+			 {
+				 
+				 if($status == 1)
+				 {
+					 foreach($tickets as $ticket)
+					 {
+						//getting user credentials
+				 		$userCred = $this->_DAL_Obj->getValueWhere('users','*','user_id',$ticket['created_by']);
+						
+						echo '<tr>
+								<td>'.$ticket['email'].'</td>
+								<td>'.$userCred[0]['user_type'].'</td>
+								<td>'.$ticket['title'].'</td>
+								<td>'.$ticket['subject'].'</td>
+								<td>'.$ticket['date'].'</td>
+								<td><a href="ticket-details.php?id='.$ticket['id'].'"><button class="btn btn-info">Details</button></a></td>
+							</tr>';
+					 }
+					 
+				 }
+				 else if($status == 0)
+				 {
+					 foreach($tickets as $ticket)
+					 {
+						//getting user credentials
+				 		$userCred = $this->_DAL_Obj->getValueWhere('users','*','user_id',$ticket['created_by']);
+						
+						echo '<tr>
+								<td>'.$ticket['email'].'</td>
+								<td>'.$userCred[0]['user_type'].'</td>
+								<td>'.$ticket['title'].'</td>
+								<td>'.$ticket['subject'].'</td>
+								<td>'.$ticket['date'].'</td>
+								<td><a href="ticket-details.php?id='.$ticket['id'].'"><button class="btn btn-info">Details</button></a></td>
+							</tr>';
+					 }
+				 }
+			 }
+			 else
+			 {
+				 echo '<tr>
+				 		<td colspan="6">No Result Found</td>
+				 	</tr>';
+			 }
+		 }
+		 
+		 /*
+		 - Method to get ticket details
+		 - Auth Dipanjan 
+		 */
+		 public function getTicketDetails($ticket_id)
+		 {
+			 //get values of ticket
+			 $ticket_details = $this->_DAL_Obj->getValueWhere('submit_ticket','*','id',$ticket_id);
+			 //get user credential details
+			 $user_cred = $this->_DAL_Obj->getValueWhere('users','*','user_id',$ticket_details[0]['created_by']);
+			 return array($ticket_details,$user_cred);
+		 }
 	 }
 ?>

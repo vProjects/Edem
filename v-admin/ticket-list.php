@@ -13,69 +13,60 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="nav nav-tabs panel-nav-tab pull-right">
+            	<button class="btn btn-success active" href="#Open_ticket" data-toggle="tab">Open Tickets</button>
+                <button class="btn btn-danger" href="#Closed_ticket" data-toggle="tab">Closed Tickets</button>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
 	
     <div class="row stu_adm_row">
-        <div class="col-lg-12 table-responsive">
+        <div class="col-lg-12 table-responsive tab-content">
+        	<div class="tab-pane active" id="Open_ticket">
         	<table class="table table-bordered table-striped">
             	<thead>
                 	<tr class="success">
-                    	<th>Name</th>
                         <th>Email Id</th>
-                        <th>Category</th>
+                        <th>User Type</th>
                         <th>Title</th>
                         <th>Subject</th>
-                        <th>Message</th>
                         <th>Date</th>
+                        <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>
-                	<tr>
-                    	<td>Anand Singh</td>
-                        <td>abcd@gmail.com</td>
-                        <td>Institute</td>
-                        <td>This is my query</td>
-                        <td>I want to know that</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                        <td>2014-06-12</td>
-                    </tr>
-                    <tr>
-                    	<td>Anand Singh</td>
-                        <td>abcd@gmail.com</td>
-                        <td>Institute</td>
-                        <td>This is my query</td>
-                        <td>I want to know that</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                        <td>2014-06-12</td>
-                    </tr>
-                    <tr>
-                    	<td>Anand Singh</td>
-                        <td>abcd@gmail.com</td>
-                        <td>Institute</td>
-                        <td>This is my query</td>
-                        <td>I want to know that</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                        <td>2014-06-12</td>
-                    </tr>
-                    <tr>
-                    	<td>Anand Singh</td>
-                        <td>abcd@gmail.com</td>
-                        <td>Institute</td>
-                        <td>This is my query</td>
-                        <td>I want to know that</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                        <td>2014-06-12</td>
-                    </tr>
-                    <tr>
-                    	<td>Anand Singh</td>
-                        <td>abcd@gmail.com</td>
-                        <td>Institute</td>
-                        <td>This is my query</td>
-                        <td>I want to know that</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                        <td>2014-06-12</td>
-                    </tr>
+                	<?php
+						//get open tickets list
+						$BLL_Obj->getTicketList(1);
+					?>
                 </tbody>
             </table>
+            </div>
+            <div class="tab-pane" id="Closed_ticket">
+            <table class="table table-bordered table-striped tab-pane">
+            	<thead>
+                	<tr class="danger">
+                    	<th>Email Id</th>
+                        <th>User Type</th>
+                        <th>Title</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<?php
+						//get closed tickets list
+						$BLL_Obj->getTicketList(0);
+					?>
+                </tbody>
+            </table>
+            </div>
         </div>
     </div>
     <!-- /.row -->

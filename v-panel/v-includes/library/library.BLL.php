@@ -113,5 +113,15 @@
 				}
 			}
 		 }
+		 
+		 /*
+		- method for setting cookie value or session user id value whichever is missing
+		- Auth: Dipanjan
+		*/
+		function setUserCredentials($user_id)
+		{
+			//get user details
+			return $this->_DAL_Obj->getValueWhere('users','*','user_id',$user_id);
+		}
 	 }
 ?>

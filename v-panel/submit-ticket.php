@@ -1,7 +1,14 @@
 <?php
 	$title = 'Submit Ticket';
+	//checking for login status
+	if(!isset($GLOBALS['_COOKIE']['course_management']) && !isset($_SESSION['user_id']))
+	{
+		header("Location: ../index.php");
+	}
 	//include the template files
 	include 'v-templates/header.php';
+	//include other files
+	include 'v-templates/header-text.php';
 	include 'v-templates/sidebar.php';
 ?>
 	<div id="page-wrapper">
@@ -26,7 +33,7 @@
         <!-- /.row -->
         <div class="row stu_adm_row">
             <div class="col-lg-8">
-            	<form role="form" action="#" method="post">
+            	<form role="form" action="v-includes/functions/function.submit-ticket.php" method="post">
                 	<h4 class="cs_page_form_caption">Fill Up Information For Submitting Ticket</h4>
                 	<div class="form-group">
 	                    <label class="cs_form_label">Title</label>

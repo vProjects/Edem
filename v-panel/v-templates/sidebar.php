@@ -13,11 +13,9 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="admin.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="admin.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
-            <li>
-                <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
-            </li>
+            <?php if($level >= 2) { ?>
             <li>
                 <a href="create-event.php"><i class="fa fa-edit fa-fw"></i>Create Event</a>
             </li>
@@ -36,6 +34,8 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <?php } ?>
+            <?php if($level >= 3) { ?>
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i> Faculty<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -48,6 +48,8 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <?php } ?>
+            <?php if($level >= 4) { ?>
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i>Chair Person<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -60,6 +62,8 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <?php } ?>
+            <?php if($level >= 2) { ?>
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i> Courses<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -84,6 +88,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <?php } ?>
             <li>
                 <a href="submit-ticket.php"><i class="fa fa-envelope-o fa-fw"></i> Submit Ticket</a>
             </li>

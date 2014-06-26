@@ -32,16 +32,20 @@
 			if( $details_db[0]['user_status'] == 1 )
 			{
 				//set the session variables
-				$_SESSION['log_in_stats'] = $username."_allowed_1";
 				$_SESSION['user_id'] = $details_db[0]['user_id'];
 				$_SESSION['type'] = $details_db[0]['user_type'];
+				
+				//set login expiry time
+				$cookie_exp_time = time() + (2*24*3600);
+				//set cookie for user login
+				setcookie('course_management',$details_db[0]['user_id'],$cookie_exp_time,'/');
 				
 				//check the user_type and redirect
 				if( $details_db[0]['user_type'] == 'admin' )
 				{
 					$_index_redirect = 0;	//#false
 					
-					header('Location: ../../v-admin/');
+					header('Location: ../../v-admin/admin.php');
 				}
 				else
 				{
