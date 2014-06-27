@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:80
--- Generation Time: Jun 24, 2014 at 01:04 AM
--- Server version: 5.5.37-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4
+-- Host: 127.0.0.1
+-- Generation Time: Jun 27, 2014 at 02:01 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `course_management`
 --
+CREATE DATABASE IF NOT EXISTS `course_management` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `course_management`;
 
 -- --------------------------------------------------------
 
@@ -54,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `chairperson_info` (
 --
 
 INSERT INTO `chairperson_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `email`, `dob`, `sex`, `mobile`, `course`, `division`, `joining_date`, `address_l_1`, `address_l_2`, `city`, `state`, `country`, `postal_code`, `chairman_status`) VALUES
-(1, 'CHP53a31121c645d', 'INS539f4abf3f572', '', 'test chairperson', 'anand.singh989@gmail.com', '1985-06-04', 'male', '123456', 'Interview', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3613', '223', '700114', 1);
+(1, 'CHP53a31121c645d', 'INS539f481c96c13', '', 'test chairperson', 'anand.singh989@gmail.com', '2012-08-08', 'male', '123456', 'COU53a1d6618f433,COU53a1d6f107c7e', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3624', '223', '700114', 1);
 
 -- --------------------------------------------------------
 
@@ -354,11 +356,11 @@ CREATE TABLE IF NOT EXISTS `course_info` (
 --
 
 INSERT INTO `course_info` (`id`, `course_id`, `institute_id`, `created_by`, `created_on`, `name`, `session`, `advisor`, `hours`, `detail`, `course_status`) VALUES
-(1, 'COU53a18ff010188', 'INS539f1b7ab50b0', 'admin', '2014-06-18', 'prod420', '2012', '0', '32', 'asfsdfasf', 1),
-(2, 'COU53a1906064acc', 'INS539f4a68efde8', 'admin', '2014-06-18', 'NIT', '2012', '0', '32', 'sgsdfsgfsg', 1),
-(3, 'COU53a1d594eb914', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfsda', 'asdf', '1', 'asdf', 'asdf', 1),
-(4, 'COU53a1d6618f433', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfg', '2012', '1', '32', 'asfdadfas', 1),
-(5, 'COU53a1d6f107c7e', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfg', '2012', '1,2,3,4', '32', 'asfdadfas', 1);
+(1, 'COU53a18ff010188', 'INS539f1b7ab50b0', 'admin', '2014-06-18', 'prod420', '2012', 'FAC53a03262d4f98', '32', 'asfsdfasf', 1),
+(2, 'COU53a1906064acc', 'INS539f4a68efde8', 'admin', '2014-06-18', 'NIT', '2012', 'FAC53a03262d4f98', '32', 'sgsdfsgfsg', 1),
+(3, 'COU53a1d594eb914', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfsda', 'asdf', 'FAC53a0494286233', 'asdf', 'asdf', 1),
+(4, 'COU53a1d6618f433', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfg', '2012', 'FAC53a0494286233,FAC53a30cdf66723', '32', 'asfdadfas', 1),
+(5, 'COU53a1d6f107c7e', 'INS539f481c96c13', 'admin', '2014-06-18', 'asdfg', '2012', 'FAC53a03262d4f98,FAC53a032b8a008e,FAC53a0494286233,FAC53a30cdf66723', '55', 'asfdadfas ffhfhrty fghgfhfdbcxvzdxf rdfvsdt rfgvdfg rt gfdytrh fgbhv vcb cvb rtgfvbvc  hdfgy eafsd fvsdf sdfsdf asree', 1);
 
 -- --------------------------------------------------------
 
@@ -389,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `curriculum_info` (
 INSERT INTO `curriculum_info` (`id`, `curriculum_id`, `institute_id`, `created_by`, `created_on`, `name`, `course`, `advisor`, `session`, `hours`, `detail`, `curriculum_status`) VALUES
 (1, 'CUR53a2ee7f9e40a', 'INS539f226d39157', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188', 'FAC53a04814d3056', '2012', '32', 'sdfsd', 1),
 (2, 'CUR53a2eec54e5fb', 'INS539f226d39157', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188', 'FAC53a04814d3056', '2012', '32', 'sdfsd', 1),
-(3, 'CUR53a2ef00c57d0', 'INS539f1ac5a08d3', 'admin', '2014-06-19', 'test 1', 'COU53a18ff010188,COU53a1906064acc,COU53a1d594eb914,COU53a1d6618f433', 'FAC53a032b8a008e,FAC53a04814d3056,FAC53a0494286233', '2014', '36', 'test for curriculum', 1);
+(3, 'CUR53a2ef00c57d0', 'INS539f1ac5a08d3', 'admin', '2014-06-19', 'test 1', 'COU53a18ff010188,COU53a1906064acc', 'FAC53a032b8a008e,FAC53a0494286233,FAC53a30cdf66723', '2013', '55', 'test for curriculum dssfsa', 1);
 
 -- --------------------------------------------------------
 
@@ -445,11 +447,11 @@ CREATE TABLE IF NOT EXISTS `faculty_info` (
 --
 
 INSERT INTO `faculty_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `email`, `dob`, `sex`, `mobile`, `course`, `division`, `joining_date`, `address_l_1`, `address_l_2`, `city`, `state`, `country`, `postal_code`, `teachers_status`) VALUES
-(1, 'FAC53a03262d4f98', 'INS539f226d39157', '', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '123456', 'Geography', '123555', '2014-06-19', 'asdf', 'asdfasd', 'Kolkata', '147', '9', '700114', 1),
-(2, 'FAC53a032b8a008e', 'INS539f226d39157', '', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '123456', 'Geography', '123555', '2014-06-19', 'asdf', 'asdfasd', 'Kolkata', '147', '9', '700114', 1),
+(1, 'FAC53a03262d4f98', 'INS539f226d39157', '', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '123456', 'COU53a1d594eb914', '123555', '2014-06-19', 'asdf', 'asdfasd', 'Kolkata', '147', '9', '700114', 1),
+(2, 'FAC53a032b8a008e', 'INS539f226d39157', '', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '123456', 'COU53a1d594eb914', '123555', '2014-06-19', 'asdf', 'asdfasd', 'Kolkata', '147', '9', '700114', 1),
 (3, 'FAC53a04814d3056', 'INS539f226d39157', '', 'Anand', 'anand.singh989@gmail.com', '2014-06-10', 'male', '1239998778', '', '', '2014-06-19', 'qaedfasd', 'sadf', 'Kolkata', '122', '5', '700114', 1),
 (4, 'FAC53a0494286233', 'INS539f1b7ab50b0', '', 'prod420', 'nit@nit.com', '2014-06-03', 'male', '1239998778', '', '', '2014-06-19', 'asdf', 'asdfsad', 'asdf', '180', '11', '700114', 1),
-(5, 'FAC53a30cdf66723', 'INS539f4abf3f572', '', 'Test Faculty', 'anand.singh989@gmail.com', '1990-06-03', 'male', '9889889887', 'xyz', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3625', '223', '789874', 1);
+(5, 'FAC53a30cdf66723', 'INS539f4abf3f572', '', 'Test Faculty', 'anand.singh989@gmail.com', '1990-06-03', 'male', '9889889887', 'COU53a1906064acc,COU53a1d594eb914', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3625', '223', '789874', 1);
 
 -- --------------------------------------------------------
 
@@ -503,7 +505,7 @@ INSERT INTO `institute_info` (`id`, `name`, `institute_id`, `email`, `institute_
 (9, 'prod420', 'INS539f481c96c13', 'anand.s89@gmail.com', '', 'adfsa', 'asdfsad', '1235654156', 'sdf', '326', '19', 'sdfas', 1),
 (10, 'asdf', 'INS539f4a68efde8', 'asdf', '', 'asdf', 'asdf', 'asdf', 'asdf', '122', '5', 'asdf', 1),
 (11, 'asdfsdafs', 'INS539f4abf3f572', 'asdfsa', '', 'asdf', 'sadf', 'asdf', 'asdf', '191', '13', 'asdf', 1),
-(12, 'test institute', 'INS53a31275dbafc', 'anand.singh989@gmail.com', '', 'qaedfasd', 'asdfasd', '1239998778', 'Kolkata', '3613', '223', '700114', 1),
+(12, 'test institute', 'INS53a31275dbafc', 'anand.singh989@gmail.com', '', 'qaedfasdsd', 'asdfasd;fo sdpfps', '9885554', 'Kolkata', '3611', '223', '700115', 1),
 (13, 'Edem''s Institute', 'INS53a5869e3e469', 'aaa@aa.com', '', 'qaedfasd', 'afsdf', '123456', 'xyz', '3624', '223', '70015', 1);
 
 -- --------------------------------------------------------
@@ -580,11 +582,40 @@ CREATE TABLE IF NOT EXISTS `students_info` (
 --
 
 INSERT INTO `students_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `email`, `dob`, `sex`, `session`, `joining_date`, `address_l_1`, `address_l_2`, `mobile`, `city`, `state`, `country`, `postal_code`, `student_status`) VALUES
-(1, 'STU53a04ae7236c6', 'INS539f1ad3113c6', '11', 'asdfsdafs', 'anand.singh989@gmail.com', '2014-06-03', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'asdf', '284', '16', '700115', 1),
-(2, 'STU53a04cb068b5a', 'INS539f1af709988', 'asd,ds,asdf,qwdsa,', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
-(3, 'STU53a04ce1248b6', 'INS539f1af709988', 'asd,ds,asdf,qwdsa', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
-(4, 'STU53a04d534539b', 'INS539f1af709988', 'asd,ds,asdf,qwdsa', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
-(5, 'STU53a30ef8e51ee', 'INS539f4abf3f572', 'asd', 'test student', 'anand.singh989@gmail.com', '1989-06-14', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '988966655', 'Kolkata', '3613', '223', 'asdf', 1);
+(1, 'STU53a04ae7236c6', 'INS539f1ad3113c6', 'CUR53a2ee7f9e40a', 'asdfsdafs', 'anand.singh989@gmail.com', '2014-06-03', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'asdf', '284', '16', '700115', 1),
+(2, 'STU53a04cb068b5a', 'INS539f1af709988', 'CUR53a2ee7f9e40a', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(3, 'STU53a04ce1248b6', 'INS539f1af709988', 'CUR53a2eec54e5fb', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(4, 'STU53a04d534539b', 'INS539f1af709988', 'CUR53a2eec54e5fb', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(5, 'STU53a30ef8e51ee', 'INS539f4abf3f572', 'CUR53a2ee7f9e40a,CUR53a2eec54e5fb', 'test students', 'anand.singh989@gmail.com', '1989-06-14', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '988966658', 'Kolkata', '3612', '223', '8888', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `submit_ticket`
+--
+
+CREATE TABLE IF NOT EXISTS `submit_ticket` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `subject` varchar(500) NOT NULL,
+  `message` varchar(20000) DEFAULT NULL,
+  `email` varchar(250) NOT NULL,
+  `created_by` varchar(250) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `submit_ticket`
+--
+
+INSERT INTO `submit_ticket` (`id`, `title`, `subject`, `message`, `email`, `created_by`, `date`, `time`, `status`) VALUES
+(1, 'abcd', 'abcd', 'dsf r ewrdfgdfgdsgert gdfgdf gertg dfgdfg', 'anand.singh989@gmail.com', 'FAC53a30cdf66723', '2014-06-26', '10:36:32', 1),
+(2, 'testing', 'query', 'sd f  sfeter gdfgdf dg\r\ng kjgljoeirt\r\nkg ;dfkg\r\ngf k;mdbgd\r\ng. dmfgelr\r\ndfg dfgd', 'anand.singh989@gmail.com', 'STU53a30ef8e51ee', '2014-06-26', '10:37:35', 1),
+(3, 'ererere', 'werwer', ' fgdgfdg dsfgdg dfgert gdfgdfg dfgds', 'aaa@aa.com', 'INS53a5869e3e469', '2014-06-26', '10:39:08', 1),
+(4, 'sdf wer treter', 'fgdgdfg ert ret', 'fdg dfdbcnbvc jgjtyu ty yh rhrfhfg hfghf ghfhg fh fdh\r\ngfh \r\nfhfdh ''fhf\r\nhfh kfh\r\nfh kf;h\r\nsh sdf;hfd;', 'anand.singh989@gmail.com', 'CHP53a31121c645d', '2014-06-26', '10:40:04', 1);
 
 -- --------------------------------------------------------
 
