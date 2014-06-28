@@ -16,7 +16,7 @@
     
     <div class="row">
         <div class="col-lg-12">
-            <div class="nav nav-tabs panel-nav-tab pull-right">
+            <div class="nav nav-tabs panel-nav-tab">
             	<button class="btn btn-success active" href="#Open_ticket" data-toggle="tab">Open Tickets</button>
                 <button class="btn btn-danger" href="#Closed_ticket" data-toggle="tab">Closed Tickets</button>
             </div>
@@ -26,6 +26,17 @@
     <!-- /.row -->
 	
     <div class="row stu_adm_row">
+        	<div class="col-sm-12">
+            	<ul class="pagination pull-right list-pagination">
+                  <li><a href="#">&laquo;</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
         <div class="col-lg-12 table-responsive tab-content">
         	<div class="tab-pane active" id="Open_ticket">
         	<table class="table table-bordered table-striped">

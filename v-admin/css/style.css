@@ -411,3 +411,27 @@ table.dataTable thead .sorting:after {
 .details_textarea{
 	height:150px;
 }
+.list-pagination{
+	margin-top:-40px;
+	margin-bottom:5px;
+}
+
+
+
+
+/* media query */
+@media (max-width: 991px) {
+	.table-responsive {
+		width: 100%;
+		margin-bottom: 15px;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		border: 1px solid #ddd;
+	}
+}
+@media (max-width: 768px) {
+	.list-pagination {
+		margin-top:-20px;
+	}
+}
