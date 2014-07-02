@@ -49,7 +49,7 @@
 	                    <input type="password" class="form-control cs_form_textbox" name="r_password">
 	                </div>
                     <div class="form-group">
-	                    <label class="cs_form_label">Institute</label>
+	                    <label class="cs_form_label">Institution</label>
 	                    <select class="form-control cs_form_textbox" name="institute">
 	                    	<?php
 	                    		//get the institute from the BLL
@@ -62,7 +62,7 @@
                         <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">
                     </div>
                     <div class="form-group">
-                    	<label class="cs_form_label cs_form_radio_label">Sex</label>
+                    	<label class="cs_form_label cs_form_radio_label">Gender</label>
                         <label class="radio-inline">
                             <input type="radio" name="sex" id="sex1" value="male" checked="checked">Male
                         </label>
@@ -71,7 +71,7 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Mobile No.</label>
+                        <label class="cs_form_label">Contact No.</label>
                         <input type="text" class="form-control cs_form_textbox" name="mobile">
                     </div>
                     <div class="form-group">

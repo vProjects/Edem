@@ -132,6 +132,23 @@
 		 }
 		 
 		 /*
+		 - Method to get the student status select box UI
+		 - Auth Anand 
+		 */
+		 public function getStudentStatus_SelectBox()
+		 {
+			$statuses = $this->_DAL_Obj->getValue('student_status','*');
+			echo '<option value="0">Please select one</option>';
+			if( !empty($statuses) )
+			{
+				foreach ($statuses as $status)
+				{
+					echo '<option value="'.$status['id'].'">'.$status['status_name'].'</option>';
+				}
+			}
+		 }
+		 
+		 /*
 		 - Method to get the student info 
 		 - Auth Dipanjan 
 		 */
@@ -524,5 +541,31 @@
 			 $user_cred = $this->_DAL_Obj->getValueWhere('users','*','user_id',$ticket_details[0]['created_by']);
 			 return array($ticket_details,$user_cred);
 		 }
+		 
+		 /*
+		  * - get the student status from the database
+		  * - Auth Singh 
+		  */
+		  function getStudentStatus()
+		  {
+				$statuses = $this->_DAL_Obj->getValue('student_status','*');
+				if( !empty($statuses) )
+				{
+					foreach ($statuses as $status)
+					{
+						echo '<a href="edit-student-status.php?id='.$status['id'].'"><button type="button" class="btn btn-info skills" readonly="readonly">'.$status['status_name'].'</button></a>';
+					}
+				}
+		  }
+		  
+		  /*
+		   * get value for the status from the database
+		   * Auth Singh
+		   */
+		   function getStudentStatusFromId($id)
+		   {
+		   		$status = $this->_DAL_Obj->getValueWhere('student_status','*','id',$id);
+				return $status[0]['status_name'];
+		   }
 	 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-	$title = 'Create Courses';
+	$title = 'Create Institution';
 	//include the template files
 	include 'v-templates/header.php';
 	include 'v-templates/sidebar.php';
@@ -7,8 +7,8 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Create Institute</h1>
-            <h4 class="cs_page_info">You can add data about institute manualy or you can just upload file directly.</h4>
+            <h1 class="page-header">Create Institution</h1>
+            <h4 class="cs_page_info">You can add data about institution manualy or you can just upload file directly.</h4>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -29,9 +29,9 @@
     <div class="row stu_adm_row">
         <div class="col-lg-6">
         	<form role="form" action="v-includes/functions/function.create-institute.php" method="post">
-            	<h4 class="cs_page_form_caption">Fill Up Institute Details</h4>
+            	<h4 class="cs_page_form_caption">Fill Up Institution Details</h4>
             	<div class="form-group">
-                    <label class="cs_form_label">Institute Name</label>
+                    <label class="cs_form_label">Institution Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name">
                 </div>
                 <div class="form-group">
@@ -51,7 +51,7 @@
                     <input type="password" class="form-control cs_form_textbox" name="r_password">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Mobile No.</label>
+                    <label class="cs_form_label">Contact No.</label>
                     <input type="text" class="form-control cs_form_textbox" name="mobile">
                 </div>
                 <div class="form-group">

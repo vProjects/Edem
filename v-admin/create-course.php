@@ -42,7 +42,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Institute</label>
+                    <label class="cs_form_label">Institution</label>
                     <select class="form-control cs_form_textbox" name="institute_id">
                     	<?php
                     		//get the institute from the BLL

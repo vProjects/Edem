@@ -102,6 +102,18 @@
             <li>
                 <a href="control-access.php"><i class="fa fa-dashboard fa-fw"></i> Control Access</a>
             </li>
+             <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i>Components<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="create-student-status.php">Add Student Status</a>
+                    </li>
+                    <li>
+                        <a href="list-institute.php">List Student Status</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>

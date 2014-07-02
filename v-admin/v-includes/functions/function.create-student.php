@@ -8,6 +8,7 @@
 	{
 		$name = $_POST['name'] ;
 		$email = $_POST['email'] ;
+		$guardian = $_POST['guardian'];
 		$institute = $_POST['institute'] ;
 		$dob = $_POST['dob'] ;
 		$sex = $_POST['sex'] ;
@@ -76,6 +77,7 @@
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
 										'name' => $name ,
+										'guardian' => $guardian ,
 										'email' => $email ,
 										'dob' => $dob ,
 										'sex' => $sex ,

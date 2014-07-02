@@ -333,9 +333,9 @@ table.dataTable thead .sorting:after {
 	margin: 17px 0px 10px 0;
 }
 .panel-default>.panel-heading {
-	background-color: #FF8C00;
+	/* background-color: #FF8C00; */
 	border: none;
-	color: #ffffff;
+	color: #414141;
 	font-size: 17px;
 	font-weight: bold;
 	border-radius: 0;
@@ -343,6 +343,7 @@ table.dataTable thead .sorting:after {
 .panel-default {
 	border-color: #ddd;
 	border-radius: 0;
+	margin-top: 18px;
 }
 
 /* code added by Dipanjan */
@@ -415,10 +416,21 @@ table.dataTable thead .sorting:after {
 	margin-top:-40px;
 	margin-bottom:5px;
 }
-
-
-
-
+.skills {
+	margin: 5px;
+}
+.btn_add {
+    width: 100%;
+    margin: 10px 0;
+}
+.add_student_arrow {
+    margin-top: 100px;
+	
+}
+.add_stu_selectbx {
+	min-height: 300px;
+	max-height: 300px;
+}
 /* media query */
 @media (max-width: 991px) {
 	.table-responsive {

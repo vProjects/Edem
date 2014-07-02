@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:80
--- Generation Time: Jul 02, 2014 at 05:19 PM
--- Server version: 5.5.37-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.2
+-- Host: 127.0.0.1
+-- Generation Time: Jun 27, 2014 at 02:01 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `course_management`
 --
+CREATE DATABASE IF NOT EXISTS `course_management` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `course_management`;
 
 -- --------------------------------------------------------
 
@@ -400,16 +402,13 @@ INSERT INTO `curriculum_info` (`id`, `curriculum_id`, `institute_id`, `created_b
 CREATE TABLE IF NOT EXISTS `event_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `event_id` varchar(500) NOT NULL,
-  `event_name` varchar(300) NOT NULL,
   `institute_id` varchar(500) NOT NULL,
   `group_id` varchar(500) NOT NULL,
-  `room` varchar(300) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `chairperson_id` varchar(500) NOT NULL,
   `teacher_id` varchar(500) NOT NULL,
   `duration` time NOT NULL,
-  `notification_id` int(11) NOT NULL,
   `event_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -463,7 +462,6 @@ INSERT INTO `faculty_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `n
 CREATE TABLE IF NOT EXISTS `group_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` varchar(500) NOT NULL,
-  `group_name` varchar(300) NOT NULL,
   `created_by` varchar(500) NOT NULL,
   `teacher` varchar(500) NOT NULL,
   `students` varchar(500) NOT NULL,
@@ -509,35 +507,6 @@ INSERT INTO `institute_info` (`id`, `name`, `institute_id`, `email`, `institute_
 (11, 'asdfsdafs', 'INS539f4abf3f572', 'asdfsa', '', 'asdf', 'sadf', 'asdf', 'asdf', '191', '13', 'asdf', 1),
 (12, 'test institute', 'INS53a31275dbafc', 'anand.singh989@gmail.com', '', 'qaedfasdsd', 'asdfasd;fo sdpfps', '9885554', 'Kolkata', '3611', '223', '700115', 1),
 (13, 'Edem''s Institute', 'INS53a5869e3e469', 'aaa@aa.com', '', 'qaedfasd', 'afsdf', '123456', 'xyz', '3624', '223', '70015', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notification`
---
-
-CREATE TABLE IF NOT EXISTS `notification` (
-  `notification_id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(300) NOT NULL,
-  `message` varchar(1000) NOT NULL,
-  `date` date NOT NULL,
-  `read_status` int(11) NOT NULL,
-  `email_status` int(11) NOT NULL,
-  PRIMARY KEY (`notification_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rooms`
---
-
-CREATE TABLE IF NOT EXISTS `rooms` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `institute_id` varchar(300) NOT NULL,
-  `room_name` varchar(300) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -592,7 +561,6 @@ CREATE TABLE IF NOT EXISTS `students_info` (
   `institute_id` varchar(500) NOT NULL,
   `curriculum_id` varchar(500) NOT NULL,
   `name` varchar(500) NOT NULL,
-  `guardian` varchar(300) NOT NULL,
   `email` varchar(200) NOT NULL,
   `dob` date NOT NULL,
   `sex` varchar(200) NOT NULL,
@@ -605,8 +573,7 @@ CREATE TABLE IF NOT EXISTS `students_info` (
   `state` varchar(500) NOT NULL,
   `country` varchar(500) NOT NULL,
   `postal_code` varchar(300) NOT NULL,
-  `student_status` varchar(300) NOT NULL,
-  `status` int(11) NOT NULL,
+  `student_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
@@ -614,36 +581,12 @@ CREATE TABLE IF NOT EXISTS `students_info` (
 -- Dumping data for table `students_info`
 --
 
-INSERT INTO `students_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `guardian`, `email`, `dob`, `sex`, `session`, `joining_date`, `address_l_1`, `address_l_2`, `mobile`, `city`, `state`, `country`, `postal_code`, `student_status`, `status`) VALUES
-(1, 'STU53a04ae7236c6', 'INS539f1ad3113c6', '11', 'asdfsdafs', '', 'anand.singh989@gmail.com', '2014-06-03', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'asdf', '284', '16', '700115', '1', 1),
-(2, 'STU53a04cb068b5a', 'INS539f1af709988', 'asd,ds,asdf,qwdsa,', 'asdfsdafs', '', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', '1', 1),
-(3, 'STU53a04ce1248b6', 'INS539f1af709988', 'asd,ds,asdf,qwdsa', 'asdfsdafs', '', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', '1', 1),
-(4, 'STU53a04d534539b', 'INS539f1af709988', 'asd,ds,asdf,qwdsa', 'asdfsdafs', '', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', '1', 1),
-(5, 'STU53a30ef8e51ee', 'INS539f4abf3f572', 'asd', 'test student', '', 'anand.singh989@gmail.com', '1989-06-14', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '988966655', 'Kolkata', '3613', '223', 'asdf', '1', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student_status`
---
-
-CREATE TABLE IF NOT EXISTS `student_status` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `status_name` varchar(300) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `student_status`
---
-
-INSERT INTO `student_status` (`id`, `status_name`) VALUES
-(1, 'FRESHMAN'),
-(2, 'SOPHOMORE'),
-(4, 'JUNIOR'),
-(5, 'SENIOR'),
-(6, 'TRANSFER'),
-(7, 'GRADUATE');
+INSERT INTO `students_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `email`, `dob`, `sex`, `session`, `joining_date`, `address_l_1`, `address_l_2`, `mobile`, `city`, `state`, `country`, `postal_code`, `student_status`) VALUES
+(1, 'STU53a04ae7236c6', 'INS539f1ad3113c6', 'CUR53a2ee7f9e40a', 'asdfsdafs', 'anand.singh989@gmail.com', '2014-06-03', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'asdf', '284', '16', '700115', 1),
+(2, 'STU53a04cb068b5a', 'INS539f1af709988', 'CUR53a2ee7f9e40a', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(3, 'STU53a04ce1248b6', 'INS539f1af709988', 'CUR53a2eec54e5fb', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(4, 'STU53a04d534539b', 'INS539f1af709988', 'CUR53a2eec54e5fb', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '123456', 'Kolkata', '2263', '145', '700114', 1),
+(5, 'STU53a30ef8e51ee', 'INS539f4abf3f572', 'CUR53a2ee7f9e40a,CUR53a2eec54e5fb', 'test students', 'anand.singh989@gmail.com', '1989-06-14', 'male', '2012', '2014-06-19', 'qaedfasd', 'asdfasd', '988966658', 'Kolkata', '3612', '223', '8888', 1);
 
 -- --------------------------------------------------------
 
