@@ -26,65 +26,71 @@
     <!-- /.row -->
     <div class="row stu_adm_row">
         <div class="col-lg-10">
-        	<form role="form" action="v-includes/functions/function.create-course.php" method="post">
+        	<form role="form" action="v-includes/functions/function.create-event.php" method="post">
             	<h4 class="cs_page_form_caption">Select Groups and create event.</h4>
             	<div class="form-group">
                     <label class="cs_form_label">Event Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Venue</label>
-                    <input type="text" class="form-control cs_form_textbox" name="name">
+                    <label class="cs_form_label">Select Institution</label>
+                    <select class="form-control cs_form_textbox" name="institute_id" id="event_inst">
+                    	<option value="-1">-- Select An Institute --</option>
+                    	<?php
+                    		//get the faculty from the BLL
+                    		$BLL_Obj->getInstitute_SelectBox();
+						?> 
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Time</label>
-                    <input type="text" class="form-control cs_form_textbox" name="name">
+                    <label class="cs_form_label">Event Date</label>
+                    <input type="text" class="form-control cs_form_textbox" id="calender_date" name="date">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Date</label>
-                    <input type="text" class="form-control cs_form_textbox" id="calender_date" name="name">
+                    <label class="cs_form_label">Event Time</label>
+                    <input type="text" class="form-control cs_form_textbox" name="time">
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Chairperson</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<?php
-                    		//get the faculty from the BLL
-                    		$BLL_Obj->getFaculty_SelectBox();
-						?> 
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="chairperson[]" id="event_chair">
+                    	
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Faculty</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<?php
-                    		//get the faculty from the BLL
-                    		$BLL_Obj->getFaculty_SelectBox();
-						?> 
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="event_fac">
+                    	
                     </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Room No</label>
+                    <select class="form-control cs_form_textbox" name="room" id="event_room">
+                    	
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Duration</label>
+                    <input type="text" class="form-control cs_form_textbox" name="duration">
                 </div>
                 <div class="row">
                 	<div class="col-lg-5">
 		                <div class="form-group">
 		                    <label class="cs_form_label">Select Group</label>
-		                    <select class="form-control cs_form_textbox add_stu_selectbx" name="institute_id" multiple="multiple">
-		                    	<option value="1">Student Name</option>
-		                    	<option value="1">Student Name</option>
-		                    	<option value="1">Student Name</option>
-		                    	<option value="1">Student Name</option>
-		                    	<option value="1">Student Name</option>
+		                    <select class="form-control cs_form_textbox add_stu_selectbx" name="grp_list[]" multiple="multiple" id="event_grp">
+		                    	
 		                    </select>
 		                </div>
                 	</div>
                 	<div class="col-lg-2">
                 		<div class="add_student_arrow">
-                			<button type="button" class="btn btn-success btn_add"> >> </button>
-                			<button type="button" class="btn btn-success btn_add"> << </button>
+                			<button type="button" class="btn btn-success btn_add" id="grp_select"> &gt;&gt; </button>
+                			<button type="button" class="btn btn-success btn_add" id="grp_deselect"> &lt;&lt; </button>
                 		</div>
                 	</div>
                 	<div class="col-lg-5">
 		                <div class="form-group">
 		                    <label class="cs_form_label">Selected Group(s)</label>
-		                    <select class="form-control cs_form_textbox add_stu_selectbx" name="institute_id" multiple="multiple">
+		                    <select class="form-control cs_form_textbox add_stu_selectbx" name="selected_grp[]" multiple="multiple" id="selected_grp">
 		                    </select>
 		                </div>                		
                 	</div>

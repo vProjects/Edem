@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:80
--- Generation Time: Jul 02, 2014 at 05:19 PM
--- Server version: 5.5.37-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.2
+-- Host: 127.0.0.1
+-- Generation Time: Jul 03, 2014 at 05:28 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `course_management`
 --
+CREATE DATABASE IF NOT EXISTS `course_management` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `course_management`;
 
 -- --------------------------------------------------------
 
@@ -47,14 +49,16 @@ CREATE TABLE IF NOT EXISTS `chairperson_info` (
   `postal_code` varchar(300) NOT NULL,
   `chairman_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `chairperson_info`
 --
 
 INSERT INTO `chairperson_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `name`, `email`, `dob`, `sex`, `mobile`, `course`, `division`, `joining_date`, `address_l_1`, `address_l_2`, `city`, `state`, `country`, `postal_code`, `chairman_status`) VALUES
-(1, 'CHP53a31121c645d', 'INS539f481c96c13', '', 'test chairperson', 'anand.singh989@gmail.com', '2012-08-08', 'male', '123456', 'COU53a1d6618f433,COU53a1d6f107c7e', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3624', '223', '700114', 1);
+(1, 'CHP53a31121c645d', 'INS539f481c96c13', '', 'test chairperson', 'anand.singh989@gmail.com', '2012-08-08', 'male', '123456', 'COU53a1d6618f433,COU53a1d6f107c7e', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3624', '223', '700114', 1),
+(2, 'CHP53b5561b44cb0', 'INS539f1af709988', '', 'Chair Person test', 'vdipanjan@gmail.com', '2013-11-10', 'male', '9898989898', 'COU53a18ff010188,COU53a1906064acc,COU53a1d594eb914,COU53a1d6618f433,COU53a1d6f107c7e', '123555', '2014-06-19', 'dffffffffffff', 'ddddddddddd', 'Kolkata', '318', '17', '700115', 1),
+(3, 'CHP53b5566b39b3d', 'INS539f1af709988', '', 'Chair Person test 2', 'vdipanjan@gmail.com', '2014-04-07', 'male', '1239998778', 'COU53a18ff010188,COU53a1906064acc,COU53a1d594eb914,COU53a1d6618f433,COU53a1d6f107c7e', '54545', '2014-02-18', 'qaedfasdsd', 'asdfasd', 'sdsa', '194', '13', '1000', 1);
 
 -- --------------------------------------------------------
 
@@ -407,12 +411,22 @@ CREATE TABLE IF NOT EXISTS `event_info` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `chairperson_id` varchar(500) NOT NULL,
-  `teacher_id` varchar(500) NOT NULL,
-  `duration` time NOT NULL,
+  `faculty_id` varchar(500) NOT NULL,
+  `duration` varchar(250) NOT NULL,
+  `created_by` varchar(200) NOT NULL,
+  `created_on` date NOT NULL,
   `notification_id` int(11) NOT NULL,
   `event_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `event_info`
+--
+
+INSERT INTO `event_info` (`id`, `event_id`, `event_name`, `institute_id`, `group_id`, `room`, `date`, `time`, `chairperson_id`, `faculty_id`, `duration`, `created_by`, `created_on`, `notification_id`, `event_status`) VALUES
+(1, 'EVENT53b56ef22866b', 'Event 1', 'INS539f1af709988', 'GRP53b5440bf3fab,GRP53b55c672d28b', '221', '2014-07-26', '10:30:00', 'CHP53b5561b44cb0,CHP53b5566b39b3d', 'FAC53b538abd5917', '5 hours', 'admin', '2014-07-03', 0, 1),
+(2, 'EVENT53b56fd5689c2', 'Event 2', 'INS539f1af709988', 'GRP53b5440bf3fab', '120', '2014-08-04', '11:00:00', 'CHP53b5561b44cb0', 'FAC53b538abd5917', '4 hour 30 minutes', 'admin', '2014-07-03', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -441,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `faculty_info` (
   `postal_code` varchar(300) NOT NULL,
   `teachers_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `faculty_info`
@@ -452,7 +466,8 @@ INSERT INTO `faculty_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `n
 (2, 'FAC53a032b8a008e', 'INS539f226d39157', '', 'asdfsdafs', 'anand.s89@gmail.com', '2014-06-10', 'male', '123456', 'COU53a1d594eb914', '123555', '2014-06-19', 'asdf', 'asdfasd', 'Kolkata', '147', '9', '700114', 1),
 (3, 'FAC53a04814d3056', 'INS539f226d39157', '', 'Anand', 'anand.singh989@gmail.com', '2014-06-10', 'male', '1239998778', '', '', '2014-06-19', 'qaedfasd', 'sadf', 'Kolkata', '122', '5', '700114', 1),
 (4, 'FAC53a0494286233', 'INS539f1b7ab50b0', '', 'prod420', 'nit@nit.com', '2014-06-03', 'male', '1239998778', '', '', '2014-06-19', 'asdf', 'asdfsad', 'asdf', '180', '11', '700114', 1),
-(5, 'FAC53a30cdf66723', 'INS539f4abf3f572', '', 'Test Faculty', 'anand.singh989@gmail.com', '1990-06-03', 'male', '9889889887', 'COU53a1906064acc,COU53a1d594eb914', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3625', '223', '789874', 1);
+(5, 'FAC53a30cdf66723', 'INS539f4abf3f572', '', 'Test Faculty', 'anand.singh989@gmail.com', '1990-06-03', 'male', '9889889887', 'COU53a1906064acc,COU53a1d594eb914', '123555', '2014-06-19', 'qaedfasd', 'asdfasd', 'Kolkata', '3625', '223', '789874', 1),
+(6, 'FAC53b538abd5917', 'INS539f1af709988', '', 'Abcd', 'abcd@gmail.com', '2013-03-04', 'male', '9898989898', 'COU53a18ff010188,COU53a1906064acc,COU53a1d594eb914,COU53a1d6618f433,COU53a1d6f107c7e', '54545', '2014-06-19', 'dffffffffffff', 'ddddddddddd', 'Kolkata', '458', '30', '700115', 1);
 
 -- --------------------------------------------------------
 
@@ -464,12 +479,23 @@ CREATE TABLE IF NOT EXISTS `group_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` varchar(500) NOT NULL,
   `group_name` varchar(300) NOT NULL,
+  `institute_id` varchar(250) NOT NULL,
   `created_by` varchar(500) NOT NULL,
-  `teacher` varchar(500) NOT NULL,
+  `created_on` date NOT NULL,
+  `faculty` varchar(500) NOT NULL,
   `students` varchar(500) NOT NULL,
   `group_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `group_info`
+--
+
+INSERT INTO `group_info` (`id`, `group_id`, `group_name`, `institute_id`, `created_by`, `created_on`, `faculty`, `students`, `group_status`) VALUES
+(1, 'GRP53b5440bf3fab', 'Group 1', 'INS539f1af709988', 'admin', '2014-07-03', 'FAC53b538abd5917', 'STU53a04cb068b5a,STU53a04ce1248b6', 1),
+(2, 'GRP53b55c672d28b', 'Group 2', 'INS539f1af709988', 'admin', '2014-07-03', 'FAC53b538abd5917', 'STU53a04cb068b5a,STU53a04ce1248b6,STU53a04d534539b', 1),
+(3, 'GRP53b55c6fea7d9', 'Group 3', 'INS539f1af709988', 'admin', '2014-07-03', 'FAC53b538abd5917', 'STU53a04cb068b5a,STU53a04ce1248b6,STU53a04d534539b', 1);
 
 -- --------------------------------------------------------
 
@@ -537,7 +563,21 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `institute_id` varchar(300) NOT NULL,
   `room_name` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `institute_id`, `room_name`) VALUES
+(1, 'INS539f1af709988', '223'),
+(2, 'INS539f1af709988', '221'),
+(3, 'INS539f1af709988', '120'),
+(4, 'INS539f1af709988', '102'),
+(5, 'INS539f1ad3113c6', '144'),
+(6, 'INS539f1ad3113c6', '142'),
+(7, 'INS539f1ad3113c6', '202'),
+(8, 'INS539f1ad3113c6', '206');
 
 -- --------------------------------------------------------
 
@@ -631,7 +671,7 @@ CREATE TABLE IF NOT EXISTS `student_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `status_name` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `student_status`
@@ -643,7 +683,8 @@ INSERT INTO `student_status` (`id`, `status_name`) VALUES
 (4, 'JUNIOR'),
 (5, 'SENIOR'),
 (6, 'TRANSFER'),
-(7, 'GRADUATE');
+(7, 'GRADUATE'),
+(8, 'POST GRADUATE');
 
 -- --------------------------------------------------------
 
@@ -689,7 +730,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(500) NOT NULL,
   `user_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `users`
@@ -702,7 +743,10 @@ INSERT INTO `users` (`id`, `username`, `user_id`, `password`, `date`, `user_type
 (28, 'student1', 'STU53a30ef8e51ee', '123456', '2014-06-19', 'student', 1),
 (29, 'chair1', 'CHP53a31121c645d', '123456', '2014-06-19', 'chairperson', 1),
 (30, 'institute1', 'INS53a31275dbafc', '123456', '2014-06-19', 'institute', 1),
-(31, 'edem1234', 'INS53a5869e3e469', '123456', '2014-06-21', 'institute', 1);
+(31, 'edem1234', 'INS53a5869e3e469', '123456', '2014-06-21', 'institute', 1),
+(32, 'fac_test', 'FAC53b538abd5917', '123456', '2014-07-03', 'faculty', 1),
+(33, 'chair_test', 'CHP53b5561b44cb0', '123456', '2014-07-03', 'chairperson', 1),
+(34, 'chair_test 2', 'CHP53b5566b39b3d', '123456', '2014-07-03', 'chairperson', 1);
 
 -- --------------------------------------------------------
 

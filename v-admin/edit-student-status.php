@@ -36,12 +36,13 @@
     <!-- /.row -->
     <div class="row stu_adm_row">
         <div class="col-lg-6">
-        	<form role="form" action="v-includes/functions/function.create-student-status.php" method="post">
+        	<form role="form" action="v-includes/functions/function.edit-student-status.php" method="post">
             	<h4 class="cs_page_form_caption">Update status Name</h4>
                 <div class="form-group">
                     <label class="cs_form_label">Status Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="student_status" value="<?php if( isset($status_name)){ echo $status_name; } ?>">
                 </div>
+                <input type="hidden" name="id" value="<?php echo $status_id; ?>" />
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
             </form>

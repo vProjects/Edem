@@ -4,6 +4,7 @@
     <!-- Core Scripts - Include with every page -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     
     <!--- cdn for calendar view date -->
@@ -29,23 +30,6 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
-    
-    <!-- codes country and states -->
-    <script type="text/javascript">
-		$('#country').change(function(){
-			var data = "id="+$(this).val();
-			
-			//make the ajax request
-			 $.ajax({
-	            type: "POST",
-	            url:"v-includes/ajax/function.getProvince.php",
-	            data: data,
-	            success:function(result){
-	            	$('#province').html(result);
-	                return false;
-	        }});
-		});
-    </script>
 
 </body>
 
