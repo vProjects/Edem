@@ -62,6 +62,9 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="create-room.php"><i class="fa fa-edit fa-fw"></i>Create Room</a>
+            </li>
             <?php } ?>
             <?php if($level >= 2) { ?>
             <li>

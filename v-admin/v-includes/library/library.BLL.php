@@ -402,6 +402,176 @@
 		 }
 		 
 		 /*
+		 - Method to get the group list 
+		 - Auth Dipanjan 
+		 */
+		 public function getGroupList()
+		 {
+			 //get all values from database
+		 	 $groups = $this->_DAL_Obj->getValue('group_info','*');
+			
+			if(!empty($groups[0]))
+			{
+				foreach ($groups as $group)
+				{
+					//getting course status
+					if($group['group_status'] == 1)
+					{
+						$btn = '<button class="btn btn-success">Active</button>';
+					}
+					else
+					{
+						$btn = '<button class="btn btn-danger">Deactive</button>';
+					}
+					echo '<tr>
+							<td>'.$group['group_name'].'</td>
+							<td>'.$this->getInstituteName('institute_info','institute_id',$group['institute_id'],'name').'</td>
+							<td>'.$group['created_by'].'</td>
+							<td>'.$group['created_on'].'</td>';
+					
+					//getting faculty list
+					$advisors = explode(',',$group['faculty']);
+					if(!empty($advisors[0]))
+					{
+						echo '<td>';
+						foreach($advisors as $key1=>$value1)
+						{
+							echo ($key1+1).') '.$this->getInstituteName('faculty_info','user_id',$value1,'name').'<br>';
+						}
+						echo '</td>';
+					}
+					
+					//getting student list
+					$students = explode(',',$group['students']);
+					if(!empty($students[0]))
+					{
+						echo '<td>';
+						foreach($students as $key2=>$value2)
+						{
+							echo ($key2+1).') '.$this->getInstituteName('students_info','user_id',$value2,'name').'<br>';
+						}
+						echo '</td>';
+					}
+							
+					echo '<td><a href="edit-group.php?gid='.$group['group_id'].'"><button class="btn btn-info">Edit</button></a></td>
+							<td>'.$btn.'</td>
+						</tr>';
+				}
+			}
+		 }
+		 
+		 /*
+		 - Method to get the event list 
+		 - Auth Dipanjan 
+		 */
+		 public function getOpenEventList()
+		 {
+			 //get all values from database
+		 	 $events = $this->_DAL_Obj->getValue('event_info','*');
+			
+			if(!empty($events[0]))
+			{
+				foreach ($events as $event)
+				{
+					//checking that date exceeds or not
+					if(strtotime($event['date'].' '.$event['time']) > strtotime('now'))
+					{
+						echo '<tr>
+								<td>'.$event['event_name'].'</td>
+								<td>'.$this->getInstituteName('institute_info','institute_id',$event['institute_id'],'name').'</td>
+								<td>'.$event['created_by'].'</td>
+								<td>'.$event['created_on'].'</td>
+								<td>'.$event['date'].'</td>
+								<td>'.$event['time'].'</td>';
+						
+						//getting faculty list
+						$advisors = explode(',',$event['faculty_id']);
+						if(!empty($advisors[0]))
+						{
+							echo '<td>';
+							foreach($advisors as $key1=>$value1)
+							{
+								echo ($key1+1).') '.$this->getInstituteName('faculty_info','user_id',$value1,'name').'<br>';
+							}
+							echo '</td>';
+						}
+						
+						//getting student list
+						$groups = explode(',',$event['group_id']);
+						if(!empty($groups[0]))
+						{
+							echo '<td>';
+							foreach($groups as $key2=>$value2)
+							{
+								echo ($key2+1).') '.$this->getInstituteName('group_info','group_id',$value2,'group_name').'<br>';
+							}
+							echo '</td>';
+						}
+								
+						echo '<td><a href="edit-event.php?eid='.$event['event_id'].'"><button class="btn btn-info">Edit</button></a></td>
+							</tr>';
+					}
+						
+				}
+			}
+		 }
+		 
+		 /*
+		 - Method to get the event list 
+		 - Auth Dipanjan 
+		 */
+		 public function getClosedEventList()
+		 {
+			 //get all values from database
+		 	 $events = $this->_DAL_Obj->getValue('event_info','*');
+			
+			if(!empty($events[0]))
+			{
+				foreach ($events as $event)
+				{
+					//checking that date exceeds or not
+					if(strtotime($event['date'].' '.$event['time']) < strtotime('now'))
+					{
+						echo '<tr>
+								<td>'.$event['event_name'].'</td>
+								<td>'.$this->getInstituteName('institute_info','institute_id',$event['institute_id'],'name').'</td>
+								<td>'.$event['created_by'].'</td>
+								<td>'.$event['created_on'].'</td>
+								<td>'.$event['date'].'</td>
+								<td>'.$event['time'].'</td>';
+						
+						//getting faculty list
+						$advisors = explode(',',$event['faculty_id']);
+						if(!empty($advisors[0]))
+						{
+							echo '<td>';
+							foreach($advisors as $key1=>$value1)
+							{
+								echo ($key1+1).') '.$this->getInstituteName('faculty_info','user_id',$value1,'name').'<br>';
+							}
+							echo '</td>';
+						}
+						
+						//getting student list
+						$groups = explode(',',$event['group_id']);
+						if(!empty($groups[0]))
+						{
+							echo '<td>';
+							foreach($groups as $key2=>$value2)
+							{
+								echo ($key2+1).') '.$this->getInstituteName('group_info','group_id',$value2,'group_name').'<br>';
+							}
+							echo '</td>';
+						}
+								
+						echo '</tr>';
+					}
+						
+				}
+			}
+		 }
+		 
+		 /*
 		 - Method to get institute name from institute id
 		 - Auth Dipanjan 
 		 */
@@ -458,6 +628,87 @@
 					 else
 					 {
 						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get selected multiple item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getForeignValueMultipleItemList($table_name,$column_name,$column_value,$selected_column_name,$selected_column_value,$return_value)
+		 {
+			 //get values from database
+			 $selected_values = $this->_DAL_Obj->getValueWhere($table_name,'*',$column_name,$column_value);
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get total list of selected category
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedValues($table_name,$column_name,$column_value,$return_value)
+		 {
+			 //get values from database
+			 $getValues = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($getValues[0]))
+			 {
+				 foreach($getValues as $getValue)
+				 {
+					 if(in_array($getValue[$column_name],$column_value))
+					 {
+						 echo '<option value="'.$getValue[$column_name].'" selected="selected">'.$getValue[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get session list for group edit
+		 - Auth Dipanjan 
+		 */
+		 public function getSessionListForEditGroup($inst_id,$session_name)
+		 {
+			 //get values from database
+			 $getValues = $this->_DAL_Obj->getValueWhere('students_info','*','institute_id',$inst_id);
+			 if(!empty($getValues[0]))
+			 {
+				 //create an empty array
+				 $session = array();
+				 foreach($getValues as $getValue)
+				 {
+					 if(!in_array($getValue['session'],$session))
+					 {
+						 array_push($session,$getValue['session']);
+					 }
+				 }
+				 //getting selected session value
+				 if(!empty($session))
+				 {
+					 foreach($session as $key=>$value)
+					 {
+						 if($value == $session_name)
+						 {
+							 echo '<option value="'.$value.'" selected="selected">'.$value.'</option>';
+						 }
+						 else
+						 {
+							 echo '<option value="'.$value.'">'.$value.'</option>';
+						 }
 					 }
 				 }
 			 }

@@ -19,10 +19,28 @@
                 <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
             </li>
             <li>
-                <a href="create-event.php"><i class="fa fa-edit fa-fw"></i>Create Event</a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Event<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="create-event.php">Create Event</a>
+                    </li>
+                    <li>
+                        <a href="list-event.php">Event List</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="create-group.php"><i class="fa fa-edit fa-fw"></i>Create Group</a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Group<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="create-group.php">Create Group</a>
+                    </li>
+                    <li>
+                        <a href="list-group.php">Group List</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
             </li>
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i> Student<span class="fa arrow"></span></a>
@@ -31,7 +49,7 @@
                         <a href="create-student.php">Create Student</a>
                     </li>
                     <li>
-                        <a href="list-student.php">List Student</a>
+                        <a href="list-student.php">Student List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -43,7 +61,7 @@
                         <a href="create-faculty.php">Create Faculty</a>
                     </li>
                     <li>
-                        <a href="list-faculty.php">List Faculty</a>
+                        <a href="list-faculty.php">Faculty List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -55,7 +73,7 @@
                         <a href="create-chairperson.php">Create Chair Person</a>
                     </li>
                     <li>
-                        <a href="list-chairperson.php">List Chair Person</a>
+                        <a href="list-chairperson.php">Chair Person List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -67,7 +85,7 @@
                         <a href="create-course.php">Create Courses</a>
                     </li>
                     <li>
-                        <a href="list-course.php">List Courses</a>
+                        <a href="list-course.php">Courses List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -79,7 +97,7 @@
                         <a href="create-curriculum.php">Create Curriculum</a>
                     </li>
                     <li>
-                        <a href="list-curriculum.php">List Curriculum</a>
+                        <a href="list-curriculum.php">Curriculum List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -91,7 +109,7 @@
                         <a href="create-institute.php">Create Institute</a>
                     </li>
                     <li>
-                        <a href="list-institute.php">List Institute</a>
+                        <a href="list-institute.php">Institute List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -109,7 +127,7 @@
                         <a href="create-student-status.php">Add Student Status</a>
                     </li>
                     <li>
-                        <a href="list-institute.php">List Student Status</a>
+                        <a href="list-institute.php">Student Status List</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

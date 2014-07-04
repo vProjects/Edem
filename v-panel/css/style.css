@@ -396,3 +396,6 @@ table.dataTable thead .sorting:after {
 	position:relative;
 	z-index:1;
 }
+.btn_name{
+	margin-right:15px;
+}

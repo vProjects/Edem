@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2014 at 05:28 PM
+-- Generation Time: Jul 04, 2014 at 03:47 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -425,8 +425,8 @@ CREATE TABLE IF NOT EXISTS `event_info` (
 --
 
 INSERT INTO `event_info` (`id`, `event_id`, `event_name`, `institute_id`, `group_id`, `room`, `date`, `time`, `chairperson_id`, `faculty_id`, `duration`, `created_by`, `created_on`, `notification_id`, `event_status`) VALUES
-(1, 'EVENT53b56ef22866b', 'Event 1', 'INS539f1af709988', 'GRP53b5440bf3fab,GRP53b55c672d28b', '221', '2014-07-26', '10:30:00', 'CHP53b5561b44cb0,CHP53b5566b39b3d', 'FAC53b538abd5917', '5 hours', 'admin', '2014-07-03', 0, 1),
-(2, 'EVENT53b56fd5689c2', 'Event 2', 'INS539f1af709988', 'GRP53b5440bf3fab', '120', '2014-08-04', '11:00:00', 'CHP53b5561b44cb0', 'FAC53b538abd5917', '4 hour 30 minutes', 'admin', '2014-07-03', 0, 1);
+(1, 'EVENT53b56ef22866b', 'Event 1', 'INS539f1af709988', 'GRP53b5440bf3fab,GRP53b55c672d28b', '221', '2014-08-22', '10:30:00', 'CHP53b5561b44cb0,CHP53b5566b39b3d', 'FAC53b538abd5917', '5 hours', 'admin', '2014-07-03', 0, 1),
+(2, 'EVENT53b56fd5689c2', 'Event 2', 'INS539f1af709988', 'GRP53b5440bf3fab', '120', '2014-08-15', '11:00:00', 'CHP53b5561b44cb0', 'FAC53b538abd5917', '4 hour 30 minutes', 'admin', '2014-07-03', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -563,7 +563,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `institute_id` varchar(300) NOT NULL,
   `room_name` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `rooms`
@@ -577,7 +577,9 @@ INSERT INTO `rooms` (`id`, `institute_id`, `room_name`) VALUES
 (5, 'INS539f1ad3113c6', '144'),
 (6, 'INS539f1ad3113c6', '142'),
 (7, 'INS539f1ad3113c6', '202'),
-(8, 'INS539f1ad3113c6', '206');
+(8, 'INS539f1ad3113c6', '206'),
+(9, 'INS53a31275dbafc', '560'),
+(10, 'INS53a31275dbafc', '222');
 
 -- --------------------------------------------------------
 
@@ -726,11 +728,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(500) NOT NULL,
   `user_id` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
-  `date` varchar(500) NOT NULL,
+  `date` date NOT NULL,
   `user_type` varchar(500) NOT NULL,
   `user_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `users`
@@ -746,7 +748,9 @@ INSERT INTO `users` (`id`, `username`, `user_id`, `password`, `date`, `user_type
 (31, 'edem1234', 'INS53a5869e3e469', '123456', '2014-06-21', 'institute', 1),
 (32, 'fac_test', 'FAC53b538abd5917', '123456', '2014-07-03', 'faculty', 1),
 (33, 'chair_test', 'CHP53b5561b44cb0', '123456', '2014-07-03', 'chairperson', 1),
-(34, 'chair_test 2', 'CHP53b5566b39b3d', '123456', '2014-07-03', 'chairperson', 1);
+(34, 'chair_test 2', 'CHP53b5566b39b3d', '123456', '2014-07-03', 'chairperson', 1),
+(35, 'institute2', 'INS539f1af709988', '123456', '2014-07-02', 'institute', 1),
+(36, 'institute 3', 'INS539f1ad3113c6', '123456', '2014-07-02', 'institute', 1);
 
 -- --------------------------------------------------------
 

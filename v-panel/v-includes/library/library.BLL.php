@@ -114,7 +114,7 @@
 			}
 		 }
 		 
-		 /*
+		/*
 		- method for setting cookie value or session user id value whichever is missing
 		- Auth: Dipanjan
 		*/
@@ -122,6 +122,34 @@
 		{
 			//get user details
 			return $this->_DAL_Obj->getValueWhere('users','*','user_id',$user_id);
+		}
+		
+		/*
+		- method for getting room list
+		- Auth: Dipanjan
+		*/
+		function getRoomList()
+		{
+			//get room list of user
+			$rooms = $this->_DAL_Obj->getValueWhere('rooms','*','institute_id',$_SESSION['user_id']);
+			if(!empty($rooms[0]))
+			{
+				foreach($rooms as $room)
+				{
+					echo '<a href="edit-room.php?id='.$room['id'].'"><button type="button" class="btn btn-info btn_name" readonly="readonly">'.$room['room_name'].'</button></a>';
+				}
+			}
+		}
+		
+		/*
+		- method for getting room info
+		- Auth: Dipanjan
+		*/
+		function getRoomInfo($id)
+		{
+			//get room details
+			$room = $this->_DAL_Obj->getValueWhere('rooms','*','id',$id);
+			return $room[0]['room_name'];
 		}
 	 }
 ?>
