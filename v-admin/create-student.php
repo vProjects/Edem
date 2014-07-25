@@ -29,11 +29,31 @@
             	<form role="form" action="v-includes/functions/function.create-student.php" method="post">
                 	<h4 class="cs_page_form_caption">Fill Up Faculty Information</h4>
                 	<div class="form-group">
-	                    <label class="cs_form_label">Student Name</label>
+	                    <label class="cs_form_label">First Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Middle Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Last Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Suffix</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Other Name</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="name">
 	                </div>
 	                <div class="form-group">
 	                    <label class="cs_form_label">Email</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="email">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Student Id</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="email">
 	                </div>
 	                <div class="form-group">
@@ -45,13 +65,9 @@
 	                    <input type="password" class="form-control cs_form_textbox" name="password">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Confirm Password</label>
+	                    <label class="cs_form_label">Verify Password</label>
 	                    <input type="password" class="form-control cs_form_textbox" name="r_password">
 	                </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Guardian Name</label>
-                        <input type="text" class="form-control cs_form_textbox" name="guardian">
-                    </div>
                      <div class="form-group">
 	                    <label class="cs_form_label">Institution</label>
 	                    <select class="form-control cs_form_textbox" name="institute">
@@ -62,7 +78,7 @@
 	                    </select>
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Student Status</label>
+	                    <label class="cs_form_label">Education Level</label>
 	                    <select class="form-control cs_form_textbox" name="student_status">
 	                    	<?php
 	                    		//get the institute from the BLL
@@ -71,7 +87,7 @@
 	                    </select>
 	                </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Date of birth</label>
+                        <label class="cs_form_label">Birthdate</label>
                         <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">
                     </div>
                     <div class="form-group">
@@ -84,32 +100,19 @@
                         </label>
                     </div>
                     <div class="form-group">
+	                    <label class="cs_form_label">Department</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                </div>
+                    <div class="form-group">
                         <label class="cs_form_label">Contact No.</label>
                         <input type="text" class="form-control cs_form_textbox" name="mobile">
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Curriculum</label>
-                        <select name="curriculum[]" class="form-control cs_form_textbox" multiple="multiple">
-                        	<?php
-	                    		//get the curriculum from the BLL
-	                    		$BLL_Obj->getCurriculum_SelectBox();
-	                    	?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Session</label>
-                        <input type="text" class="form-control cs_form_textbox" name="session">
-                    </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Joining Date</label>
-                        <input type="text" class="form-control cs_form_textbox" name="joining_date">
-                    </div>
-                    <div class="form-group">
-                    <label class="cs_form_label">Address Line 1</label>
+                    <label class="cs_form_label">Street 1</label>
                     <input type="text" class="form-control cs_form_textbox" name="address_l_1">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Address Line 2</label>
+	                    <label class="cs_form_label">Street 2</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="address_l_2">
 	                </div>
 					<div class="form-group">
@@ -130,8 +133,36 @@
 	                    <input type="text" class="form-control cs_form_textbox" name="city">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Postal Code</label>
+	                    <label class="cs_form_label">Zip/Postal Code</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="postal_code">
+	                </div>
+		            <div class="form-group">
+	                    <label class="cs_form_label">Website</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state">
+	                    </select>
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Home Phone</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state">
+	                    </select>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Phone</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state">
+	                    </select>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Fax</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state">
+	                    </select>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Cellular Phone</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state">
+	                    </select>
 	                </div>
                     <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                     <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
