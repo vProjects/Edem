@@ -52,10 +52,6 @@
 	                    <label class="cs_form_label">Email</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="email">
 	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">Student Id</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="student_id">
-	                </div>
                     <div class="form-group">
                         <label class="cs_form_label">Birthdate</label>
                         <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">

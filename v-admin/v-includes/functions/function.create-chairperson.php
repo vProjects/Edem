@@ -4,53 +4,41 @@
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
 	
-	//function to convert array into string separated by commas
-	function convertArrayToString($val_array)
-	{
-		if( !empty($val_array) )
-		{
-			$val_str = "";
-			
-			foreach ($val_array as $val)
-			{
-					$val_str .= $val.",";
-			}
-			
-			return substr($val_str, 0, -1);
-		}
-	}
-	
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$name = $_POST['name'] ;
+		$f_name = $_POST['f_name'] ;
+		$m_name = $_POST['m_name'] ;
+		$l_name = $_POST['l_name'] ;
+		$suffix = $_POST['suffix'] ;
+		$o_name = $_POST['o_name'] ;
 		$email = $_POST['email'] ;
-		$institute = $_POST['institute'] ;
 		$dob = $_POST['dob'] ;
-		$sex = $_POST['sex'] ;
-		$joining_date = $_POST['joining_date'] ;
-		$division = $_POST['division'] ;
-		$course = $_POST['course'];
-		$mobile = $_POST['mobile'] ;
-		$address_l_1 = $_POST['address_l_1'] ;
-		$address_l_2 = $_POST['address_l_2'] ;
+		$institute = $_POST['institute'] ;
+		$edu_level = $_POST['edu_level'] ;
+		$gender = $_POST['gender'] ;
+		$department = $_POST['department'] ;
+		$street_1 = $_POST['street_1'] ;
+		$street_2 = $_POST['street_2'] ;
 		$city = $_POST['city'] ;
 		$state = $_POST['state'] ;
 		$country = $_POST['country'] ;
 		$postal_code = $_POST['postal_code'] ;
+		
+		//new fields added later
+		$website = $_POST['website'] ;
+		$home_phone = $_POST['home_phone'] ;
+		$work_phone = $_POST['work_phone'] ;
+		$work_fax = $_POST['work_fax'] ;
+		$cellular_phone = $_POST['cellular_phone'] ;
 		
 		//username and the password
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$r_password = $_POST['r_password'];
 	}
-	//array to string
-	$course_str = convertArrayToString($course);
-
-	//generate the user id
-	$user_id = "CHP".uniqid();
 	
-	//initialize the variables
-	$username_insert_flg = 0 ;
+	//generate the user id
+	$user_id = "CHR".uniqid();
 	
 	//codes for inserting the username and password of the institute
 	if(!empty($username) && !empty($password) && !empty($r_password))
@@ -68,37 +56,46 @@
 								'user_status' => 1
 						)
 					);
-			$DAL_Obj->insertValue($insert_user);		
-			$username_insert_flg = 1;
+			$query_result = $DAL_Obj->insertValue($insert_user);
 		}
 	} 
 	
-	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($user_id) && ($username_insert_flg == 1))
+	if( !empty($f_name) && !empty($email) && !empty($user_id) && ($query_result >= 1))
 	{
-		$insert_cp = array(
+		$insert_chairperson = array(
 						'table' => 'chairperson_info' ,
 						'values' => array(
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
-										'name' => $name ,
+										'curriculum_id' => "" ,
+										'f_name' => $f_name ,
+										'm_name' => $m_name ,
+										'l_name' => $l_name ,
+										'suffix' => $suffix ,
+										'o_name' => $o_name ,
 										'email' => $email ,
 										'dob' => $dob ,
-										'sex' => $sex ,
-										'mobile' => $mobile ,
-										'course' => $course_str ,
-										'division' => $division ,
-										'joining_date' => $joining_date ,
-										'address_l_1' => $address_l_1 ,
-										'address_l_2' => $address_l_2 ,
+										'edu_level' => $edu_level ,
+										'gender' => $gender ,
+										'department' => $department ,
+										'street_1' => $street_1 ,
+										'street_2' => $street_2 ,
 										'city' => $city ,
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
-										'chairman_status' => 1
+										'website' => $website ,
+										'home_phone' => $home_phone ,
+										'work_phone' => $work_phone ,
+										'work_fax' => $work_fax ,
+										'home_phone' => $home_phone ,
+										'cellular_phone' => $cellular_phone ,
+										'chairperson_status' => 1 ,
+										'status' => 1
 									)
 						);
-						
-		$DAL_Obj->insertValue($insert_cp);
+		
+		$DAL_Obj->insertValue($insert_chairperson);
 		
 		$result = "Chairperson Id: ".$user_id."<br/>Chairperson addedd successfully.";
 	}

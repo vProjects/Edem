@@ -29,13 +29,33 @@
             	<form role="form" action="v-includes/functions/function.create-faculty.php" method="post">
                 	<h4 class="cs_page_form_caption">Fill Up Faculty Information</h4>
                 	<div class="form-group">
-	                    <label class="cs_form_label">Faculty Name</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="name">
+	                    <label class="cs_form_label">First Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="f_name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Middle Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="m_name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Last Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="l_name">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Suffix</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="suffix">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Other Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="o_name">
 	                </div>
 	                <div class="form-group">
 	                    <label class="cs_form_label">Email</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="email">
 	                </div>
+                    <div class="form-group">
+                        <label class="cs_form_label">Birthdate</label>
+                        <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">
+                    </div>
 	                <div class="form-group">
 	                    <label class="cs_form_label">Username</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="username">
@@ -45,7 +65,7 @@
 	                    <input type="password" class="form-control cs_form_textbox" name="password">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Confirm Password</label>
+	                    <label class="cs_form_label">Verify Password</label>
 	                    <input type="password" class="form-control cs_form_textbox" name="r_password">
 	                </div>
                      <div class="form-group">
@@ -57,47 +77,35 @@
 	                    	?>
 	                    </select>
 	                </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Date of birth</label>
-                        <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">
-                    </div>
-                    <div class="form-group">
-                    	<label class="cs_form_label cs_form_radio_label">Gender</label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" id="sex1" value="male" checked="checked">Male
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" id="sex2" value="female">Female
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Contact No.</label>
-                        <input type="text" class="form-control cs_form_textbox" name="mobile">
-                    </div>
-                    <div class="form-group">
-	                    <label class="cs_form_label">Add Courses</label>
-	                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
+	                <div class="form-group">
+	                    <label class="cs_form_label">Education Level</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
 	                    	<?php
-	                    		//get the courses from the BLL
-	                    		$BLL_Obj->getCourse_SelectBox();
-							?>                    	
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    	?>
 	                    </select>
 	                </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Division</label>
-                        <input type="text" class="form-control cs_form_textbox" name="division">
+                    	<label class="cs_form_label cs_form_radio_label">Gender</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="sex1" value="male" checked="checked">Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="sex2" value="female">Female
+                        </label>
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Joining Date</label>
-                        <input type="text" class="form-control cs_form_textbox" name="joining_date">
-                    </div>
+	                    <label class="cs_form_label">Department</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="department">
+	                </div>
                     <div class="form-group">
-                    <label class="cs_form_label">Address Line 1</label>
-                    <input type="text" class="form-control cs_form_textbox" name="address_l_1">
+	                    <label class="cs_form_label">Street 1</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="street_1">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Address Line 2</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="address_l_2">
+	                    <label class="cs_form_label">Street 2</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="street_2">
 	                </div>
 					<div class="form-group">
 		                <label class="cs_form_label">Country</label>
@@ -117,11 +125,33 @@
 	                    <input type="text" class="form-control cs_form_textbox" name="city">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Postal Code</label>
+	                    <label class="cs_form_label">Zip/Postal Code</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="postal_code">
 	                </div>
-                    <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
-                    <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
+		            <div class="form-group">
+	                    <label class="cs_form_label">Website</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="website">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Home Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="home_phone">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="work_phone">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Fax</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="work_fax">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Cellular Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone">
+	                </div>
+                    <button type="submit" class="btn btn-success btn-lg">Create Faculty</button>
                 </form>
             </div>
             <!-- /.col-lg-6 -->
@@ -140,6 +170,7 @@
                 </form>
             </div>
             <!-- /.col-lg-6 -->
+            
         </div>
         <!-- /.row -->
     </div>
