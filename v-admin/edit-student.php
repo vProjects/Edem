@@ -35,13 +35,41 @@
             	<form role="form" action="v-includes/functions/function.edit-student.php" method="post">
                 	<h4 class="cs_page_form_caption">Fill Up Faculty Information</h4>
                 	<div class="form-group">
-	                    <label class="cs_form_label">Student Name</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="name" value="<?php echo $getValues[0]['name']; ?>">
+	                    <label class="cs_form_label">First Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="f_name" value="<?php echo $getValues[0]['f_name']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Middle Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="m_name" value="<?php echo $getValues[0]['m_name']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Last Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="l_name" value="<?php echo $getValues[0]['l_name']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Suffix</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="suffix" value="<?php echo $getValues[0]['suffix']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Other Name</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="o_name" value="<?php echo $getValues[0]['o_name']; ?>">
 	                </div>
 	                <div class="form-group">
 	                    <label class="cs_form_label">Email</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="email" value="<?php echo $getValues[0]['email']; ?>">
 	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Student Id</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="student_id" value="<?php echo $getValues[0]['student_id']; ?>">
+	                </div>
+	                <!-- <div class="form-group">
+                        <label class="cs_form_label">Birthdate</label>
+                        <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob" value="<?php echo $getValues[0]['dob']; ?>">
+                    </div>
+                    <div class="form-group">
+	                    <label class="cs_form_label">Username</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="username" value="<?php echo $getValues[0]['username']; ?>">
+	                </div> -->
                      <div class="form-group">
 	                    <label class="cs_form_label">Institute</label>
 	                    <select class="form-control cs_form_textbox" name="institute">
@@ -50,7 +78,7 @@
 	                    		$BLL_Obj->getSelectedItemList('institute_info','institute_id',$getValues[0]['institute_id'],'name');
 	                    	?>
 	                    </select>
-	                </div>
+	                 </div>
                     <div class="form-group">
                         <label class="cs_form_label">Date of birth</label>
                         <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob" value="<?php echo $getValues[0]['dob']; ?>">
@@ -58,43 +86,32 @@
                     <div class="form-group">
                     	<label class="cs_form_label cs_form_radio_label">Sex</label>
                         <label class="radio-inline">
-                            <input type="radio" name="sex" id="sex1" value="male" <?php if($getValues[0]['sex'] == 'male') { echo 'checked="ckecked"'; } ?>>Male
+                            <input type="radio" name="gender" id="sex1" value="male" <?php if($getValues[0]['gender'] == 'male') { echo 'checked="checked"'; } ?>>Male
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="sex" id="sex2" value="female" <?php if($getValues[0]['sex'] == 'female') { echo 'checked="ckecked"'; } ?>>Female
+                            <input type="radio" name="gender" id="sex2" value="female" <?php if($getValues[0]['gender'] == 'female') { echo 'checked="checked"'; } ?>>Female
                         </label>
                     </div>
                     <div class="form-group">
-                        <label class="cs_form_label">Mobile No.</label>
-                        <input type="text" class="form-control cs_form_textbox" name="mobile" value="<?php echo $getValues[0]['mobile']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Curriculum</label>
-                        <select name="curriculum[]" class="form-control cs_form_textbox" multiple="multiple">
-                        	<?php
-								//getting multiple selected item
-								$curriculum_list = explode(',',$getValues[0]['curriculum_id']);
-								//get multiple select box
-								$BLL_Obj->getSelectedMultipleItemList('curriculum_info','curriculum_id',$curriculum_list,'name');
-							?>
-                        </select>
-                    </div>
-                    <div class="form-group">
+	                    <label class="cs_form_label">Department</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="department" value="<?php echo $getValues[0]['department']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Street 1</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="street_1" value="<?php echo $getValues[0]['street_1']; ?>">
+	                </div>
+	                 <div class="form-group">
+	                    <label class="cs_form_label">Street 2</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="street_2" value="<?php echo $getValues[0]['street_2']; ?>">
+	                </div>
+                    <!-- <div class="form-group">
                         <label class="cs_form_label">Session</label>
                         <input type="text" class="form-control cs_form_textbox" name="session" value="<?php echo $getValues[0]['session']; ?>">
                     </div>
                     <div class="form-group">
                         <label class="cs_form_label">Joining Date</label>
                         <input type="text" class="form-control cs_form_textbox" name="joining_date" value="<?php echo $getValues[0]['joining_date']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label class="cs_form_label">Address Line 1</label>
-                        <input type="text" class="form-control cs_form_textbox" name="address_l_1" value="<?php echo $getValues[0]['address_l_1']; ?>">
-	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">Address Line 2</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="address_l_2" value="<?php echo $getValues[0]['address_l_2']; ?>">
-	                </div>
+                    </div> -->
 					<div class="form-group">
 		                <label class="cs_form_label">Country</label>
 		                <select id="country" class="form-control cs_form_textbox" name="country">
@@ -113,13 +130,41 @@
 	                    	?>
 	                    </select>
 	                </div>
+	                <!-- <div class="form-group">
+	                    <label class="cs_form_label">State/Province</label>
+	                    <select id="province" class="form-control cs_form_textbox" name="state" value="<?php echo $getValues[0]['state']; ?>">
+	                    </select>
+	                </div> -->
 	                <div class="form-group">
 	                    <label class="cs_form_label">City</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="city" value="<?php echo $getValues[0]['city']; ?>">
 	                </div>
 	                <div class="form-group">
-	                    <label class="cs_form_label">Postal Code</label>
+	                    <label class="cs_form_label">Zip/Postal Code</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="postal_code" value="<?php echo $getValues[0]['postal_code']; ?>">
+	                </div>
+		            <div class="form-group">
+	                    <label class="cs_form_label">Website</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="website" value="<?php echo $getValues[0]['website']; ?>">
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Home Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="home_phone" value="<?php echo $getValues[0]['home_phone']; ?>">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="work_phone" value="<?php echo $getValues[0]['work_phone']; ?>">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Work Fax</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="work_fax" value="<?php echo $getValues[0]['work_fax']; ?>">
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="cs_form_label">Cellular Phone</label>
+	                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone" value="<?php echo $getValues[0]['cellular_phone']; ?>">
 	                </div>
                     <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
                     <input type="hidden" name="op" value="stu_info" />

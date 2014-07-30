@@ -45,8 +45,8 @@
                                 <th>Institute</th>
                                 <th>Email Id</th>
                                 <th>DOB</th>
-                                <th>Joining Date</th>
-                                <th>Session</th>
+                                <th>Education Level</th>
+                                <th>Department</th>
                                 <th>Edit</th>
                                 <th>Status</th>
                             </tr>

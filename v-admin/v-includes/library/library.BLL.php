@@ -185,12 +185,12 @@
 						$btn = '<button class="btn btn-danger">Deactive</button>';
 					}
 					echo '<tr>
-							<td>'.$student['name'].'</td>
+							<td>'.$student['f_name'].' '.$student['m_name'].' '.$student['l_name'].'</td>
 							<td>'.$this->getInstituteName('institute_info','institute_id',$student['institute_id'],'name').'</td>
 							<td>'.$student['email'].'</td>
 							<td>'.$student['dob'].'</td>
-							<td>'.$student['joining_date'].'</td>
-							<td>'.$student['session'].'</td>
+							<td>'.$student['edu_level'].'</td>
+							<td>'.$student['department'].'</td>
 							<td><a href="edit-student.php?uid='.$student['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';

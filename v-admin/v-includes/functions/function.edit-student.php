@@ -10,13 +10,33 @@
 		case 'stu_info':
 		{
 			$user_id = $GLOBALS['_POST']['user_id'];
-			if(isset($_POST['name']) && !empty($_POST['name']))
+			if(isset($_POST['f_name']) && !empty($_POST['f_name']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','name',$_POST['name'],'user_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','f_name',$_POST['f_name'],'user_id',$user_id);
+			}
+			if(isset($_POST['m_name']) && !empty($_POST['m_name']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','m_name',$_POST['m_name'],'user_id',$user_id);
+			}
+			if(isset($_POST['l_name']) && !empty($_POST['l_name']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','l_name',$_POST['l_name'],'user_id',$user_id);
+			}
+			if(isset($_POST['suffix']) && !empty($_POST['suffix']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','suffix',$_POST['suffix'],'user_id',$user_id);
+			}
+			if(isset($_POST['o_name']) && !empty($_POST['o_name']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','o_name',$_POST['o_name'],'user_id',$user_id);
 			}
 			if(isset($_POST['email']) && !empty($_POST['email']))
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('students_info','email',$_POST['email'],'user_id',$user_id);
+			}
+			if(isset($_POST['student_id']) && !empty($_POST['student_id']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','student_id',$_POST['student_id'],'user_id',$user_id);
 			}
 			if(isset($_POST['institute']) && !empty($_POST['institute']))
 			{
@@ -26,46 +46,21 @@
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('students_info','dob',$_POST['dob'],'user_id',$user_id);
 			}
-			if(isset($_POST['sex']) && !empty($_POST['sex']))
+			if(isset($_POST['gender']) && !empty($_POST['gender']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','sex',$_POST['sex'],'user_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','gender',$_POST['gender'],'user_id',$user_id);
 			}
-			if(isset($_POST['mobile']) && !empty($_POST['mobile']))
+			if(isset($_POST['department']) && !empty($_POST['department']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','mobile',$_POST['mobile'],'user_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','department',$_POST['department'],'user_id',$user_id);
 			}
-			if(isset($_POST['curriculum']) && !empty($_POST['curriculum']))
+			if(isset($_POST['street_1']) && !empty($_POST['street_1']))
 			{
-				$curriculum = $_POST['curriculum'];
-				//initialize the variable
-				$curriculum_string = "" ;
-				
-				if( !empty($curriculum) )
-				{
-					foreach ($curriculum as $val)
-					{
-							$curriculum_string .= $val.",";
-					}
-					
-					$curriculum_string = substr($curriculum_string, 0, -1);
-				}
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','curriculum_id',$curriculum_string,'user_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','street_1',$_POST['street_1'],'user_id',$user_id);
 			}
-			if(isset($_POST['session']) && !empty($_POST['session']))
+			if(isset($_POST['street_2']) && !empty($_POST['street_2']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','session',$_POST['session'],'user_id',$user_id);
-			}
-			if(isset($_POST['joining_date']) && !empty($_POST['joining_date']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','joining_date',$_POST['joining_date'],'user_id',$user_id);
-			}
-			if(isset($_POST['address_l_1']) && !empty($_POST['address_l_1']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','address_l_1',$_POST['address_l_1'],'user_id',$user_id);
-			}
-			if(isset($_POST['address_l_2']) && !empty($_POST['address_l_2']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('students_info','address_l_2',$_POST['address_l_2'],'user_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','street_2',$_POST['street_2'],'user_id',$user_id);
 			}
 			if(isset($_POST['country']) && !empty($_POST['country']))
 			{
@@ -82,6 +77,26 @@
 			if(isset($_POST['postal_code']) && !empty($_POST['postal_code']))
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('students_info','postal_code',$_POST['postal_code'],'user_id',$user_id);
+			}
+			if(isset($_POST['website']) && !empty($_POST['website']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','website',$_POST['website'],'user_id',$user_id);
+			}
+			if(isset($_POST['home_phone']) && !empty($_POST['home_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','home_phone',$_POST['home_phone'],'user_id',$user_id);
+			}
+			if(isset($_POST['work_phone']) && !empty($_POST['work_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','work_phone',$_POST['work_phone'],'user_id',$user_id);
+			}
+			if(isset($_POST['work_fax']) && !empty($_POST['work_fax']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','work_fax',$_POST['work_fax'],'user_id',$user_id);
+			}
+			if(isset($_POST['cellular_phone']) && !empty($_POST['cellular_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('students_info','cellular_phone',$_POST['cellular_phone'],'user_id',$user_id);
 			}
 			break;
 		}
