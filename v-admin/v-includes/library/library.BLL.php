@@ -189,7 +189,7 @@
 							<td>'.$this->getInstituteName('institute_info','institute_id',$student['institute_id'],'name').'</td>
 							<td>'.$student['email'].'</td>
 							<td>'.$student['dob'].'</td>
-							<td>'.$student['edu_level'].'</td>
+							<td>'.$this->getInstituteName('student_status', 'id', $student['edu_level'], 'status_name').'</td>
 							<td>'.$student['department'].'</td>
 							<td><a href="edit-student.php?uid='.$student['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
