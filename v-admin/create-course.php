@@ -33,7 +33,7 @@
                     <input type="text" class="form-control cs_form_textbox" name="name">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Add Advisor</label>
+                    <label class="cs_form_label">Faculty Assigned</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
                     		//get the faculty from the BLL
@@ -41,7 +41,7 @@
 						?> 
                     </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="cs_form_label">Institution</label>
                     <select class="form-control cs_form_textbox" name="institute_id">
                     	<?php
@@ -57,11 +57,33 @@
                 <div class="form-group">
                     <label class="cs_form_label">Time Duration</label>
                     <input type="text" class="form-control cs_form_textbox" name="duration">
-                </div>
+                </div> -->
                 <div class="form-group">
-                    <label class="cs_form_label">Course Details</label>
+                    <label class="cs_form_label">Course Description</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
                 </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Annoucement Title</label>
+                    <input type="text" class="form-control cs_form_textbox" name="announcement_title">
+                </div>
+                <div class="form-group">
+	                    <label class="cs_form_label">Course Category</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    	?>
+	                    </select>
+	            </div>
+	            <div class="form-group">
+	                    <label class="cs_form_label">Availability</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    	?>
+	                    </select>
+	            </div>
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
             </form>
