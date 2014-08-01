@@ -14,6 +14,10 @@
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('course_info','name',$_POST['name'],'course_id',$user_id);
 			}
+			if(isset($_POST['course_no']) && !empty($_POST['course_no']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('course_info','course_no',$_POST['course_no'],'course_id',$user_id);
+			}
 			if(isset($_POST['advisor']) && !empty($_POST['advisor']))
 			{
 				$advisor = $_POST['advisor'];
@@ -31,21 +35,25 @@
 				}
 				$upd1 = $DAL_Obj->updateValueWhere('course_info','advisor',$advisor_string,'course_id',$user_id);
 			}
-			if(isset($_POST['institute']) && !empty($_POST['institute']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('course_info','institute_id',$_POST['institute'],'course_id',$user_id);
-			}
-			if(isset($_POST['session']) && !empty($_POST['session']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('course_info','session',$_POST['session'],'course_id',$user_id);
-			}
-			if(isset($_POST['duration']) && !empty($_POST['duration']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('course_info','hours',$_POST['duration'],'course_id',$user_id);
-			}
 			if(isset($_POST['details']) && !empty($_POST['details']))
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('course_info','detail',$_POST['details'],'course_id',$user_id);
+			}
+			if(isset($_POST['announcement_title']) && !empty($_POST['announcement_title']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('course_info','announcement_title',$_POST['announcement_title'],'course_id',$user_id);
+			}
+			if(isset($_POST['institute_id']) && !empty($_POST['institute_id']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('course_info','institute_id',$_POST['institute_id'],'course_id',$user_id);
+			}
+			if(isset($_POST['edu_level']) && !empty($_POST['edu_level']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('course_info','edu_level',$_POST['edu_level'],'course_id',$user_id);
+			}
+			if(isset($_POST['availability']) && !empty($_POST['availability']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('course_info','availability',$_POST['availability'],'course_id',$user_id);
 			}
 			break;
 		}

@@ -8,10 +8,12 @@
 	{
 		$name = $_POST['name'] ;
 		$advisor = $_POST['advisor'] ;
-		$session = $_POST['session'] ;
-		$duration = $_POST['duration'] ;
-		$details = $_POST['details'] ;
-		$institute_id = $_POST['institute_id'];
+		$institute_id = $_POST['institute'];
+		$detail = $_POST['details'] ;
+		$course_no = $_POST['course_no'] ;
+		$announcement_title = $_POST['announcement_title'] ;
+		$edu_level = $_POST['edu_level'] ;
+		$availability = $_POST['availability'] ;
 		
 		//as this is created by the admin
 		$created_user_id = 'admin';
@@ -33,7 +35,7 @@
 	//generate the course id
 	$course_id = "COU".uniqid();
 	
-	if( !empty($name) && !empty($advisor_str) && !empty($created_user_id) && !empty($duration) && !empty($duration)  )
+	if( !empty($name) && !empty($advisor_str) && !empty($created_user_id) )
 	{
 		$insert_course = array(
 						'table' => 'course_info' ,
@@ -42,17 +44,17 @@
 										'advisor' => $advisor_str ,
 										'institute_id' => $institute_id ,
 										'created_by' => $created_user_id ,
-										'created_on' => date('Y-m-d') ,
 										'name' => $name ,
-										'session' => $session ,
-										'hours' => $duration ,
-										'detail' => $details ,
+										'course_no' => $course_no ,
+										'detail' => $detail ,
+										'announcement_title' => $announcement_title ,
+										'edu_level' => $edu_level ,
+										'availability' => $availability ,
 										'course_status' => 1
 									)
 						);
 						
 		$return = $DAL_Obj->insertValue($insert_course);
-		
 		if( $return > 0 )
 		{
 			$result = "Course Id: ".$course_id."<br/>Course addedd successfully.";

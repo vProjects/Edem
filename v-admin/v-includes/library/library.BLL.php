@@ -100,6 +100,7 @@
 		 * Method to get the faculty
 		 * Generate the selectbox UI 
 		 * Auth Singh 
+		   * edited by thakur 31-07-2014
 		 */
 		 public function getFaculty_SelectBox()
 		 {
@@ -109,7 +110,7 @@
 			{
 				foreach ($faculties as $faculty)
 				{
-					echo '<option value="'.$faculty['user_id'].'">'.$faculty['name'].'</option>';
+					echo '<option value="'.$faculty['user_id'].'">'.$faculty['f_name'].$faculty['m_name'].$faculty['l_name'].'</option>';
 				}
 			}
 		 }
@@ -144,6 +145,23 @@
 				foreach ($statuses as $status)
 				{
 					echo '<option value="'.$status['id'].'">'.$status['status_name'].'</option>';
+				}
+			}
+		 }
+		 
+		 /*
+		 - Method to get the availability select box UI
+		 - Auth Thakur
+		 */
+		 public function getavailability_SelectBox()
+		 {
+			$availables = $this->_DAL_Obj->getValue('availability','*');
+			echo '<option value="0">Please select one</option>';
+			if( !empty($availables) )
+			{
+				foreach ($availables as $available)
+				{
+					echo '<option value="'.$available['id'].'">'.$available['availability_name'].'</option>';
 				}
 			}
 		 }
@@ -628,6 +646,30 @@
 					 else
 					 {
 						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get selected multiple item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedMultipleItemName($table_name,$selected_column_name,$selected_column_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value['f_name'].' '.$selected_value['m_name'].' '.$selected_value['l_name'].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value['f_name'].' '.$selected_value['m_name'].' '.$selected_value['l_name'].'</option>';
 					 }
 				 }
 			 }

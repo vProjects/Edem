@@ -29,8 +29,12 @@
         	<form role="form" action="v-includes/functions/function.create-course.php" method="post">
             	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
             	<div class="form-group">
-                    <label class="cs_form_label">Name</label>
+                    <label class="cs_form_label">Course Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Course Number</label>
+                    <input type="text" class="form-control cs_form_textbox" name="course_no">
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Faculty Assigned</label>
@@ -67,6 +71,15 @@
                     <input type="text" class="form-control cs_form_textbox" name="announcement_title">
                 </div>
                 <div class="form-group">
+                    <label class="cs_form_label">Institution</label>
+                    <select class="form-control cs_form_textbox" name="institute">
+                    	<?php
+                    		//get the institute from the BLL
+                    		$BLL_Obj->getInstitute_SelectBox();
+                    	?>
+                    </select>
+                </div>
+                <div class="form-group">
 	                    <label class="cs_form_label">Course Category</label>
 	                    <select class="form-control cs_form_textbox" name="edu_level">
 	                    	<?php
@@ -77,10 +90,10 @@
 	            </div>
 	            <div class="form-group">
 	                    <label class="cs_form_label">Availability</label>
-	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    <select class="form-control cs_form_textbox" name="availability">
 	                    	<?php
 	                    		//get the institute from the BLL
-	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    		$BLL_Obj->getavailability_SelectBox();
 	                    	?>
 	                    </select>
 	            </div>

@@ -24,10 +24,10 @@
 		}
 	?>
     <?php
-		//get faculty user id from get method
-		$user_id = $GLOBALS['_GET']['cid'];
+		//get the course id from query string
+		$course_id = $GLOBALS['_GET']['cid'];
 		//get values from bll
-		$getValues = $BLL_Obj->getUserInfo('course_info','course_id',$user_id);
+		$getValues = $BLL_Obj->getUserInfo('course_info','course_id',$course_id);
 	?>
     <!-- /.row -->
     <div class="row stu_adm_row">
@@ -35,19 +35,31 @@
         	<form role="form" action="v-includes/functions/function.edit-course.php" method="post">
             	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
             	<div class="form-group">
-                    <label class="cs_form_label">Name</label>
+                    <label class="cs_form_label">Course Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name" value="<?php echo $getValues[0]['name'] ?>">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Edit Advisor</label>
+                    <label class="cs_form_label">Course Number</label>
+                    <input type="text" class="form-control cs_form_textbox" name="course_no" value="<?php echo $getValues[0]['course_no'] ?>">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Faculty Assigned</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
-								//getting multiple selected item
-								$advisor_list = explode(',',$getValues[0]['advisor']);
-								//get multiple select box
-								$BLL_Obj->getSelectedMultipleItemList('faculty_info','user_id',$advisor_list,'name');
-							?>  
+							//getting multiple selected item
+							$advisor_list = explode('5',$getValues[0]['advisor']);
+							//get multiple select box
+							$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
+						?>  
                     </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Course Description</label>
+                    <textarea rows="4" class="form-control ae_form_textarea" name="details"><?php echo $getValues[0]['detail'] ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Annoucement Title</label>
+                    <input type="text" class="form-control cs_form_textbox" name="announcement_title" value="<?php echo $getValues[0]['announcement_title'] ?>">
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Institute</label>
@@ -59,18 +71,24 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Session</label>
-                    <input type="text" class="form-control cs_form_textbox" name="session" value="<?php echo $getValues[0]['session'] ?>">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Time Duration</label>
-                    <input type="text" class="form-control cs_form_textbox" name="duration" value="<?php echo $getValues[0]['hours'] ?>">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Course Details</label>
-                    <textarea rows="4" class="form-control ae_form_textarea" name="details"><?php echo $getValues[0]['detail'] ?></textarea>
-                </div>
-                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
+	                    <label class="cs_form_label">Course Category</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    	<?php
+	                    		//get the course category from the BLL
+	                    		$BLL_Obj->getSelectedItemList('student_status','id',$getValues[0]['edu_level'],'status_name');
+	                    	?>
+	                    </select>
+	            </div>
+	            <div class="form-group">
+	                    <label class="cs_form_label">Availability</label>
+	                    <select class="form-control cs_form_textbox" name="availability">
+	                    	<?php
+	                    		//get the availability from the BLL
+	                    		$BLL_Obj->getSelectedItemList('availability','id',$getValues[0]['availability'],'availability_name');
+	                    	?>
+	                    </select>
+	            </div>
+                <input type="hidden" name="user_id" value="<?php echo $course_id; ?>" />
                 <input type="hidden" name="op" value="cou_info" />
                 <button type="submit" class="btn btn-success btn-lg">Update Data</button>
             </form>
