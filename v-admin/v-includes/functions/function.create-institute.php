@@ -8,13 +8,19 @@
 	{
 		$name = $_POST['name'] ;
 		$email = $_POST['email'] ;
-		$mobile = $_POST['mobile'] ;
-		$address_l_1 = $_POST['address_l_1'] ;
-		$address_l_2 = $_POST['address_l_2'] ;
+		$street_1 = $_POST['street_1'] ;
+		$street_2 = $_POST['street_2'] ;
 		$city = $_POST['city'] ;
 		$state = $_POST['state'] ;
 		$country = $_POST['country'] ;
 		$postal_code = $_POST['postal_code'] ;
+		
+		//new fields added later
+		$website = $_POST['website'] ;
+		$home_phone = $_POST['home_phone'] ;
+		$work_phone = $_POST['work_phone'] ;
+		$work_fax = $_POST['work_fax'] ;
+		$cellular_phone = $_POST['cellular_phone'] ;
 		
 		//username and the password
 		$username = $_POST['username'];
@@ -50,7 +56,7 @@
 		}
 	} 
 	
-	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($institute_id) && ($username_insert_flg == 1))
+	if( !empty($name) && !empty($email) && !empty($institute_id) && ($username_insert_flg == 1))
 	{
 		$insert_institute = array(
 						'table' => 'institute_info' ,
@@ -58,13 +64,19 @@
 										'name' => $name ,
 										'institute_id' => $institute_id ,
 										'email' => $email ,
-										'address_l_1' => $address_l_1 ,
-										'address_l_2' => $address_l_2 ,
-										'mobile' => $mobile ,
+										'street_1' => $street_1 ,
+										'street_2' => $street_2 ,
 										'city' => $city ,
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
+										'website' => $website ,
+										'home_phone' => $home_phone ,
+										'work_phone' => $work_phone ,
+										'work_fax' => $work_fax ,
+										'home_phone' => $home_phone ,
+										'cellular_phone' => $cellular_phone ,
+										'status' => 1 ,
 										'institute_status' => 1
 									)
 						);

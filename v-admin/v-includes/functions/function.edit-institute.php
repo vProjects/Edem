@@ -18,17 +18,13 @@
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('institute_info','email',$_POST['email'],'institute_id',$user_id);
 			}
-			if(isset($_POST['mobile']) && !empty($_POST['mobile']))
+			if(isset($_POST['street_1']) && !empty($_POST['street_1']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('institute_info','mobile',$_POST['mobile'],'institute_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','street_1',$_POST['street_1'],'institute_id',$user_id);
 			}
-			if(isset($_POST['address_l_1']) && !empty($_POST['address_l_1']))
+			if(isset($_POST['street_2']) && !empty($_POST['street_2']))
 			{
-				$upd1 = $DAL_Obj->updateValueWhere('institute_info','address_l_1',$_POST['address_l_1'],'institute_id',$user_id);
-			}
-			if(isset($_POST['address_l_2']) && !empty($_POST['address_l_2']))
-			{
-				$upd1 = $DAL_Obj->updateValueWhere('institute_info','address_l_2',$_POST['address_l_2'],'institute_id',$user_id);
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','street_2',$_POST['street_2'],'institute_id',$user_id);
 			}
 			if(isset($_POST['country']) && !empty($_POST['country']))
 			{
@@ -45,6 +41,26 @@
 			if(isset($_POST['postal_code']) && !empty($_POST['postal_code']))
 			{
 				$upd1 = $DAL_Obj->updateValueWhere('institute_info','postal_code',$_POST['postal_code'],'institute_id',$user_id);
+			}
+			if(isset($_POST['website']) && !empty($_POST['website']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','website',$_POST['website'],'institute_id',$user_id);
+			}
+			if(isset($_POST['home_phone']) && !empty($_POST['home_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','home_phone',$_POST['home_phone'],'institute_id',$user_id);
+			}
+			if(isset($_POST['work_phone']) && !empty($_POST['work_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','work_phone',$_POST['work_phone'],'institute_id',$user_id);
+			}
+			if(isset($_POST['work_fax']) && !empty($_POST['work_fax']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','work_fax',$_POST['work_fax'],'institute_id',$user_id);
+			}
+			if(isset($_POST['cellular_phone']) && !empty($_POST['cellular_phone']))
+			{
+				$upd1 = $DAL_Obj->updateValueWhere('institute_info','cellular_phone',$_POST['cellular_phone'],'institute_id',$user_id);
 			}
 			break;
 		}
