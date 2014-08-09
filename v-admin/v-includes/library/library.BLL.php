@@ -230,7 +230,7 @@
 				foreach ($facultys as $faculty)
 				{
 					//getting faculty status
-					if($faculty['teachers_status'] == 1)
+					if($faculty['faculty_status'] == 1)
 					{
 						$btn = '<button class="btn btn-success">Active</button>';
 					}
@@ -239,12 +239,12 @@
 						$btn = '<button class="btn btn-danger">Deactive</button>';
 					}
 					echo '<tr>
-							<td>'.$faculty['name'].'</td>
+							<td>'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</td>
 							<td>'.$this->getInstituteName('institute_info','institute_id',$faculty['institute_id'],'name').'</td>
 							<td>'.$faculty['email'].'</td>
 							<td>'.$faculty['dob'].'</td>
-							<td>'.$faculty['course'].'</td>
-							<td>'.$faculty['division'].'</td>
+							<td>'.$this->getInstituteName('student_status', 'id', $faculty['edu_level'], 'status_name').'</td>
+							<td>'.$faculty['department'].'</td>
 							<td><a href="edit-faculty.php?uid='.$faculty['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
@@ -266,7 +266,7 @@
 				foreach ($chairpersons as $chairperson)
 				{
 					//getting chairperson status
-					if($chairperson['chairman_status'] == 1)
+					if($chairperson['chairperson_status'] == 1)
 					{
 						$btn = '<button class="btn btn-success">Active</button>';
 					}
@@ -275,12 +275,12 @@
 						$btn = '<button class="btn btn-danger">Deactive</button>';
 					}
 					echo '<tr>
-							<td>'.$chairperson['name'].'</td>
+							<td>'.$chairperson['f_name'].' '.$chairperson['m_name'].' '.$chairperson['l_name'].'</td>
 							<td>'.$this->getInstituteName('institute_info','institute_id',$chairperson['institute_id'],'name').'</td>
 							<td>'.$chairperson['email'].'</td>
 							<td>'.$chairperson['dob'].'</td>
-							<td>'.$chairperson['course'].'</td>
-							<td>'.$chairperson['division'].'</td>
+							<td>'.$this->getInstituteName('student_status', 'id', $chairperson['edu_level'], 'status_name').'</td>
+							<td>'.$chairperson['department'].'</td>
 							<td><a href="edit-chairperson.php?uid='.$chairperson['user_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
@@ -315,8 +315,8 @@
 							<td>'.$this->getInstituteName('institute_info','institute_id',$course['institute_id'],'name').'</td>
 							<td>'.$course['created_by'].'</td>
 							<td>'.$course['created_on'].'</td>
-							<td>'.$course['session'].'</td>
-							<td>'.$course['hours'].'</td>
+							<td>'.$this->getInstituteName('student_status', 'id', $course['edu_level'], 'status_name').'</td>
+							<td>'.$this->getInstituteName('availability', 'id', $course['availability'], 'availability_name').'</td>
 							<td><a href="edit-course.php?cid='.$course['course_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';
@@ -411,7 +411,9 @@
 							<td>'.$institute['name'].'</td>
 							<td>'.$institute['email'].'</td>
 							<td>'.$institute['institute_type'].'</td>
-							<td>'.$institute['mobile'].'</td>
+							<td>'.$institute['city'].'</td>
+							<td>'.$this->getInstituteName('zone','id',$institute['state'],'name').'</td>
+							<td>'.$this->getInstituteName('country','id',$institute['country'],'name').'</td>
 							<td><a href="edit-institute.php?uid='.$institute['institute_id'].'"><button class="btn btn-info">Edit</button></a></td>
 							<td>'.$btn.'</td>
 						</tr>';

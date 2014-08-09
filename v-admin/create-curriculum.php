@@ -33,30 +33,24 @@
                     <input type="text" class="form-control cs_form_textbox" name="name">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Add Courses</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
-                    	<?php
-                    		//get the courses from the BLL
-                    		$BLL_Obj->getCourse_SelectBox();
-						?>                    	
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Add Advisor</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<?php
-                    		//get the faculty from the BLL
-                    		$BLL_Obj->getFaculty_SelectBox();
-						?> 
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="cs_form_label">Institution</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
+                    <select class="form-control cs_form_textbox" name="institute_id" id="course_inst">
                     	<?php
                     		//get the institute from the BLL
                     		$BLL_Obj->getInstitute_SelectBox();
                     	?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Add Advisor</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="course_adv">
+                    	 
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Add Courses</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]" id="curri_course">
+                    	                    	
                     </select>
                 </div>
                 <div class="form-group">
@@ -68,7 +62,7 @@
                     <input type="text" class="form-control cs_form_textbox" name="duration">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Course Details</label>
+                    <label class="cs_form_label">Curriculum Details</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>

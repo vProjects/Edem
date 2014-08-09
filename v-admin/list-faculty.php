@@ -45,8 +45,8 @@
                                 <th>Institute</th>
                                 <th>Email Id</th>
                                 <th>DOB</th>
-                                <th>Course</th>
-                                <th>Division</th>
+                                <th>Education Level</th>
+                                <th>Department</th>
                                 <th>Edit</th>
                                 <th>Status</th>
                             </tr>

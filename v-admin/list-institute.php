@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Institute List</h1>
-                <h4 class="cs_page_info">You can see list data about chair institute</h4>
+                <h4 class="cs_page_info">You can see list data about institute</h4>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -44,7 +44,9 @@
                             	<th>Name</th>
                                 <th>Email Id</th>
                                 <th>Type</th>
-                                <th>Mobile</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Country</th>
                                 <th>Edit</th>
                                 <th>Status</th>
                             </tr>

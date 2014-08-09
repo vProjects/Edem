@@ -45,8 +45,8 @@
                                 <th>Institute</th>
                                 <th>Created By</th>
                                 <th>Created On</th>
-                                <th>Session</th>
-                                <th>Hours</th>
+                                <th>Course Category</th>
+                                <th>Availability</th>
                                 <th>Edit</th>
                                 <th>Status</th>
                             </tr>

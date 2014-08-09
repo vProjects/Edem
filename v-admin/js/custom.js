@@ -270,4 +270,53 @@ $(document).ready(function(e) {
 				return false;
 		}});
 	});
+	
+	//getting faculty list from selection of institute
+	$(document).on('click', '#course_inst', function () { 
+		//getting institute value
+		var inst = $(this).val();
+		if(inst != -1)
+		{
+			sendingData = 'inst_id='+inst+'&refData=facListFromInst';
+			$.ajax({
+				type: "POST",
+				url:"v-includes/library/class.fetchData.php",
+				data: sendingData,
+				beforeSend:function(){
+					// this is where we append a loading image
+					$('').html('');
+				  },
+				success:function(result){
+					//console.log(result);
+					$('#course_adv').html(result);
+					return false;
+			}});
+		}
+	});
+	
+	//getting course list from selection of institute
+	$(document).on('click', '#course_inst', function () { 
+		//getting institute value
+		var inst = $(this).val();
+		if(inst != -1)
+		{
+			sendingData = 'inst_id='+inst+'&refData=courseListFromInst';
+			$.ajax({
+				type: "POST",
+				url:"v-includes/library/class.fetchData.php",
+				data: sendingData,
+				beforeSend:function(){
+					// this is where we append a loading image
+					$('').html('');
+				  },
+				success:function(result){
+					//console.log(result);
+					$('#curri_course').html(result);
+					return false;
+			}});
+		}
+	});
+	
+	
+	
 });

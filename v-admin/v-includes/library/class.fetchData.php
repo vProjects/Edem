@@ -56,12 +56,12 @@
 		function getFacultyListFromInst($userData)
 		{
 			//get values from database
-			$facList = $this->manageContent->getValueMultipleCondtn('faculty_info','*',array('institute_id','teachers_status'),array($userData['inst_id'],1));
+			$facList = $this->manageContent->getValueMultipleCondtn('faculty_info','*',array('institute_id','faculty_status'),array($userData['inst_id'],1));
 			if(!empty($facList[0]))
 			{
 				foreach($facList as $fac)
 				{
-					echo '<option value="'.$fac['user_id'].'">'.$fac['name'].'</option>';
+					echo '<option value="'.$fac['user_id'].'">'.$fac['f_name'].' '.$fac['m_name'].' '.$fac['l_name'].'</option>';
 				}
 			}
 		}
@@ -191,6 +191,24 @@
 				foreach($chairs as $chair)
 				{
 					echo '<option value="'.$chair['room_name'].'">'.$chair['room_name'].'</option>';
+				}
+			}
+		}
+		
+		/*
+		- method for getting course list from institute id
+		- Auth: Dipanjan
+		*/
+		function getCourseListFromInst($userData)
+		{
+			//get values from database
+			$courses = $this->manageContent->getValueMultipleCondtn('course_info','*',array('institute_id'),array($userData['inst_id']));
+			if(!empty($courses[0]))
+			{
+				//echo '<option value="-1">--  Select An Option --</option>';
+				foreach($courses as $course)
+				{
+					echo '<option value="'.$course['course_id'].'">'.$course['name'].'</option>';
 				}
 			}
 		}
@@ -340,6 +358,18 @@
 		case 'removeGroupList':
 		{
 			$removeSelectedGroupList = $fetchData->removeSelectedGroupList($GLOBALS['_POST']);
+			break;
+		}
+		//getting faculty list from institute
+		case 'facListFromInst':
+		{
+			$getFacListFromInst = $fetchData->getFacultyListFromInst($GLOBALS['_POST']);
+			break;
+		}
+		//getting course list from institute
+		case 'courseListFromInst':
+		{
+			$getCourseListFromInst = $fetchData->getCourseListFromInst($GLOBALS['_POST']);
 			break;
 		}
 		default:

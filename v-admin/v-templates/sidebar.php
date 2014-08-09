@@ -16,9 +16,6 @@
                 <a href="admin.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="inst_dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Institute Dashboard</a>
-            </li>
-            <li>
                 <a href="#"><i class="fa fa-edit fa-fw"></i> Event<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>

@@ -44,6 +44,7 @@
 										'advisor' => $advisor_str ,
 										'institute_id' => $institute_id ,
 										'created_by' => $created_user_id ,
+										'created_on' => date('Y-m-d') ,
 										'name' => $name ,
 										'course_no' => $course_no ,
 										'detail' => $detail ,

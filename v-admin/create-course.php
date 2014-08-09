@@ -37,17 +37,8 @@
                     <input type="text" class="form-control cs_form_textbox" name="course_no">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Faculty Assigned</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<?php
-                    		//get the faculty from the BLL
-                    		$BLL_Obj->getFaculty_SelectBox();
-						?> 
-                    </select>
-                </div>
-                <!-- <div class="form-group">
                     <label class="cs_form_label">Institution</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
+                    <select class="form-control cs_form_textbox" name="institute" id="course_inst">
                     	<?php
                     		//get the institute from the BLL
                     		$BLL_Obj->getInstitute_SelectBox();
@@ -55,13 +46,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Session</label>
-                    <input type="text" class="form-control cs_form_textbox" name="session">
+                    <label class="cs_form_label">Faculty Assigned</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="course_adv">
+                    	
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Time Duration</label>
-                    <input type="text" class="form-control cs_form_textbox" name="duration">
-                </div> -->
                 <div class="form-group">
                     <label class="cs_form_label">Course Description</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
@@ -69,15 +58,6 @@
                 <div class="form-group">
                     <label class="cs_form_label">Annoucement Title</label>
                     <input type="text" class="form-control cs_form_textbox" name="announcement_title">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Institution</label>
-                    <select class="form-control cs_form_textbox" name="institute">
-                    	<?php
-                    		//get the institute from the BLL
-                    		$BLL_Obj->getInstitute_SelectBox();
-                    	?>
-                    </select>
                 </div>
                 <div class="form-group">
 	                    <label class="cs_form_label">Course Category</label>
