@@ -18,38 +18,6 @@
 		}
 		
 		/*
-		- method for getting session list from Institute id
-		- Auth: Dipanjan
-		*/
-		function getSessionListFromInst($userData)
-		{
-			//get values from database
-			$stuList = $this->manageContent->getValueMultipleCondtn('students_info','*',array('institute_id','status'),array($userData['inst_id'],1));
-			if(!empty($stuList[0]))
-			{
-				//initiate an array to store session value
-				$sessionList = array();
-				echo '<option value="-1">-- Select Session --</option>';
-				foreach($stuList as $stu)
-				{
-					if(!in_array($stu['session'],$sessionList))
-					{
-						array_push($sessionList,$stu['session']);
-					}
-				}
-				//showing option value from array
-				foreach($sessionList as $key=>$value)
-				{
-					echo '<option value="'.$value.'">'.$value.'</option>';
-				}
-			}
-			else
-			{
-				echo '<option>No Student Found</option>';
-			}
-		}
-		
-		/*
 		- method for getting faculty list from Institute id
 		- Auth: Dipanjan
 		*/
@@ -294,12 +262,6 @@
 	//applying switch case
 	switch($GLOBALS['_POST']['refData'])
 	{
-		//for session list from Institute id
-		case 'sessionListFromInstitute':
-		{
-			$sessionList = $fetchData->getSessionListFromInst($GLOBALS['_POST']);
-			break;
-		}
 		//for faculty list from Institute id
 		case 'facultyListFromInstitute':
 		{

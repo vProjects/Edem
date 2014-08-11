@@ -20,28 +20,6 @@ $(document).ready(function(e) {
 		var inst = $(this).val();
 		if(inst != -1)
 		{
-			sendingData = 'inst_id='+inst+'&refData=sessionListFromInstitute';
-			$.ajax({
-				type: "POST",
-				url:"v-includes/library/class.fetchData.php",
-				data: sendingData,
-				beforeSend:function(){
-					// this is where we append a loading image
-					$('').html('');
-				  },
-				success:function(result){
-					//console.log(result);
-					$('#group_session').html(result);
-					return false;
-			}});
-		}
-	});
-	
-	//getting session list from institute 
-	$(document).on('change', '#group_inst', function() { 
-		var inst = $(this).val();
-		if(inst != -1)
-		{
 			sendingData = 'inst_id='+inst+'&refData=facultyListFromInstitute';
 			$.ajax({
 				type: "POST",

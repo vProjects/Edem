@@ -43,11 +43,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Select Session</label>
-                    <select class="form-control cs_form_textbox" name="session" id="group_session">
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="cs_form_label">Faculty</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="group_fac">	
                     </select>
