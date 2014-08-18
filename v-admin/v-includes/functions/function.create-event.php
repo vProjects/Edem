@@ -49,7 +49,7 @@
 										'faculty_id' => $faculty_str ,
 										'duration' => $_POST['duration'] ,
 										'created_by' => 'admin' ,
-										'created_on' => date('Y-m-d') ,
+										'created_on' => date('Y-m-d h-i-s') ,
 										'event_status' => 1 
 									)
 						);

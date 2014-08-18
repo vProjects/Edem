@@ -3,11 +3,17 @@
 	//include the template files
 	include 'v-templates/header.php';
 	include 'v-templates/sidebar.php';
+
+	//get faculty user id from get method
+	$user_id = $GLOBALS['_GET']['uid'];
+	//get values from bll
+	$getValues = $BLL_Obj->getUserInfo('institute_info','institute_id',$user_id);
 ?>
 <div id="page-wrapper">
+<?php if(!empty($getValues)){ ?>
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Institute</h1>
+            <h1 class="page-header">Edit Institute(ID: #<?php echo $getValues[0]['institute_id'] ?>)</h1>
             <h4 class="cs_page_info">You can edit data about institute.</h4>
         </div>
         <!-- /.col-lg-12 -->
@@ -24,12 +30,6 @@
 			echo '</div>';
 			unset( $_SESSION['result'] );
 		}
-	?>
-    <?php
-		//get faculty user id from get method
-		$user_id = $GLOBALS['_GET']['uid'];
-		//get values from bll
-		$getValues = $BLL_Obj->getUserInfo('institute_info','institute_id',$user_id);
 	?>
 	
     <div class="row stu_adm_row">
@@ -143,8 +143,12 @@
         <!-- /.col-lg-6 -->
     </div>
     <!-- /.row -->
+<?php
+	} //end if 
+?>
 </div>
 <!-- /#page-wrapper -->
+
 <?php
 	//footer
 	include 'v-templates/footer.php';

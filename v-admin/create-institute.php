@@ -51,57 +51,57 @@
                     <input type="password" class="form-control cs_form_textbox" name="r_password">
                 </div>
                 <div class="form-group">
-	                    <label class="cs_form_label">Street 1</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="street_1">
-	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">Street 2</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="street_2">
-	                </div>
-					<div class="form-group">
-		                <label class="cs_form_label">Country</label>
-		                <select id="country" class="form-control cs_form_textbox" name="country">
-		                    <?php
-		                    	$BLL_Obj->getGeoSelectBox('country',"null");
-		                    ?>
-		                </select>
-		            </div>
-		            <div class="form-group">
-	                    <label class="cs_form_label">State/Province</label>
-	                    <select id="province" class="form-control cs_form_textbox" name="state">
-	                    </select>
-	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">City</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="city">
-	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">Zip/Postal Code</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="postal_code">
-	                </div>
-		            <div class="form-group">
-	                    <label class="cs_form_label">Website</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="website">
-	                </div>
-	                <div class="form-group">
-	                    <label class="cs_form_label">Home Phone</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="home_phone">
-	                </div>
-	                
-	                <div class="form-group">
-	                    <label class="cs_form_label">Work Phone</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="work_phone">
-	                </div>
-	                
-	                <div class="form-group">
-	                    <label class="cs_form_label">Work Fax</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="work_fax">
-	                </div>
-	                
-	                <div class="form-group">
-	                    <label class="cs_form_label">Cellular Phone</label>
-	                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone">
-	                </div>
+                    <label class="cs_form_label">Street 1</label>
+                    <input type="text" class="form-control cs_form_textbox" name="street_1">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Street 2</label>
+                    <input type="text" class="form-control cs_form_textbox" name="street_2">
+                </div>
+				<div class="form-group">
+	                <label class="cs_form_label">Country</label>
+	                <select id="country" class="form-control cs_form_textbox" name="country">
+	                    <?php
+	                    	$BLL_Obj->getGeoSelectBox('country',"null");
+	                    ?>
+	                </select>
+	            </div>
+	            <div class="form-group">
+                    <label class="cs_form_label">State/Province</label>
+                    <select id="province" class="form-control cs_form_textbox" name="state">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">City</label>
+                    <input type="text" class="form-control cs_form_textbox" name="city">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Zip/Postal Code</label>
+                    <input type="text" class="form-control cs_form_textbox" name="postal_code">
+                </div>
+	            <div class="form-group">
+                    <label class="cs_form_label">Website</label>
+                    <input type="text" class="form-control cs_form_textbox" name="website">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Home Phone</label>
+                    <input type="text" class="form-control cs_form_textbox" name="home_phone">
+                </div>
+                
+                <div class="form-group">
+                    <label class="cs_form_label">Work Phone</label>
+                    <input type="text" class="form-control cs_form_textbox" name="work_phone">
+                </div>
+                
+                <div class="form-group">
+                    <label class="cs_form_label">Work Fax</label>
+                    <input type="text" class="form-control cs_form_textbox" name="work_fax">
+                </div>
+                
+                <div class="form-group">
+                    <label class="cs_form_label">Cellular Phone</label>
+                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone">
+                </div>
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
             </form>

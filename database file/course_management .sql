@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2014 at 12:43 PM
+-- Generation Time: Aug 01, 2014 at 04:08 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `galacrik_edem`
+-- Database: `course_management`
 --
 
 -- --------------------------------------------------------
@@ -525,38 +525,32 @@ CREATE TABLE IF NOT EXISTS `institute_info` (
   `institute_id` varchar(500) NOT NULL,
   `email` varchar(300) NOT NULL,
   `institute_type` varchar(500) NOT NULL,
-  `institute_status` int(11) NOT NULL,
-  `street_1` varchar(500) NOT NULL,
-  `street_2` varchar(500) NOT NULL,
+  `address_l_1` varchar(500) NOT NULL,
+  `address_l_2` varchar(500) NOT NULL,
+  `mobile` varchar(500) NOT NULL,
   `city` varchar(500) NOT NULL,
   `state` varchar(500) NOT NULL,
   `country` varchar(500) NOT NULL,
-  `postal_code` varchar(500) NOT NULL,
-  `website` varchar(500) NOT NULL,
-  `home_phone` varchar(500) NOT NULL,
-  `work_phone` varchar(500) NOT NULL,
-  `work_fax` varchar(500) NOT NULL,
-  `cellular_phone` varchar(500) NOT NULL,
-  `status` int(11) NOT NULL,
+  `postal_code` varchar(200) NOT NULL,
+  `institute_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `institute_info`
 --
 
-INSERT INTO `institute_info` (`id`, `name`, `institute_id`, `email`, `institute_type`, `institute_status`, `street_1`, `street_2`, `city`, `state`, `country`, `postal_code`, `website`, `home_phone`, `work_phone`, `work_fax`, `cellular_phone`, `status`) VALUES
-(4, 'NI', 'INS539f1ac5a08d3', 'nit@nit.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(5, 'NI', 'INS539f1ad3113c6', 'nit@nit.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(6, 'NIqqq', 'INS539f1af709988', 'nit@nit.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(7, 'prod420', 'INS539f1b7ab50b0', 'anand.singh989@gmail.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(8, 'prod420', 'INS539f226d39157', 'anand.s89@gmail.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(9, 'prod420', 'INS539f481c96c13', 'anand.s89@gmail.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(10, 'asdf', 'INS539f4a68efde8', 'asdf', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(11, 'asdfsdafs', 'INS539f4abf3f572', 'asdfsa', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(12, 'test institute', 'INS53a31275dbafc', 'anand.singh989@gmail.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(13, 'Edem''s Institute', 'INS53a5869e3e469', 'aaa@aa.com', '', 1, '', '', '', '', '', '', '', '', '0', '', '', 0),
-(14, 'helliiiiiiiiiiiiiiiiiiiiiiiiiii', 'INS53db864177664', 'helllolologfffffffffff', '', 1, 'helldsfa', 'hello', 'hellfads', '320', '18', 'hell5555', 'hell6666', 'hell6666555', 'hell000', '11111', '2222', 1);
+INSERT INTO `institute_info` (`id`, `name`, `institute_id`, `email`, `institute_type`, `address_l_1`, `address_l_2`, `mobile`, `city`, `state`, `country`, `postal_code`, `institute_status`) VALUES
+(4, 'NI', 'INS539f1ac5a08d3', 'nit@nit.com', '', 'qaedfasd', 'asdfsad', '123456', 'Kolkata', '', '', '700115', 1),
+(5, 'NI', 'INS539f1ad3113c6', 'nit@nit.com', '', 'qaedfasd', 'asdfsad', '123456', 'Kolkata', '', '', '700115', 1),
+(6, 'NIqqq', 'INS539f1af709988', 'nit@nit.com', '', 'qaedfasd', 'asdfsad', '123456', 'Kolkata', '', '', '700115', 1),
+(7, 'prod420', 'INS539f1b7ab50b0', 'anand.singh989@gmail.com', '', 'asdf', 'afsdf', 'asdf', 'Kolkata', '1506', '99', 'asdfsad', 1),
+(8, 'prod420', 'INS539f226d39157', 'anand.s89@gmail.com', '', 'adfsa', 'asdfsad', '1235654156', 'sdf', '326', '19', 'sdfas', 1),
+(9, 'prod420', 'INS539f481c96c13', 'anand.s89@gmail.com', '', 'adfsa', 'asdfsad', '1235654156', 'sdf', '326', '19', 'sdfas', 1),
+(10, 'asdf', 'INS539f4a68efde8', 'asdf', '', 'asdf', 'asdf', 'asdf', 'asdf', '122', '5', 'asdf', 1),
+(11, 'asdfsdafs', 'INS539f4abf3f572', 'asdfsa', '', 'asdf', 'sadf', 'asdf', 'asdf', '191', '13', 'asdf', 1),
+(12, 'test institute', 'INS53a31275dbafc', 'anand.singh989@gmail.com', '', 'qaedfasdsd', 'asdfasd;fo sdpfps', '9885554', 'Kolkata', '3611', '223', '700115', 1),
+(13, 'Edem''s Institute', 'INS53a5869e3e469', 'aaa@aa.com', '', 'qaedfasd', 'afsdf', '123456', 'xyz', '3624', '223', '70015', 1);
 
 -- --------------------------------------------------------
 
@@ -743,7 +737,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(500) NOT NULL,
   `user_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `users`
@@ -765,9 +759,7 @@ INSERT INTO `users` (`id`, `username`, `user_id`, `password`, `date`, `user_type
 (41, 'fasdsdfajkhlsfjdafhjklhlj@JHkdflshajjjjjjjjj', 'STU53d65a79a84c8', '147', '2014-07-28', 'student', 1),
 (42, 'fasdsdfajkhlsfjdafhjklhlj@JHkdflshajjjjjjjjj', 'FAC53d65ace4e18c', '123123', '2014-07-28', 'student', 1),
 (43, 'sdafsdffasd', 'CHR53d7bd9e1b926', '0123', '2014-07-29', 'chairperson', 1),
-(44, 'dfahdfsjkhjkshkjh', 'FAC53d8f44ee7872', '159159', '2014-07-30', 'student', 1),
-(45, 'hello', 'INS53db84a47133c', 'hello', '2014-08-01', 'institute', 1),
-(46, 'hell', 'INS53db864177664', 'hell', '2014-08-01', 'institute', 1);
+(44, 'dfahdfsjkhjkshkjh', 'FAC53d8f44ee7872', '159159', '2014-07-30', 'student', 1);
 
 -- --------------------------------------------------------
 

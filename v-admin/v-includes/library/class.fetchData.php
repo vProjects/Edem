@@ -41,12 +41,12 @@
 		function getStudentList($userData)
 		{
 			//get values from database
-			$stuList = $this->manageContent->getValueMultipleCondtn('students_info','*',array('institute_id','session','status'),array($userData['institute'],$userData['session'],1));
+			$stuList = $this->manageContent->getValueMultipleCondtn('students_info','*',array('institute_id','status'),array($userData['institute'],1));
 			if(!empty($stuList[0]))
 			{
 				foreach($stuList as $stu)
 				{
-					echo '<option value="'.$stu['user_id'].'">'.$stu['name'].'</option>';
+					echo '<option value="'.$stu['user_id'].'">'.$stu['f_name'].' '.$stu['m_name'].' '.$stu['l_name'].'</option>';
 				}
 			}
 			else
@@ -74,7 +74,7 @@
 					$stuInfo = $this->manageContent->getValueWhere('students_info','*','user_id',$value);
 					if(!empty($stuInfo[0]))
 					{
-						echo '<option value="'.$value.'" selected="selected">'.$stuInfo[0]['name'].'</option>';
+						echo '<option value="'.$value.'" selected="selected">'.$stuInfo[0]['f_name']." ".$stuInfo[0]['m_name']." ".$stuInfo[0]['l_name'].'</option>';
 					}
 				}
 			}
@@ -118,12 +118,12 @@
 		function getChairpersonListFromInstitute($userData)
 		{
 			//get values from database
-			$chairs = $this->manageContent->getValueMultipleCondtn('chairperson_info','*',array('institute_id','chairman_status'),array($userData['institute'],1));
+			$chairs = $this->manageContent->getValueMultipleCondtn('chairperson_info','*',array('institute_id','chairperson_status'),array($userData['institute'],1));
 			if(!empty($chairs[0]))
 			{
 				foreach($chairs as $chair)
 				{
-					echo '<option value="'.$chair['user_id'].'">'.$chair['name'].'</option>';
+					echo '<option value="'.$chair['user_id'].'">'.$chair['f_name']." ".$chair['m_name']." ".$chair['l_name'].'</option>';
 				}
 			}
 		}
@@ -135,12 +135,12 @@
 		function getFacultyListFromInstitute($userData)
 		{
 			//get values from database
-			$chairs = $this->manageContent->getValueMultipleCondtn('faculty_info','*',array('institute_id','teachers_status'),array($userData['institute'],1));
+			$chairs = $this->manageContent->getValueMultipleCondtn('faculty_info','*',array('institute_id','faculty_status'),array($userData['institute'],1));
 			if(!empty($chairs[0]))
 			{
 				foreach($chairs as $chair)
 				{
-					echo '<option value="'.$chair['user_id'].'">'.$chair['name'].'</option>';
+					echo '<option value="'.$chair['user_id'].'">'.$chair['f_name']." ".$chair['m_name']." ".$chair['l_name'].'</option>';
 				}
 			}
 		}
@@ -187,6 +187,7 @@
 		*/
 		function getGroupListFromInstitute($userData)
 		{
+			print_r($userData);
 			//get values from database
 			$chairs = $this->manageContent->getValueMultipleCondtn('group_info','*',array('institute_id','group_status'),array($userData['institute'],1));
 			if(!empty($chairs[0]))

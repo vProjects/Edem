@@ -511,7 +511,7 @@
 							echo '<td>';
 							foreach($advisors as $key1=>$value1)
 							{
-								echo ($key1+1).') '.$this->getInstituteName('faculty_info','user_id',$value1,'name').'<br>';
+								echo ($key1+1).') '.$this->getInstituteName('faculty_info','user_id',$value1,'f_name').'<br>';
 							}
 							echo '</td>';
 						}

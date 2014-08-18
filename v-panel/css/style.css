@@ -331,6 +331,7 @@ table.dataTable thead .sorting:after {
 	color: #36538c;
 	padding: 8px 15px;
 	margin: 17px 0px 10px 0;
+	text-transform: uppercase;
 }
 .panel-default>.panel-heading {
 	background-color: #FF8C00;

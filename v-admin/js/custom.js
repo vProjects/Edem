@@ -37,6 +37,28 @@ $(document).ready(function(e) {
 		}
 	});
 	
+	//getting session list from institute 
+	$(document).on('change', '#group_inst', function() { 
+		var inst = $(this).val();
+		if(inst != -1)
+		{
+			sendingData = 'institute='+inst+'&refData=studentList';
+			$.ajax({
+				type: "POST",
+				url:"v-includes/library/class.fetchData.php",
+				data: sendingData,
+				beforeSend:function(){
+					// this is where we append a loading image
+					$('').html('');
+				  },
+				success:function(result){
+					//console.log(result);
+					$('#grp_student').html(result);
+					return false;
+			}});
+		}
+	});
+	
 	//getting student list from institute and session
 	$(document).on('change', '#group_session', function() { 
 		var session = $(this).val();

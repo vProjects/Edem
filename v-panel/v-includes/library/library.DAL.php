@@ -50,6 +50,26 @@
 			}
 		}
 		
+		function getValue_wildcard($table_name,$value,$row_value,$value_entered)
+		{
+			try{
+				$query = $this->link->prepare("SELECT $value from $table_name where $row_value like '%$value_entered%'");
+				$query->execute();
+				$rowcount = $query->rowCount();
+				if($rowcount > 0){
+					$result = $query->fetchAll(PDO::FETCH_ASSOC);
+					return $result;
+				}
+				else{
+					return $rowcount;
+				}
+			}
+			catch(Exception $e)
+			{
+				throw "Result Not Found";
+			}
+		}
+		
 		function insertValue($insert_ar)
 		{
 			$table_name = $insert_ar['table'];

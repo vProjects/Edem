@@ -151,5 +151,101 @@
 			$room = $this->_DAL_Obj->getValueWhere('rooms','*','id',$id);
 			return $room[0]['room_name'];
 		}
+		
+		/*
+		 - Method for getting event-list
+		 - @param user_id
+		 - @return json
+		 - Auth Singh 
+		 */
+		function getEventJson($user_id,$type)
+		{
+			//initialize the variables
+			$returnJson = "";
+			$rowName = "";
+			$rowValue = "";
+			
+			//get the result according to the type
+			if( $type == "institute")
+			{
+				$rowName = "institute_id";
+				$rowValue = $user_id ;
+			}
+			if( $type == "chairperson")
+			{
+				$rowName = "chairperson_id";
+				$rowValue = $user_id ;
+			}
+			if( $type == "faculty")
+			{
+				$rowName = "faculty_id";
+				$rowValue = $user_id ;
+			}
+			if( $type == "student")
+			{
+				//get the groups of the student
+				$studentGroups = $this->_DAL_Obj->getValue_wildcard('group_info','group_id',"students",'%'.$user_id.'%');
+				
+				$i = 0;
+				
+				foreach( $studentGroups as $group )
+				{
+					$rowValue[$i] = $group['group_id'] ;
+					$i++ ;
+				}
+				$rowName = "group_id";
+			}
+			
+			if( !empty($rowValue) && !empty($rowName) )
+			{
+				//get the value from the database
+				if(is_array($rowValue))
+				{
+					$result = array() ;
+					$i = 0;
+					foreach ($rowValue as $value)
+					{
+						$results = $this->_DAL_Obj->getValue_wildcard('event_info','*',$rowName,'%'.$value.'%');
+						foreach ($results as $result) {
+							$events[$i] = $result;
+							$i++ ;
+						}
+						
+					}
+				}
+				else
+				{
+					$events = $this->_DAL_Obj->getValueWhere('event_info','*',$rowName,$rowValue);
+				}
+			}
+			
+			if(!empty($events))
+			{
+				$returnJson = '{
+								"success": 1,
+								"result": [';
+				foreach( $events as $event )
+				{
+					$t = strtotime($event['date']);
+					$returnJson = $returnJson . '{
+							"id": "'.$event['event_id'].'",
+							"title": "'.$event['event_name'].'",
+							"url": "event-detail.php?eid='.$event['event_id'].'",
+							"class": "event-warning",
+							"start": "'.str_pad($t, 13, '0', STR_PAD_RIGHT).'",
+							"end":   "'.str_pad($t, 13, '0', STR_PAD_RIGHT).'"
+						},';
+				}
+				$returnJson = substr($returnJson ,"0",-1) . ']
+					}';
+			}
+			return $returnJson;
+		}
+
+		function getEventDetails($eid)
+		{
+			$event = $this->_DAL_Obj->getValueWhere('event_info','*','event_id',$eid);
+			return $event[0];
+		}
 	 }
 ?>
