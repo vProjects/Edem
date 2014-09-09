@@ -400,3 +400,209 @@ table.dataTable thead .sorting:after {
 .btn_name{
 	margin-right:15px;
 }
+/*student dashboard page css by esha*/
+.dashboard-heading {
+	border-bottom: 1px solid #000000;
+	padding-bottom: 1%;
+	margin-bottom: 2%;
+	max-width: 50%;
+}
+.course-group {
+	padding: 7% 0% 2% 0%;
+}
+.course-group span {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.course-group a {
+	color:#FFFFFF;
+	font-size: 1em;
+}
+.course-group a:hover {
+	text-decoration: none;
+	color: #FFFFFF;	
+}
+.middle-block {
+	float: none;
+	margin: 0 auto;
+}
+.blue-block {
+	background: #0090d7;
+	margin-bottom: 2%;
+}
+.blue-block:hover {
+	background: #027ebb;
+}
+/* student subjectselect page by esha*/
+.dropdown-block {
+	background-color: #5cb8c8 !important;	
+	border-color: #000000;
+	border-radius: 0px;
+	color: #FFFFFF;
+	margin-bottom: 2%;
+}
+.dropdown-block:hover {
+	background-color: #5cb8c8;
+	color: #000000;
+	text-decoration: none;
+}
+.dropdown-block:focus {
+	background-color: #5cb8c8 !important;	
+	border-color: #000000!important;
+	outline: none;
+}
+.dropdwn-bg {
+	background-color: #5cb8c8;
+	min-width: 100%;
+}
+.dropdwn-bg li a {
+	color: #FFFFFF;
+	font-size: 0.85714em;
+}
+.dropdwn-bg li a:hover {
+	background-color: #464646 !important;
+	color: #cdcbcb;
+}
+.textbox-topgap {
+	margin-top: 40%;
+}
+.submit-btn {
+	background-color: #0090d7;
+	border-radius: 0px;
+	color: #FFFFFF;
+	margin-bottom: 2%;
+	transition: all 0.5s ease-in 0s;
+}
+.submit-btn:hover {
+	background-color: #FFFFFF;
+	border-radius: 0px;
+	color: #0090d7;
+	transition: all 0.5s ease-in 0s;
+}
+
+.submit-btn:focus {
+	background: #0090d7;
+	border-radius: 0px;
+	color: #FFFFFF;
+	outline: none;
+}
+.selected-subject-row {
+	margin-top: 2%;
+}
+.selected-subject-dropdown {
+	background-color: #5cb8c8 !important;	
+	border-color: #000000;
+	border-radius: 0px;
+	color: #000000;
+	margin-bottom: 2%;
+}
+.selected-subject-dropdown:hover {
+	border-color: #000000;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.selected-subject-dropdown:focus {
+	border-color: #000000!important;
+	color: #FFFFFF !important;
+	text-decoration: none;
+	outline: none;
+}
+
+.selected-subject-dropdown-bg {
+	background-color: #5cb8c8;
+	border-radius: 0px;
+	border: 1px solid #000000;
+	min-width: 100%;
+}
+.selected-subject-dropdown-bg li a {
+	color: #FFFFFF;
+	font-size: 0.85714em;
+}
+.selected-subject-dropdown-bg li a:hover {
+	background-color: #464646 !important;
+	color: #cdcbcb;
+}
+/* student scheduleselect page by esha*/
+.selectbox-row {
+	margin-top: 2%;
+}
+.selectbox-modified {
+	color: #0090d7;
+	margin-bottom: 2%;
+}
+.student-no-block {
+	margin-top: 10%;
+}
+.student-number {
+	padding: 2% 0% 1% 0%;
+}
+.student-number span {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.student-number span:hover {
+	color: #000000;
+}
+.student-number a {
+	color:#FFFFFF;
+	font-size: 1.2em;
+}
+.student-number a:hover {
+	text-decoration: none;
+	color: #FFFFFF;	
+}
+.indicate-arrow {
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+/* student caricullum update page by esha*/
+.coustom-panel {
+	border: 1px solid #0090d7;
+	padding: 3%;
+}
+.right-panel {
+	padding: 0% 3% 3% 3%;
+}
+.radio-check {
+	margin-right: 3% !important;
+}
+.heading {
+	font-size: 1.8em;
+	color: #0090d7;
+	margin-top: -2%;
+}
+.form-submit-btn {
+	background-color: #1180bf;
+	-moz-border-radius: 0px !important;
+	-o-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 1px solid #1180bf;
+	color: #FFFFFF;
+	padding: 2%;
+	transition: all 0.5s ease-in 0s;
+}
+.form-submit-btn:hover {
+	background-color: #FFFFFF;
+	border: 1px solid #0090d7;
+	color:  #0090d7;
+	transition: all 0.5s ease-in 0s;
+}
+.file-submit-btn {
+	background-color: #1180bf;
+	-moz-border-radius: 0px !important;
+	-o-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 1px solid #1180bf;
+	color: #FFFFFF;
+	padding: 12%;
+	transition: all 0.5s ease-in 0s;
+}
+.file-submit-btn:hover {
+	background-color: #FFFFFF;
+	border: 1px solid #0090d7;
+	color:  #0090d7;
+	transition: all 0.5s ease-in 0s;
+}
