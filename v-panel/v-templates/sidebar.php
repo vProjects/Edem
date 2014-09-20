@@ -82,6 +82,9 @@
             <li>
                 <a href="#"><i class="fa fa-table fa-fw"></i>Curriculum<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+                	<li>
+                        <a href="curriculum-updated.php">Student Selected Curriculum</a>
+                    </li>
                     <li>
                         <a href="create-curriculum.php">Create Curriculum</a>
                     </li>
