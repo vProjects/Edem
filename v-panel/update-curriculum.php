@@ -161,28 +161,28 @@
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
 			 </div>
-			 <button type="submit" class="btn btn-default submit-btn center-block">Submit</button>
+			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
 			 </div>
-			 <button type="submit" class="btn btn-default submit-btn center-block">Submit</button>
+			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
 			 </div>
-			 <button type="submit" class="btn btn-default submit-btn center-block">Submit</button>
+			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
 			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
 			 </div>
-			 <button type="submit" class="btn btn-default submit-btn center-block">Submit</button>
+			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 	</div>
 	<!--textboxrow end-->
@@ -282,6 +282,43 @@
     
 </div>
 <!-- /#page-wrapper -->
+
+		<!--modal for login-->
+        <div class="modal fade" id="updCurri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title login-header" id="myModalLabel">Information for subject change</h4>
+              </div>
+              <form action="#" method="post">
+	              <div class="modal-body">
+	              	<div class="form-group">
+	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign success-glyph"></span></div>
+	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
+	              		<div class="clearfix"></div>
+	              	</div>
+	              	<div class="form-group">
+	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign danger-glyph"></span></div>
+	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
+	              		<div class="clearfix"></div>
+	              	</div>
+	              	<div class="form-group">
+	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign info-glyph"></span></div>
+	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
+	              		<div class="clearfix"></div>
+	              	</div>
+	              </div>
+	              <div class="modal-footer">
+	                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
+	                <button type="button" class="btn btn-default btn-success">Continue</button>
+	              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--modal for login ends here-->
+
 <?php
 	//footer
 	include 'v-templates/footer.php';

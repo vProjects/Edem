@@ -247,5 +247,26 @@
 			$event = $this->_DAL_Obj->getValueWhere('event_info','*','event_id',$eid);
 			return $event[0];
 		}
+		
+		/* methode for getting subject color of student
+		 * Method - Dipanjan
+		*/
+		 function getStudentSubjectStatus($sub_status)
+		 {
+		 	if($sub_status == 1)
+			{
+				$color = 'black-block';
+			}
+			else if($sub_status == 2)
+			{
+				$color = 'green-block';
+			}
+			else if($sub_status == 3)
+			{
+				$color = 'red-block';
+			}
+			
+			return array($color);
+		 }
 	 }
 ?>

@@ -6,7 +6,7 @@
 </div>
 <div class="row stu_adm_row"> 	
     <div class="col-lg-3">
-    	<div class="blue-block">
+    	<div class="black-block">
     		<div class="course-group text-center">
     			<a href="#"><p>Composition I<br /><span>3</span></p></a>
     		</div>
@@ -14,7 +14,7 @@
     </div>
     
     <div class="col-lg-3">
-    	<div class="blue-block">
+    	<div class="green-block">
     		<div class="course-group text-center">
     			<a href="#"><p>Prep for Excellence<br /><span>1</span></p></a>
     		</div>
@@ -22,7 +22,7 @@
     </div>
     
     <div class="col-lg-3">
-    	<div class="blue-block">
+    	<div class="red-block">
     		<div class="course-group text-center">
     			<a href="#"><p>College Algebra<br /><span>3</span></p></a>
     		</div>
@@ -30,7 +30,11 @@
     </div>
     
     <div class="col-lg-3">
-    	<div class="blue-block">
+    	<?php 
+    		//static codes
+    		$sub_status = $BLL_Obj->getStudentSubjectStatus(1);
+    	?>
+    	<div class="<?php echo $sub_status[0]; ?>">
     		<div class="course-group text-center">
     			<a href="#"><p>World History<br /><span>3</span></p></a>
     		</div>
@@ -39,7 +43,11 @@
 </div>
 <div class="row stu_adm_row">
 	<div class="col-lg-3">
-    	<div class="blue-block">
+    	<?php 
+    		//static codes
+    		$sub_status = $BLL_Obj->getStudentSubjectStatus(2);
+    	?>
+    	<div class="<?php echo $sub_status[0]; ?>">
     		<div class="course-group text-center">
     			<a href="#"><p>Essentials of the Christian Faith<br /> <span>2</span></p></a>
     		</div>
@@ -47,7 +55,11 @@
     </div>
     
     <div class="col-lg-3">
-    	<div class="blue-block">
+    	<?php 
+    		//static codes
+    		$sub_status = $BLL_Obj->getStudentSubjectStatus(2);
+    	?>
+    	<div class="<?php echo $sub_status[0]; ?>">
     		<div class="course-group text-center">
     			<a href="#"><p>Princ/Appl of Physical Science<br /><span>OR</span></p></a>
     		</div>

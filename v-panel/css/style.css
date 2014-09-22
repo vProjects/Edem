@@ -433,7 +433,43 @@ table.dataTable thead .sorting:after {
 .blue-block:hover {
 	background: #027ebb;
 }
-/* student subjectselect page by esha*/
+.black-block {
+	background: #363636;
+	margin-bottom: 2%;
+}
+.black-block:hover {
+	background: #222222;
+}
+.green-block {
+	background: #5cb85c;
+	margin-bottom: 2%;
+}
+.green-block:hover {
+	background: #47a447;
+}
+.red-block {
+	background: #d9534f;
+	margin-bottom: 2%;
+}
+.red-block:hover {
+	background: #d2322d;
+}
+.success-glyph{
+	color: #5cb85c;
+}
+.danger-glyph{
+	color: #d2322d;
+}
+.info-glyph{
+	color: #39b3d7;
+}
+.text-glyph-sign{
+	font-size: 1.5em;
+}
+.v-form-group{
+	margin-bottom: 10px;
+}
+/* student subject select page by esha*/
 .dropdown-block {
 	background-color: #5cb8c8 !important;	
 	border-color: #000000;
