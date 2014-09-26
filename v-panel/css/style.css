@@ -461,7 +461,7 @@ table.dataTable thead .sorting:after {
 	color: #d2322d;
 }
 .info-glyph{
-	color: #39b3d7;
+	color: #F0E68C;
 }
 .text-glyph-sign{
 	font-size: 1.5em;
@@ -641,4 +641,21 @@ table.dataTable thead .sorting:after {
 	border: 1px solid #0090d7;
 	color:  #0090d7;
 	transition: all 0.5s ease-in 0s;
+}
+
+/*
+ * edit by thakur
+ */
+
+ .txt-lt{
+ 	text-align: left !important;
+ }
+ 
+.mrgn-cust-mdl{
+	margin: 0px;
+}
+
+.mdl-bd-brdr-cont{
+	border: 1px dotted #b8b8b8;
+	padding: 10px;
 }

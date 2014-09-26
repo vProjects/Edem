@@ -289,29 +289,44 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title login-header" id="myModalLabel">Information for subject change</h4>
+                <h4 class="modal-title login-header" id="myModalLabel">Information regarding the changes made.</h4>
               </div>
               <form action="#" method="post">
 	              <div class="modal-body">
-	              	<div class="form-group">
-	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign success-glyph"></span></div>
-	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
-	              		<div class="clearfix"></div>
-	              	</div>
-	              	<div class="form-group">
-	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign danger-glyph"></span></div>
-	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
-	              		<div class="clearfix"></div>
-	              	</div>
-	              	<div class="form-group">
-	              		<div class="col-sm-1"><span class="glyphicon glyphicon-info-sign text-glyph-sign info-glyph"></span></div>
-	              		<div class="col-sm-11">Bootstrap (currently v3.2.0) has a few easy ways to quickly get started</div>
-	              		<div class="clearfix"></div>
+	              	<div class="mdl-bd-brdr-cont">
+	              		Thanks for submitting your subject choices and the following color code shows it possibility.
+	              		<br /><br />
+		              	<div class="form-group">
+		              		<div class="col-sm-1"><span class="glyphicon glyphicon-asterisk text-glyph-sign info-glyph"></span></div>
+		              		<div class="col-sm-11">Not sure may or may not be allowed.</div>
+		              		<div class="clearfix"></div>
+		              	</div>
 	              	</div>
 	              </div>
 	              <div class="modal-footer">
-	                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
-	                <button type="button" class="btn btn-default btn-success">Continue</button>
+	              	<div class="row">
+	              		<div class="col-sm-8">
+	              			<div class="form-group mrgn-cust-mdl">
+			              		<div class="col-sm-1"><span class="glyphicon glyphicon-asterisk text-glyph-sign success-glyph"></span></div>
+			              		<div class="col-sm-11 txt-lt">High chance of getting allowed.</div>
+			              		<div class="clearfix"></div>
+			              	</div>
+			              	<div class="form-group mrgn-cust-mdl">
+			              		<div class="col-sm-1"><span class="glyphicon glyphicon-asterisk text-glyph-sign info-glyph"></span></div>
+			              		<div class="col-sm-11 txt-lt">Not sure may or may not be allowed.</div>
+			              		<div class="clearfix"></div>
+			              	</div>
+			              	<div class="form-group mrgn-cust-mdl">
+			              		<div class="col-sm-1"><span class="glyphicon glyphicon-asterisk text-glyph-sign danger-glyph"></span></div>
+			              		<div class="col-sm-11 txt-lt">Hign chance of rejection.</div>
+			              		<div class="clearfix"></div>
+			              	</div>
+	              		</div>
+	              		<div class="col-sm-4">
+			                <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancel</button>
+			                <button type="button" class="btn btn-default btn-success">Continue</button>
+	              		</div>
+	              	</div>
 	              </div>
               </form>
             </div>
