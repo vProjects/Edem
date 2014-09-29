@@ -7,11 +7,14 @@
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
 		$name = $_POST['name'] ;
+		$course_no = $_POST['course_no'];
 		$advisor = $_POST['advisor'] ;
-		$session = $_POST['session'] ;
 		$duration = $_POST['duration'] ;
 		$details = $_POST['details'] ;
 		$institute_id = $_POST['institute_id'];
+		$announcement_title = $_POST['announcement_title'];
+		$edu_level = $_POST['edu_level'];
+		$availability = $_POST['availability'];
 		
 		//as this is created by the admin
 		$created_user_id = 'admin';

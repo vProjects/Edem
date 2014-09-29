@@ -41,40 +41,63 @@
         	<form role="form" action="v-includes/functions/function.create-course.php" method="post">
             	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
             	<div class="form-group">
-                    <label class="cs_form_label">Name</label>
+                    <label class="cs_form_label">Course Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name">
                 </div>
+                <!-- Debo -->
+                <div class="form-group">
+                    <label class="cs_form_label">Course Number</label>
+                    <input type="text" class="form-control cs_form_textbox" name="course_no">
+                </div>
+                <!-- Debo -->
                 <div class="form-group">
                     <label class="cs_form_label">Add Advisor</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<option value="1">Lorem Ipsum</option>
-                    	<option value="2">Lorem Ipsum</option>
-                    	<option value="3">Lorem Ipsum</option>
-                    	<option value="4">Lorem Ipsum</option>
-                    	<option value="5">Lorem Ipsum</option>
+                    	<?php
+                    		//get the advisors names
+                    		$BLL_Obj->getAdvisors($_SESSION['user_id']);
+						?>	
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="cs_form_label">Institute</label>
                     <select class="form-control cs_form_textbox" name="institute_id">
                     	<?php
+                    		$instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id']);
                     		//get the institute from the BLL
                     		$BLL_Obj->getInstitute_SelectBox();
                     	?>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Session</label>
-                    <input type="text" class="form-control cs_form_textbox" name="session">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Time Duration</label>
-                    <input type="text" class="form-control cs_form_textbox" name="duration">
-                </div>
-                <div class="form-group">
                     <label class="cs_form_label">Course Details</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
                 </div>
+                <!-- debo -->
+                <div class="form-group">
+                    <label class="cs_form_label">Annoucement Title</label>
+                    <input type="text" class="form-control cs_form_textbox" name="announcement_title">
+                </div>
+                <div class="form-group">
+	                    <label class="cs_form_label">Course Category</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    	?>
+	                    </select>
+	            </div>
+	            <div class="form-group">
+	                    <label class="cs_form_label">Availability</label>
+	                    <select class="form-control cs_form_textbox" name="availability">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getavailability_SelectBox();
+	                    	?>
+	                    </select>
+	            </div>
+                <!-- debo -->
+                <input type = "hidden" name = "institute_id" value = <?php echo $instituteId;?> />
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
             </form>

@@ -268,5 +268,84 @@
 			
 			return array($color);
 		 }
+		 
+		 /*
+		 - method for getting faculty members
+		 - Auth: Debojyoti 
+		 */
+		 function getAdvisors($userId)
+		 {
+		 	$institute = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
+		 	$instituteId = $institute[0]['institute_id'];
+		 	$faculties = $this->_DAL_Obj->getValueWhere('faculty_info', '*', 'institute_id', $instituteId);
+			//generate the HTML output for select box
+			if( !empty($faculties) )
+			{
+				foreach ($faculties as $faculty)
+				{
+					echo '<option value="'.$faculty['id'].'">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
+				}
+			}
+			else
+			{
+				echo '<option value="">No Faculties.</option>';
+			}
+		 }
+		 
+		 /*
+		 - method to get institute name
+		 - Auth: Debojyoti 
+		 */
+		 function getInstituteId($userId)
+		 {
+		 	$institute = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
+		 	$instituteId = $institute[0]['institute_id'];
+			$instituteInfo = $this->_DAL_Obj->getValueWhere('institute_info', '*', 'institute_id', $instituteId);
+			return $instituteInfo[0]['id'];
+		 }
+		 
+		 /*
+		 - Method to get the student status select box UI
+		 - Auth Anand 
+		 */
+		 public function getStudentStatus_SelectBox()
+		 {
+			$statuses = $this->_DAL_Obj->getValue('student_status','*');
+			echo '<option value="0">Please select one</option>';
+			if( !empty($statuses) )
+			{
+				foreach ($statuses as $status)
+				{
+					echo '<option value="'.$status['id'].'">'.$status['status_name'].'</option>';
+				}
+			}
+		 }
+		 
+		  /*
+		 - Method to get the availability select box UI
+		 - Auth Thakur
+		 */
+		 public function getavailability_SelectBox()
+		 {
+			$availables = $this->_DAL_Obj->getValue('availability','*');
+			echo '<option value="0">Please select one</option>';
+			if( !empty($availables) )
+			{
+				foreach ($availables as $available)
+				{
+					echo '<option value="'.$available['id'].'">'.$available['availability_name'].'</option>';
+				}
+			}
+		 }
+		 
+		 /*
+		 - method to get creator name
+		 - Auth: Debojyoti
+		 */
+		 function getCreatorName($userId)
+		 {
+		 	$creator_name = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
+			
+		 }
 	 }
 ?>
