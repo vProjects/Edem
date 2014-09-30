@@ -74,7 +74,7 @@
                         <a href="create-course.php">Create Courses</a>
                     </li>
                     <li>
-                        <a href="#">List Courses</a>
+                        <a href="list-course.php">List Courses</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

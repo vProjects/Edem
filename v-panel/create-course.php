@@ -34,6 +34,10 @@
 			echo '</div>';
 			unset( $_SESSION['result'] );
 		}
+		//get the instituteid from the BLL
+        $instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id'], $_SESSION['type']);
+        //get creator name
+        $creatorName = $BLL_Obj->getCreatorName($_SESSION['user_id'], $_SESSION['type']);
 	?>
     <!-- /.row -->
     <div class="row stu_adm_row">
@@ -55,18 +59,8 @@
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
                     		//get the advisors names
-                    		$BLL_Obj->getAdvisors($_SESSION['user_id']);
+                    		$BLL_Obj->getAdvisors($instituteId);
 						?>	
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Institute</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
-                    	<?php
-                    		$instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id']);
-                    		//get the institute from the BLL
-                    		$BLL_Obj->getInstitute_SelectBox();
-                    	?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -97,7 +91,11 @@
 	                    </select>
 	            </div>
                 <!-- debo -->
-                <input type = "hidden" name = "institute_id" value = <?php echo $instituteId;?> />
+                <?php
+                	
+                ?>
+                <input type = "hidden" name = "institute_id" value = "<?php echo $instituteId;?>" />
+                <input type = "hidden" name = "creator_name" value = "<?php echo $creatorName;?>" />
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
             </form>

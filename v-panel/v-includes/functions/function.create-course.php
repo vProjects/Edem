@@ -9,15 +9,12 @@
 		$name = $_POST['name'] ;
 		$course_no = $_POST['course_no'];
 		$advisor = $_POST['advisor'] ;
-		$duration = $_POST['duration'] ;
 		$details = $_POST['details'] ;
 		$institute_id = $_POST['institute_id'];
 		$announcement_title = $_POST['announcement_title'];
 		$edu_level = $_POST['edu_level'];
 		$availability = $_POST['availability'];
-		
-		//as this is created by the admin
-		$created_user_id = 'admin';
+		$creatorName = $_POST['creator_name'];
 	}
 	
 	//initialize the variable
@@ -36,20 +33,22 @@
 	//generate the course id
 	$course_id = "COU".uniqid();
 	
-	if( !empty($name) && !empty($advisor_str) && !empty($created_user_id) && !empty($duration) && !empty($duration)  )
+	if( !empty($name) && !empty($course_no) && !empty($advisor) && !empty($details) && !empty($institute_id) && !empty($announcement_title) && !empty($edu_level) && !empty($availability) && !empty($creatorName))
 	{
 		$insert_course = array(
 						'table' => 'course_info' ,
 						'values' => array(
 										'course_id' => $course_id ,
-										'advisor' => $advisor_str ,
 										'institute_id' => $institute_id ,
-										'created_by' => $created_user_id ,
-										'created_on' => date('Y-m-d') ,
+										'created_by' => $creatorName ,
+										'course_no' => $course_no ,
 										'name' => $name ,
-										'session' => $session ,
-										'hours' => $duration ,
+										'announcement_title' => $announcement_title ,
+										'edu_level' => $edu_level ,
+										'advisor' => $advisor_str ,
+										'created_on' => date('Y-m-d') ,
 										'detail' => $details ,
+										'availability' => $availability ,
 										'course_status' => 1
 									)
 						);

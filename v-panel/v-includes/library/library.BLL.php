@@ -83,9 +83,11 @@
 		 * Generate the selectbox UI 
 		 * Auth Singh 
 		 */
-		 public function getCourse_SelectBox()
+		 public function getCourse_SelectBox($instituteId)
 		 {
-		 	$courses = $this->_DAL_Obj->getValue('course_info','*');
+		 	$column_name = array('institute_id', 'course_status');	
+			$column_values = array($instituteId, 1);
+		 	$courses = $this->_DAL_Obj->getValueMultipleCondtn('course_info', '*', $column_name, $column_values);
 			
 			if( !empty($courses) )
 			{
@@ -101,15 +103,17 @@
 		 * Generate the selectbox UI 
 		 * Auth Singh 
 		 */
-		 public function getFaculty_SelectBox()
+		 public function getFaculty_SelectBox($instituteId)
 		 {
-		 	$faculties = $this->_DAL_Obj->getValue('faculty_info','*');
+		 	$column_name = array('institute_id', 'faculty_status');	
+			$column_values = array($instituteId, 1);	
+		 	$faculties = $this->_DAL_Obj->getValueMultipleCondtn('faculty_info','*', $column_name, $column_values);
 			
 			if( !empty($faculties) )
 			{
 				foreach ($faculties as $faculty)
 				{
-					echo '<option value="'.$faculty['user_id'].'">'.$faculty['name'].'</option>';
+					echo '<option value="'.$faculty['user_id'].'">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
 				}
 			}
 		 }
@@ -273,17 +277,15 @@
 		 - method for getting faculty members
 		 - Auth: Debojyoti 
 		 */
-		 function getAdvisors($userId)
+		 function getAdvisors($instituteId)
 		 {
-		 	$institute = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
-		 	$instituteId = $institute[0]['institute_id'];
 		 	$faculties = $this->_DAL_Obj->getValueWhere('faculty_info', '*', 'institute_id', $instituteId);
 			//generate the HTML output for select box
 			if( !empty($faculties) )
 			{
 				foreach ($faculties as $faculty)
 				{
-					echo '<option value="'.$faculty['id'].'">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
+					echo '<option value="'.$faculty['user_id'].'">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
 				}
 			}
 			else
@@ -296,13 +298,29 @@
 		 - method to get institute name
 		 - Auth: Debojyoti 
 		 */
-		 function getInstituteId($userId)
+		 function getInstituteId($userId, $creator_type)
 		 {
-		 	$institute = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
-		 	$instituteId = $institute[0]['institute_id'];
-			$instituteInfo = $this->_DAL_Obj->getValueWhere('institute_info', '*', 'institute_id', $instituteId);
-			return $instituteInfo[0]['id'];
-		 }
+		 	if($creator_type == 'chairperson')
+			{
+				$column_name = array('user_id','chairperson_status');	
+		 		$column_values = array($userId,1);	
+				$institute = $this->_DAL_Obj->getValueMultipleCondtn('chairperson_info', '*', $column_name, $column_values);
+				$instituteId = $institute[0]['institute_id'];
+				return $instituteId;
+			}	
+			elseif ($creator_type == 'faculty') 
+			{
+				$column_name = array('user_id','faculty_status');	
+		 		$column_values = array($userId,1);	
+				$institute = $this->_DAL_Obj->getValueMultipleCondtn('faculty_info', '*', $column_name, $column_values);
+				$instituteId = $institute[0]['institute_id'];
+				return $instituteId;
+			}
+			elseif ($creator_type == 'institute') 
+			{
+				return $userId;
+			}
+		}
 		 
 		 /*
 		 - Method to get the student status select box UI
@@ -342,10 +360,156 @@
 		 - method to get creator name
 		 - Auth: Debojyoti
 		 */
-		 function getCreatorName($userId)
+		 function getCreatorName($userId, $creator_type)
 		 {
-		 	$creator_name = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
+		 	if($creator_type == 'chairperson')
+			{
+				$column_name = array('user_id','chairperson_status');	
+		 		$column_values = array($userId,1); 	
+				$creator = $this->_DAL_Obj->getValueMultipleCondtn('chairperson_info', '*', $column_name, $column_values);
+				$creatorName = $creator[0]['f_name'].' '.$creator[0]['m_name'].' '.$creator[0]['l_name'];
+				return $creatorName;
+			}	
+			elseif ($creator_type == 'faculty') 
+			{
+				$column_name = array('user_id','faculty_status');	
+		 		$column_values = array($userId,1);	
+				$creator = $this->_DAL_Obj->getValueMultipleCondtn('faculty_info', '*', $column_name, $column_values);
+				$creatorName = $creator[0]['f_name'].' '.$creator[0]['m_name'].' '.$creator[0]['l_name'];
+				return $creatorName;
+			}
+			elseif ($creator_type == 'institute') 
+			{
+				$column_name = array('institute_id','institute_status');	
+		 		$column_values = array($userId,1);	
+				$creator = $this->_DAL_Obj->getValueMultipleCondtn('institute_info', '*', $column_name, $column_values);
+				$creatorName = $creator[0]['name'];
+				return $creatorName;
+			}
+		  }
+		 
+		 /*
+		 - method to get creator type
+		 - Auth: Debojyoti 
+		 */
+		 function getCreatorType($userId)
+		 {
+		 	$column_name = array('user_id','user_status');	
+		 	$column_values = array($userId,1); 
+		 	$creator_data = $this->_DAL_Obj->getValueMultipleCondtn('users', '*', $column_name, $column_values);
+			return $creator_data[0]['user_type'];
+		 }
+		 
+		 /*
+		 - Method to get the course list 
+		 - Auth Dipanjan 
+		 */
+		 public function getCourseList()
+		 {
+			 //get all values from database
+		 	 $courses = $this->_DAL_Obj->getValue('course_info','*');
 			
+			if(!empty($courses[0]))
+			{
+				foreach ($courses as $course)
+				{
+					//getting course status
+					if($course['course_status'] == 1)
+					{
+						$btn = '<button class="btn btn-success">Active</button>';
+					}
+					else
+					{
+						$btn = '<button class="btn btn-danger">Deactive</button>';
+					}
+					echo '<tr>
+							<td>'.$course['name'].'</td>
+							<td>'.$this->getInstituteName('institute_info','institute_id',$course['institute_id'],'name').'</td>
+							<td>'.$course['created_by'].'</td>
+							<td>'.$course['created_on'].'</td>
+							<td>'.$this->getInstituteName('student_status', 'id', $course['edu_level'], 'status_name').'</td>
+							<td>'.$this->getInstituteName('availability', 'id', $course['availability'], 'availability_name').'</td>
+							<td><a href="edit-course.php?cid='.$course['course_id'].'"><button class="btn btn-info">Edit</button></a></td>
+							<td>'.$btn.'</td>
+						</tr>';
+				}
+			}
+		 }
+
+		/*
+		 - Method to get institute name from institute id
+		 - Auth Dipanjan 
+		 */
+		 public function getInstituteName($table_name,$column_name,$column_value,$return_value)
+		 {
+			 //get value from database
+			 $inst_name = $this->_DAL_Obj->getValueWhere($table_name,'*',$column_name,$column_value);
+			 if(!empty($inst_name[0]))
+			 {
+				 return $inst_name[0][$return_value];
+			 }
+		 }
+
+		/*
+		 - Method to get selected multiple item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedMultipleItemName($table_name,$selected_column_name,$selected_column_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value['f_name'].' '.$selected_value['m_name'].' '.$selected_value['l_name'].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value['f_name'].' '.$selected_value['m_name'].' '.$selected_value['l_name'].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get selected item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedItemList($table_name,$selected_column_name,$selected_column_value,$return_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if($selected_value[$selected_column_name] == $selected_column_value)
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		 
+		 /*
+		 - Method to get the student info 
+		 - Auth Dipanjan 
+		 */
+		 public function getUserInfo($table_name,$column_name,$column_value)
+		 {
+			 //get values of this user id
+			 $users = $this->_DAL_Obj->getValueWhere($table_name,'*',$column_name,$column_value);
+			 if(!empty($users[0]))
+			 {
+				 return $users;
+			 }
 		 }
 	 }
 ?>

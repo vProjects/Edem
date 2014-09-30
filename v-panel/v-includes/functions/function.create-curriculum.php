@@ -29,9 +29,8 @@
 		$duration = $_POST['duration'] ;
 		$details = $_POST['details'] ;
 		$institute_id = $_POST['institute_id'];
+		$created_by = $_POST['creator_name'];
 		
-		//as this is created by the admin
-		$created_user_id = 'admin';
 	}
 	
 	//array to string
@@ -41,14 +40,14 @@
 	//generate the course id
 	$curriculum_id = "CUR".uniqid();
 	
-	if( !empty($name) && !empty($advisor_str) && !empty($created_user_id) && !empty($duration) && !empty($duration)  )
+	if( !empty($name) && !empty($advisor_str) && !empty($course_str) && !empty($duration) && !empty($session) && !empty($institute_id) && !empty($created_by)  )
 	{
 		$insert_curriculum = array(
 						'table' => 'curriculum_info' ,
 						'values' => array(
 										'curriculum_id' => $curriculum_id ,
 										'institute_id' => $institute_id ,
-										'created_by' => $created_user_id ,
+										'created_by' => $created_by ,
 										'created_on' => date('Y-m-d') ,
 										'name' => $name ,
 										'course' => $course_str ,

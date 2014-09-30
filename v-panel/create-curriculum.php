@@ -34,6 +34,10 @@
 			echo '</div>';
 			unset( $_SESSION['result'] );
 		}
+		//get the instituteid from the BLL
+        $instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id'], $_SESSION['type']);
+        //get creator name
+        $creatorName = $BLL_Obj->getCreatorName($_SESSION['user_id'], $_SESSION['type']);
 	?>
     <!-- /.row -->
     <div class="row stu_adm_row">
@@ -49,7 +53,7 @@
                     <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
                     	<?php
                     		//get the courses from the BLL
-                    		$BLL_Obj->getCourse_SelectBox();
+                    		$BLL_Obj->getCourse_SelectBox($instituteId);
 						?>                    	
                     </select>
                 </div>
@@ -58,17 +62,8 @@
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
                     		//get the faculty from the BLL
-                    		$BLL_Obj->getFaculty_SelectBox();
+                    		$BLL_Obj->getFaculty_SelectBox($instituteId);
 						?> 
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Institute</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
-                    	<?php
-                    		//get the institute from the BLL
-                    		$BLL_Obj->getInstitute_SelectBox();
-                    	?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -80,9 +75,11 @@
                     <input type="text" class="form-control cs_form_textbox" name="duration">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Course Details</label>
+                    <label class="cs_form_label">Curriculum Details</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
                 </div>
+                <input type = "hidden" name = "institute_id" value = "<?php echo $instituteId;?>" />
+                <input type = "hidden" name = "creator_name" value = "<?php echo $creatorName;?>" />
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                 <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
            </form> 
