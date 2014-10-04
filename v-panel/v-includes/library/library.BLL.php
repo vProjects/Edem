@@ -113,7 +113,7 @@
 			{
 				foreach ($faculties as $faculty)
 				{
-					echo '<option value="'.$faculty['user_id'].'">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
+					echo '<option value="'.$faculty['user_id'].'" selected="selected">'.$faculty['f_name'].' '.$faculty['m_name'].' '.$faculty['l_name'].'</option>';
 				}
 			}
 		 }
@@ -511,5 +511,114 @@
 				 return $users;
 			 }
 		 }
+		 
+		 /*
+		 - Method to get the curriculam list 
+		 - Auth Dipanjan 
+		 */
+		 public function getCurriculumList()
+		 {
+			 //get all values from database
+		 	 $curriculams = $this->_DAL_Obj->getValue('curriculum_info','*');
+			
+			if(!empty($curriculams[0]))
+			{
+				foreach ($curriculams as $curriculam)
+				{
+					//getting curriculam status
+					if($curriculam['curriculum_status'] == 1)
+					{
+						$btn = '<button class="btn btn-success">Active</button>';
+					}
+					else
+					{
+						$btn = '<button class="btn btn-danger">Deactive</button>';
+					}
+					echo '<tr>
+							<td>'.$curriculam['name'].'</td>
+							<td>'.$this->getInstituteName('institute_info','institute_id',$curriculam['institute_id'],'name').'</td>
+							<td>'.$curriculam['created_by'].'</td>
+							<td>'.$curriculam['created_on'].'</td>';
+					
+					//getting course list
+					$courses = explode(',',$curriculam['course']);
+					if(!empty($courses[0]))
+					{
+						echo '<td>';
+						foreach($courses as $key1=>$value1)
+						{
+							echo ($key1+1).') '.$this->getInstituteName('course_info','course_id',$value1,'name').'<br>';
+						}
+						echo '</td>';
+					}
+					
+					//getting advisor list
+					$advisors = explode(',',$curriculam['advisor']);
+					if(!empty($advisors[0]))
+					{
+						echo '<td>';
+						foreach($advisors as $key2=>$value2)
+						{
+							echo ($key2+1).') '.$this->getInstituteName('faculty_info','user_id',$value2,'name').'<br>';
+						}
+						echo '</td>';
+					}
+					
+					echo	'<td>'.$curriculam['session'].'</td>
+							<td>'.$curriculam['hours'].'</td>
+							<td><a href="edit-curriculum.php?cid='.$curriculam['curriculum_id'].'"><button class="btn btn-info">Edit</button></a></td>
+							<td>'.$btn.'</td>
+						</tr>';
+				}
+			}
+		 }
+
+		/*
+		 - Method to get selected multiple item from given id
+		 - Auth Dipanjan 
+		 */
+		 public function getSelectedMultipleItemList($table_name,$selected_column_name,$selected_column_value,$return_value)
+		 {
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValue($table_name,'*');
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value].'</option>';
+					 }
+				 }
+			 }
+		 }
+		
+		/*
+		- Method for getting selected multiple values with where clause
+		- Auth: Debojyoti 
+		*/
+		public function getSelectedFromList($table_name,$selected_column_name,$selected_column_value,$return_value1,$return_value2,$return_value3,$condition_column_names,$condition_column_values)
+		{
+			//get all values from database
+			 $selected_values = $this->_DAL_Obj->getValueMultipleCondtn($table_name, '*', $condition_column_names, $condition_column_values);
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value1].' '.$selected_value[$return_value2].' '.$selected_value[$return_value3].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value1].' '.$selected_value[$return_value2].' '.$selected_value[$return_value3].'</option>';
+					 }
+				 }
+			 }
+		}
 	 }
 ?>

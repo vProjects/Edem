@@ -62,13 +62,19 @@
 	                </div>
                      <div class="form-group">
 	                    <label class="cs_form_label">Institute</label>
-	                    <select class="form-control cs_form_textbox" name="institute">
+	                    <select class="form-control cs_form_textbox" name="institute" id="course_inst">
 	                    	<?php
 	                    		//get the institute from the BLL
 	                    		$BLL_Obj->getInstitute_SelectBox();
 	                    	?>
 	                    </select>
 	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Add Course</label>
+	                    <select class="form-control cs_form_textbox" name="course" id="curri_course">
+	                    
+	                    </select>
+                	</div>
                     <div class="form-group">
                         <label class="cs_form_label">Date of birth</label>
                         <input type="text" class="form-control cs_form_textbox" id="calender_date" name="dob">

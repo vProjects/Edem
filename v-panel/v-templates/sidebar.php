@@ -89,7 +89,7 @@
                         <a href="create-curriculum.php">Create Curriculum</a>
                     </li>
                     <li>
-                        <a href="#">List Curriculum</a>
+                        <a href="list-curriculum.php">List Curriculum</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

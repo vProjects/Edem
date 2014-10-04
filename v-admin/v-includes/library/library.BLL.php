@@ -78,6 +78,33 @@
 			}
 		 }
 		 
+		 /*
+		 * Method to get the institute
+		 * Generate the selectbox UI where one institute is selected
+		 * Auth Debo 
+		 */
+		 public function getInstitute_SelectedBox($course_id)
+		 {
+		 	$selected_institute = $this->_DAL_Obj->getValueWhere('course_info', '*', 'course_id', $course_id);	
+		 	$institutes = $this->_DAL_Obj->getValue('institute_info','*');
+			
+			if( !empty($institutes) )
+			{
+				foreach ($institutes as $institute)
+				{
+					if($institute['institute_id']==$selected_institute[0]['institute_id'])	
+					{
+						echo '<option value="'.$institute['institute_id'].'" selected="selected">'.$institute['name'].'</option>';
+					}
+					else
+					{
+						echo '<option value="'.$institute['institute_id'].'">'.$institute['name'].'</option>';
+					}	
+					
+				}
+			}
+		 }
+		 
 		  /*
 		 * Method to get the course
 		 * Generate the selectbox UI 
@@ -862,5 +889,29 @@
 		   		$status = $this->_DAL_Obj->getValueWhere('student_status','*','id',$id);
 				return $status[0]['status_name'];
 		   }
+		   
+		/*
+		- Method for getting selected multiple values with where clause
+		- Auth: Debojyoti 
+		*/
+		public function getSelectedFromList($table_name,$selected_column_name,$selected_column_value,$return_value1,$return_value2,$return_value3,$condition_column_names,$condition_column_values)
+		{
+			 //get all values from database
+			 $selected_values = $this->_DAL_Obj->getValueMultipleCondtn($table_name, '*', $condition_column_names, $condition_column_values);
+			 if(!empty($selected_values[0]))
+			 {
+				 foreach($selected_values as $selected_value)
+				 {
+					 if(in_array($selected_value[$selected_column_name],$selected_column_value))
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'" selected="selected">'.$selected_value[$return_value1].' '.$selected_value[$return_value2].' '.$selected_value[$return_value3].'</option>';
+					 }
+					 else
+					 {
+						 echo '<option value="'.$selected_value[$selected_column_name].'">'.$selected_value[$return_value1].' '.$selected_value[$return_value2].' '.$selected_value[$return_value3].'</option>';
+					 }
+				 }
+			 }
+		}
 	 }
 ?>

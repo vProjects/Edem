@@ -1,5 +1,5 @@
 <?php
-	$title = 'Edit Courses';
+	$title = 'Edit Curriculum';
 	//checking for login status
 	if(!isset($GLOBALS['_COOKIE']['course_management']) && !isset($_SESSION['user_id']))
 	{
@@ -19,8 +19,8 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Edit Courses</h1>
-            <h4 class="cs_page_info">You can edit data about courses.</h4>
+            <h1 class="page-header">Edit Curriculum</h1>
+            <h4 class="cs_page_info">You can edit data about curriculum.</h4>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -36,26 +36,33 @@
 		}
 	?>
     <?php
-		//get the course id from query string
-		$course_id = $GLOBALS['_GET']['cid'];
+		//get faculty user id from get method
+		$curriculum_id = $GLOBALS['_GET']['cid'];
 		//get values from bll
-		$getValues = $BLL_Obj->getUserInfo('course_info','course_id',$course_id);
+		$getValues = $BLL_Obj->getUserInfo('curriculum_info','curriculum_id',$curriculum_id);
 	?>
     <!-- /.row -->
     <div class="row stu_adm_row">
         <div class="col-lg-6">
-        	<form role="form" action="v-includes/functions/function.edit-course.php" method="post">
-            	<h4 class="cs_page_form_caption">Fill Up Course Details</h4>
+        	<form role="form" action="v-includes/functions/function.edit-curriculum.php" method="post">
+            	<h4 class="cs_page_form_caption">Fill Up Curriculum Details</h4>
             	<div class="form-group">
-                    <label class="cs_form_label">Course Name</label>
+                    <label class="cs_form_label">Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name" value="<?php echo $getValues[0]['name'] ?>">
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Course Number</label>
-                    <input type="text" class="form-control cs_form_textbox" name="course_no" value="<?php echo $getValues[0]['course_no'] ?>">
+                    <label class="cs_form_label">Add Courses</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
+                    	<?php
+							//getting multiple selected item
+							$course_list = explode(',',$getValues[0]['course']);
+							//get multiple select box
+							$BLL_Obj->getSelectedMultipleItemList('course_info','course_id',$course_list,'name');
+						?>                    	
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Faculty Assigned</label>
+                    <label class="cs_form_label">Add Advisor</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
                     		//get the instituteid from the BLL
@@ -66,39 +73,25 @@
 							$condition_column_names = array('institute_id');
 							$condition_column_values = array($instituteId);
 							$BLL_Obj->getSelectedFromList('faculty_info','user_id',$advisor_list,'f_name','m_name','l_name',$condition_column_names,$condition_column_values);
-						?>  
+						?> 
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Course Description</label>
+                    <label class="cs_form_label">Session</label>
+                    <input type="text" class="form-control cs_form_textbox" name="session" value="<?php echo $getValues[0]['session'] ?>">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Time Duration</label>
+                    <input type="text" class="form-control cs_form_textbox" name="duration" value="<?php echo $getValues[0]['hours'] ?>">
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Curriculum Details</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"><?php echo $getValues[0]['detail'] ?></textarea>
                 </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Annoucement Title</label>
-                    <input type="text" class="form-control cs_form_textbox" name="announcement_title" value="<?php echo $getValues[0]['announcement_title'] ?>">
-                </div>
-                <div class="form-group">
-	                    <label class="cs_form_label">Course Category</label>
-	                    <select class="form-control cs_form_textbox" name="edu_level">
-	                    	<?php
-	                    		//get the course category from the BLL
-	                    		$BLL_Obj->getSelectedItemList('student_status','id',$getValues[0]['edu_level'],'status_name');
-	                    	?>
-	                    </select>
-	            </div>
-	            <div class="form-group">
-	                    <label class="cs_form_label">Availability</label>
-	                    <select class="form-control cs_form_textbox" name="availability">
-	                    	<?php
-	                    		//get the availability from the BLL
-	                    		$BLL_Obj->getSelectedItemList('availability','id',$getValues[0]['availability'],'availability_name');
-	                    	?>
-	                    </select>
-	            </div>
-                <input type="hidden" name="user_id" value="<?php echo $course_id; ?>" />
-                <input type="hidden" name="op" value="cou_info" />
+                <input type="hidden" name="user_id" value="<?php echo $curriculum_id; ?>" />
+                <input type="hidden" name="op" value="cur_info" />
                 <button type="submit" class="btn btn-success btn-lg">Update Data</button>
-            </form>
+           </form> 
         </div>
         <!-- /.col-lg-6 -->
     </div>

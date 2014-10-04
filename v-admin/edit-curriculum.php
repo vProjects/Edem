@@ -38,35 +38,43 @@
                     <label class="cs_form_label">Name</label>
                     <input type="text" class="form-control cs_form_textbox" name="name" value="<?php echo $getValues[0]['name'] ?>">
                 </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Add Courses</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]">
-                    	<?php
-							//getting multiple selected item
-							$course_list = explode(',',$getValues[0]['course']);
-							//get multiple select box
-							$BLL_Obj->getSelectedMultipleItemList('course_info','course_id',$course_list,'name');
-						?>                    	
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Add Advisor</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
-                    	<?php
-							//getting multiple selected item
-							$advisor_list = explode(',',$getValues[0]['advisor']);
-							//get multiple select box
-							$BLL_Obj->getSelectedMultipleItemList('faculty_info','user_id',$advisor_list,'name');
-						?> 
-                    </select>
-                </div>
-                <div class="form-group">
+                 <div class="form-group">
                     <label class="cs_form_label">Institute</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
+                    <select class="form-control cs_form_textbox" name="institute_id" id="course_inst">
                     	<?php
 							//get the institute from the BLL
 							$BLL_Obj->getSelectedItemList('institute_info','institute_id',$getValues[0]['institute_id'],'name');
 						?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Add Advisor</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="course_adv">
+                    	<?php
+							//getting multiple selected item
+							$advisor_list = explode(',',$getValues[0]['advisor']);
+							//get multiple select box
+							//$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
+							$instituteId = $getValues[0]['institute_id'];
+							$condition_column_names = array('institute_id');
+							$condition_column_values = array($instituteId);
+							$BLL_Obj->getSelectedFromList('faculty_info', 'user_id', $advisor_list, 'f_name','m_name','l_name', $condition_column_names, $condition_column_values);
+						?> 
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="cs_form_label">Add Courses</label>
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="course[]" id="curri_course">
+                    	<?php
+							//getting multiple selected item
+							$course_list = explode(',',$getValues[0]['course']);
+							//get multiple select box
+							//$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
+							$instituteId = $getValues[0]['institute_id'];
+							$condition_column_names = array('institute_id');
+							$condition_column_values = array($instituteId);
+							$BLL_Obj->getSelectedFromList('course_info', 'course_id', $course_list, 'name','','', $condition_column_names, $condition_column_values);
+						?>                    	
                     </select>
                 </div>
                 <div class="form-group">

@@ -43,13 +43,26 @@
                     <input type="text" class="form-control cs_form_textbox" name="course_no" value="<?php echo $getValues[0]['course_no'] ?>">
                 </div>
                 <div class="form-group">
+                    <label class="cs_form_label">Institute</label>
+                    <select class="form-control cs_form_textbox" name="institute_id" id="course_inst">
+                    	<?php
+							//get the institute from the BLL
+							$BLL_Obj->getSelectedItemList('institute_info','institute_id',$getValues[0]['institute_id'],'name');
+						?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="cs_form_label">Faculty Assigned</label>
-                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
+                    <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]" id="course_adv">
                     	<?php
 							//getting multiple selected item
-							$advisor_list = explode('5',$getValues[0]['advisor']);
+							$advisor_list = explode(',',$getValues[0]['advisor']);
 							//get multiple select box
-							$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
+							//$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
+							$instituteId = $getValues[0]['institute_id'];
+							$condition_column_names = array('institute_id');
+							$condition_column_values = array($instituteId);
+							$BLL_Obj->getSelectedFromList('faculty_info', 'user_id', $advisor_list, 'f_name','m_name','l_name', $condition_column_names, $condition_column_values);
 						?>  
                     </select>
                 </div>
@@ -60,15 +73,6 @@
                 <div class="form-group">
                     <label class="cs_form_label">Annoucement Title</label>
                     <input type="text" class="form-control cs_form_textbox" name="announcement_title" value="<?php echo $getValues[0]['announcement_title'] ?>">
-                </div>
-                <div class="form-group">
-                    <label class="cs_form_label">Institute</label>
-                    <select class="form-control cs_form_textbox" name="institute_id">
-                    	<?php
-							//get the institute from the BLL
-							$BLL_Obj->getSelectedItemList('institute_info','institute_id',$getValues[0]['institute_id'],'name');
-						?>
-                    </select>
                 </div>
                 <div class="form-group">
 	                    <label class="cs_form_label">Course Category</label>

@@ -15,6 +15,7 @@
 		$student_id = $_POST['student_id'] ;
 		$dob = $_POST['dob'] ;
 		$institute = $_POST['institute'] ;
+		$course = $_POST['course'];
 		$edu_level = $_POST['edu_level'] ;
 		$gender = $_POST['gender'] ;
 		$department = $_POST['department'] ;
@@ -68,6 +69,7 @@
 						'values' => array(
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
+										'course_id' => $course,
 										'curriculum_id' => "" ,
 										'f_name' => $f_name ,
 										'm_name' => $m_name ,

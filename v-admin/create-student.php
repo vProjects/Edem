@@ -74,13 +74,20 @@
 	                </div>
                      <div class="form-group">
 	                    <label class="cs_form_label">Institution</label>
-	                    <select class="form-control cs_form_textbox" name="institute">
+	                    <select class="form-control cs_form_textbox" name="institute" id="course_inst">
 	                    	<?php
+	                    		echo '<option>Select an Institution</option>';
 	                    		//get the institute from the BLL
 	                    		$BLL_Obj->getInstitute_SelectBox();
 	                    	?>
 	                    </select>
 	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Add Course</label>
+	                    <select class="form-control cs_form_textbox" name="course" id="curri_course">
+	                    
+	                    </select>
+                	</div>
 	                <div class="form-group">
 	                    <label class="cs_form_label">Education Level</label>
 	                    <select class="form-control cs_form_textbox" name="edu_level">

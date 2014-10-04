@@ -64,7 +64,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="cs_form_label">Course Details</label>
+                    <label class="cs_form_label">Course Description</label>
                     <textarea rows="4" class="form-control ae_form_textarea" name="details"></textarea>
                 </div>
                 <!-- debo -->
