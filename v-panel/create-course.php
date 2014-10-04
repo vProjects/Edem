@@ -73,27 +73,25 @@
                     <input type="text" class="form-control cs_form_textbox" name="announcement_title">
                 </div>
                 <div class="form-group">
-	                    <label class="cs_form_label">Course Category</label>
-	                    <select class="form-control cs_form_textbox" name="edu_level">
-	                    	<?php
-	                    		//get the institute from the BLL
-	                    		$BLL_Obj->getStudentStatus_SelectBox();
-	                    	?>
-	                    </select>
+                    <label class="cs_form_label">Course Category</label>
+                    <select class="form-control cs_form_textbox" name="edu_level">
+                    	<?php
+                    		//get the institute from the BLL
+                    		$BLL_Obj->getStudentStatus_SelectBox();
+                    	?>
+                    </select>
 	            </div>
 	            <div class="form-group">
-	                    <label class="cs_form_label">Availability</label>
-	                    <select class="form-control cs_form_textbox" name="availability">
-	                    	<?php
-	                    		//get the institute from the BLL
-	                    		$BLL_Obj->getavailability_SelectBox();
-	                    	?>
-	                    </select>
+                    <label class="cs_form_label">Availability</label>
+                    <select class="form-control cs_form_textbox" name="availability">
+                    	<?php
+                    		//get the institute from the BLL
+                    		$BLL_Obj->getavailability_SelectBox();
+                    	?>
+                    </select>
 	            </div>
                 <!-- debo -->
-                <?php
-                	
-                ?>
+                
                 <input type = "hidden" name = "institute_id" value = "<?php echo $instituteId;?>" />
                 <input type = "hidden" name = "creator_name" value = "<?php echo $creatorName;?>" />
                 <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
