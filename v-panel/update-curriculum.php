@@ -45,24 +45,21 @@
 			    FRESHMAN YEAR
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Composition I</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Prep for Excellence</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">College Algebra</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">World History</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Essentials of the Christian Faith</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Princ/Appl of Physical Science</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Intro to Atmospheric Science</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Composition II</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Introduction to Sociology</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Computer Appl And Prog</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Survey of U.S. History</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Princ & App of Bio Science</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Environmental Science</a></li>
-			  </ul>
+			  <ul id ="one" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
+			  	<?php
+					//get the course of the student
+					$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+					//get the curriculum of the student
+					$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
+					if(!empty($curriculums1))
+					{
+						foreach ($curriculums1 as $curriculumid => $curriculum) 
+						{
+							echo '<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
+						}	
+					}
+				?>
+			   </ul>
 			</div>			
 		</div>
 		 <!-- sophomore year block start-->
@@ -72,26 +69,20 @@
 			    SOPHOMORE YEAR
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Introduction to Literature</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">African Amarican History</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Values and Society</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Art Appreciation</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Music Appreciation</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary French I</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary Spanish I</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fund and Tech of Activities I</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary French II</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Elementary Spanish II</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Problems of Philosophy</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">World Religion</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Intro To Psychology</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Social Science Statictics</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fund and Tech of Activities II</a></li>			 		     
+			  <ul id ="two" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
+			  	<?php
+					//get the course of the student
+					$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+					//get the curriculum of the student
+					$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
+					if(!empty($curriculums2))
+					{
+						foreach ($curriculums2 as $curriculumid => $curriculum) 
+						{
+							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
+						}	
+					}
+				?>  
 			  </ul>
 			</div>
 		</div>
@@ -103,25 +94,20 @@
 			    JUNIOR YEAR
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Deviant Behavior</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Marriage and the Family</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cultural Anthropology</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Intro to Social Work</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sociology and Aging</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sociology of Health & Medicine</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Social Psychology</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sociological Theory</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">United State Government</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">State/Local Government</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Community and Urban Life</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sociology of Organizations</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>			   		 		     
+			  <ul id ="three" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
+			    <?php
+					//get the course of the student
+					$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+					//get the curriculum of the student
+					$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
+					if(!empty($curriculums4))
+					{
+						foreach ($curriculums4 as $curriculumid => $curriculum) 
+						{
+							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
+						}	
+					}
+				?>			   		 		     
 			  </ul>
 			</div>
 		</div>
@@ -133,22 +119,20 @@
 			    SENIOR YEAR
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Demography</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Soc. of the Black Experience</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Methods of Research</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Minority Groups</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sociology of Health & Medicine</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Economics</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">World Geography</a></li>
-			    <li role="presentation" class="divider"></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Senior Field Paper</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">General Elective</a></li>			  		   		 		     
+			  <ul id ="four" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
+			     <?php
+					//get the course of the student
+					$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+					//get the curriculum of the student
+					$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
+					if(!empty($curriculums5))
+					{
+						foreach ($curriculums5 as $curriculumid => $curriculum) 
+						{
+							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
+						}	
+					}
+				?>		  		   		 		     
 			  </ul>
 			</div>
 		</div>
@@ -166,21 +150,21 @@
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
+			    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
+			    <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
+			    <input type="text" class="form-control" id="exampleInputEmail4" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>

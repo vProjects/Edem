@@ -27,6 +27,29 @@
     <!--  Admin Scripts - Include with every page -->
     <script src="js/admin.js"></script>
 
+	<script type = "text/javascript">
+  $(function() {
+    $( ".column" ).sortable({
+      connectWith: ".column",
+      handle: ".portlet-header",
+      cancel: ".portlet-toggle",
+      placeholder: "portlet-placeholder ui-corner-all"
+    });
+ 
+    $( ".portlet" )
+      .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+      .find( ".portlet-header" )
+        .addClass( "ui-widget-header ui-corner-all" )
+        .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+ 
+    $( ".portlet-toggle" ).click(function() {
+      var icon = $( this );
+      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+    });
+  });
+  </script>
+	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
     
@@ -45,7 +68,23 @@
 	                return false;
 	        }});
 		});
-    </script>
+		$('#one li a').click(function(){
+			var livalue = $('#one li').attr("id");
+			$('#exampleInputEmail1').val(livalue);
+		});
+		$('#two li a').click(function(){
+			var livalue = $(this).html();
+			$('#exampleInputEmail2').val(livalue);
+		});
+		$('#three li a').click(function(){
+			var livalue = $(this).html();
+			$('#exampleInputEmail3').val(livalue);
+		});
+		$('#four li a').click(function(){
+			var livalue = $(this).html();
+			$('#exampleInputEmail4').val(livalue);
+		});
+	</script>
 	 
     <!-- js for calender view -->
     <script type="text/javascript" src="components/underscore/underscore-min.js"></script>

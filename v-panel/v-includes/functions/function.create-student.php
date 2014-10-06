@@ -6,21 +6,32 @@
 	
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
-		$name = $_POST['name'] ;
+		$f_name = $_POST['f_name'] ;
+		$m_name = $_POST['m_name'] ;
+		$l_name = $_POST['l_name'] ;
+		$suffix = $_POST['suffix'] ;
+		$o_name = $_POST['o_name'] ;
 		$email = $_POST['email'] ;
-		$institute = $_POST['institute'] ;
+		$student_id = $_POST['student_id'] ;
 		$dob = $_POST['dob'] ;
-		$sex = $_POST['sex'] ;
-		$joining_date = $_POST['joining_date'] ;
-		$curriculum = $_POST['curriculum'] ;
-		$session = $_POST['session'];
-		$mobile = $_POST['mobile'] ;
-		$address_l_1 = $_POST['address_l_1'] ;
-		$address_l_2 = $_POST['address_l_2'] ;
+		$institute = $_POST['institute'] ;
+		$course = $_POST['course'];
+		$edu_level = $_POST['edu_level'] ;
+		$gender = $_POST['gender'] ;
+		$department = $_POST['department'] ;
+		$street_1 = $_POST['street_1'] ;
+		$street_2 = $_POST['street_2'] ;
 		$city = $_POST['city'] ;
 		$state = $_POST['state'] ;
 		$country = $_POST['country'] ;
 		$postal_code = $_POST['postal_code'] ;
+		
+		//new fields added later
+		$website = $_POST['website'] ;
+		$home_phone = $_POST['home_phone'] ;
+		$work_phone = $_POST['work_phone'] ;
+		$work_fax = $_POST['work_fax'] ;
+		$cellular_phone = $_POST['cellular_phone'] ;
 		
 		//username and the password
 		$username = $_POST['username'];
@@ -63,33 +74,44 @@
 								'user_status' => 1
 						)
 					);
-			$DAL_Obj->insertValue($insert_user);		
-			$username_insert_flg = 1;
+			$query_result = $DAL_Obj->insertValue($insert_user);		
 		}
 	} 
 	
-	if( !empty($name) && !empty($email) && !empty($mobile) && !empty($user_id) && ($username_insert_flg == 1))
+	if( !empty($f_name) && !empty($email) && !empty($user_id) && ($query_result >= 1))
 	{
 		$insert_student = array(
 						'table' => 'students_info' ,
 						'values' => array(
 										'user_id' => $user_id ,
 										'institute_id' => $institute ,
-										'name' => $name ,
+										'course_id' => $course,
+										'curriculum_id' => "" ,
+										'f_name' => $f_name ,
+										'm_name' => $m_name ,
+										'l_name' => $l_name ,
+										'suffix' => $suffix ,
+										'o_name' => $o_name ,
 										'email' => $email ,
+										'student_id' => $student_id ,
 										'dob' => $dob ,
-										'sex' => $sex ,
-										'mobile' => $mobile ,
-										'curriculum_id' => $curriculum_string ,
-										'session' => $session ,
-										'joining_date' => $joining_date ,
-										'address_l_1' => $address_l_1 ,
-										'address_l_2' => $address_l_2 ,
+										'edu_level' => $edu_level ,
+										'gender' => $gender ,
+										'department' => $department ,
+										'street_1' => $street_1 ,
+										'street_2' => $street_2 ,
 										'city' => $city ,
 										'state' => $state ,
 										'country' => $country ,
 										'postal_code' => $postal_code ,
-										'student_status' => 1
+										'website' => $website ,
+										'home_phone' => $home_phone ,
+										'work_phone' => $work_phone ,
+										'work_fax' => $work_fax ,
+										'home_phone' => $home_phone ,
+										'cellular_phone' => $cellular_phone ,
+										'student_status' => 1 ,
+										'status' => 1
 									)
 						);
 						

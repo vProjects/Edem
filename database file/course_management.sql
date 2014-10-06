@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2014 at 07:20 PM
+-- Generation Time: Oct 06, 2014 at 08:41 PM
 -- Server version: 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.3
 
@@ -381,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `course_info` (
   `availability` int(11) NOT NULL,
   `course_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `course_info`
@@ -411,7 +411,8 @@ INSERT INTO `course_info` (`id`, `course_id`, `institute_id`, `created_by`, `cou
 (23, 'COU542fcf89a123e', 'INS53a5869e3e469', 'Edems Chairperson m test l test', 'testing1', 'testing1', 'testing1', '2', 'FAC542fc870f3677', '2014-10-04', 'testing1', 2, 1),
 (24, 'COU542fd0107a828', 'INS539f1b7ab50b0', 'admin', 'testing2', 'testing2', 'testing2', '4', 'FAC542fc870f3677', '2014-10-04', 'testing2a', 3, 1),
 (25, 'COU542fd6d7aa8df', 'INS53a5869e3e469', 'admin', 'testing3', 'testing3', 'testing3', '5', 'FAC542fc870f3677', '2014-10-04', 'testing3', 2, 1),
-(26, 'COU542fe042d4acf', 'INS53a5869e3e469', 'admin', 'testing4', 'testing4', 'testing4', '5', 'FAC542fc870f3677', '2014-10-04', 'testing4', 2, 1);
+(26, 'COU542fe042d4acf', 'INS53a5869e3e469', 'admin', 'testing4', 'testing4', 'testing4', '5', 'FAC542fc870f3677', '2014-10-04', 'testing4', 2, 1),
+(27, 'COU54326c7558ca0', 'INS53a5869e3e469', 'admin', 'lorem ipsum3', 'lorem ipsum3', 'lorem ipsum3', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', '2014-10-06', 'lorem ipsum3', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -427,31 +428,63 @@ CREATE TABLE IF NOT EXISTS `curriculum_info` (
   `created_on` date NOT NULL,
   `name` varchar(500) NOT NULL,
   `course` varchar(300) NOT NULL,
+  `edu_level` varchar(255) NOT NULL,
   `advisor` varchar(300) NOT NULL,
   `session` varchar(500) NOT NULL,
   `hours` varchar(300) NOT NULL,
   `detail` varchar(500) NOT NULL,
   `curriculum_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `curriculum_info`
 --
 
-INSERT INTO `curriculum_info` (`id`, `curriculum_id`, `institute_id`, `created_by`, `created_on`, `name`, `course`, `advisor`, `session`, `hours`, `detail`, `curriculum_status`) VALUES
-(1, 'CUR53a2ee7f9e40a', 'INS539f1b7ab50b0', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188,COU53a1906064acc', 'FAC53ef4db80cc92', '2012', '32', 'sdfs', 1),
-(2, 'CUR53a2eec54e5fb', 'INS539f226d39157', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188,COU53a1906064acc', 'FAC53ef4db80cc92', '2012', '32', 'sdfsd', 1),
-(3, 'CUR53a2ef00c57d0', 'INS539f1ac5a08d3', 'admin', '2014-06-19', 'test 1', 'COU53a18ff010188,COU53a1906064acc', 'FAC53ef4db80cc92', '2013', '55', 'test for curriculum dssfsa', 1),
-(4, 'CUR542a67efcfa51', 'INS53a5869e3e469', 'Edem''s Institute', '2014-09-30', 'curriculum1', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb', 'FAC53ef4db80cc92', 'curriculum1', 'curriculum1', 'curriculum1', 1),
-(5, 'CUR542a6900a4a2a', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-09-30', 'chairperson', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5', 'FAC53ef4db80cc92', 'chairperson', 'chairperson', 'chairperson', 1),
-(6, 'CUR542a6953c83dc', 'INS53a5869e3e469', 'Edem''s Faculty test l test', '2014-09-30', 'faculty', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb', 'FAC53ef4db80cc92', 'test_faculty', 'test_faculty', 'test_faculty', 1),
-(7, 'CUR542a6bb3d3737', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-09-30', 'test', 'COU53da2f4c1d2d1', 'FAC53ef4db80cc92', 'test1', 'test1', 'test1', 1),
-(8, 'CUR542a6c1f9a47d', 'INS53a5869e3e469', 'Edem''s Institute', '2014-09-30', 'institute', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5', 'FAC53ef4db80cc92', 'institute', 'institute', 'institute', 1),
-(9, 'CUR542fc451360c1', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-10-04', '4 oct', 'COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba', 'FAC53ef4db80cc92', '4 oct', '4 oct', '4 oct', 1),
-(10, 'CUR542fce990daa9', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing1', 'COU542a56d46d3d8', 'FAC542fc870f3677', 'testing1', 'testing1', 'testing1', 1),
-(11, 'CUR542fe58a5e483', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing5', '', 'FAC542fc870f3677', 'testing5', 'testing5', 'testing5', 1),
-(12, 'CUR542fe65b5c8fd', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing6', 'COU542a58642d82e,COU542a5a57c65c5', 'FAC542fc870f3677', 'testing6', 'testing6', 'testing6', 1);
+INSERT INTO `curriculum_info` (`id`, `curriculum_id`, `institute_id`, `created_by`, `created_on`, `name`, `course`, `edu_level`, `advisor`, `session`, `hours`, `detail`, `curriculum_status`) VALUES
+(1, 'CUR53a2ee7f9e40a', 'INS539f1b7ab50b0', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188,COU53a1906064acc', '1', 'FAC53ef4db80cc92', '2012', '32', 'sdfs', 1),
+(2, 'CUR53a2eec54e5fb', 'INS539f226d39157', 'admin', '2014-06-19', 'asdfsdafs', 'COU53a18ff010188,COU53a1906064acc', '2', 'FAC53ef4db80cc92', '2012', '32', 'sdfsd', 1),
+(3, 'CUR53a2ef00c57d0', 'INS539f1ac5a08d3', 'admin', '2014-06-19', 'test 1', 'COU53a18ff010188,COU53a1906064acc', '1', 'FAC53ef4db80cc92', '2013', '55', 'test for curriculum dssfsa', 1),
+(4, 'CUR542a67efcfa51', 'INS53a5869e3e469', 'Edem''s Institute', '2014-09-30', 'curriculum1', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb', '2', 'FAC53ef4db80cc92', 'curriculum1', 'curriculum1', 'curriculum1', 1),
+(5, 'CUR542a6900a4a2a', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-09-30', 'chairperson', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5', '1', 'FAC53ef4db80cc92', 'chairperson', 'chairperson', 'chairperson', 1),
+(6, 'CUR542a6953c83dc', 'INS53a5869e3e469', 'Edem''s Faculty test l test', '2014-09-30', 'faculty', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb', '2', 'FAC53ef4db80cc92', 'test_faculty', 'test_faculty', 'test_faculty', 1),
+(7, 'CUR542a6bb3d3737', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-09-30', 'test', 'COU53da2f4c1d2d1', '1', 'FAC53ef4db80cc92', 'test1', 'test1', 'test1', 1),
+(8, 'CUR542a6c1f9a47d', 'INS53a5869e3e469', 'Edem''s Institute', '2014-09-30', 'institute', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5', '2', 'FAC53ef4db80cc92', 'institute', 'institute', 'institute', 1),
+(9, 'CUR542fc451360c1', 'INS53a5869e3e469', 'Edems Chairperson m test l test', '2014-10-04', '4 oct', 'COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba', '1', 'FAC53ef4db80cc92', '4 oct', '4 oct', '4 oct', 1),
+(10, 'CUR542fce990daa9', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing1', 'COU542a58642d82e', '2', 'FAC542fc870f3677', 'testing1', 'testing1', 'testing1', 1),
+(11, 'CUR542fe58a5e483', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing5', '', '1', 'FAC542fc870f3677', 'testing5', 'testing5', 'testing5', 1),
+(12, 'CUR542fe65b5c8fd', 'INS53a5869e3e469', 'admin', '2014-10-04', 'testing6', 'COU542a58642d82e,COU542a5a57c65c5', '2', 'FAC542fc870f3677', 'testing6', 'testing6', 'testing6', 1),
+(13, 'CUR5432693e7ba92', 'INS53a5869e3e469', 'admin', '2014-10-06', '2', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', '2', '2', '2', 1),
+(14, 'CUR54326cbbc9113', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum5', 'COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum5', 'lorem ipsum5', 'lorem ipsum5', 1),
+(15, 'CUR54326cda2631f', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum6', 'COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum6', 'lorem ipsum6', 'lorem ipsum6', 1),
+(16, 'CUR54326cfb325a9', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum7', 'COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum7', 'lorem ipsum7', 'lorem ipsum7', 1),
+(17, 'CUR54326d0e17c67', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum8', 'COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum8', 'lorem ipsum8', 'lorem ipsum8', 1),
+(18, 'CUR54326d1ee9cdd', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum9', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum8', 'lorem ipsum8', 'lorem ipsum8', 1),
+(19, 'CUR54326d355d181', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum10', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '1', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum10', 'lorem ipsum10', 'lorem ipsum10', 1),
+(20, 'CUR54326d4756595', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum11', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum11', 'lorem ipsum11', 'lorem ipsum11', 1),
+(21, 'CUR54326d57e33ae', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum12', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '2', 'FAC53ef4db80cc92', 'lorem ipsum12', 'lorem ipsum12', 'lorem ipsum12', 1),
+(22, 'CUR54326d688b347', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum13', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum13', 'lorem ipsum13', 'lorem ipsum13', 1),
+(23, 'CUR54326d792b4ba', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum14', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum14', 'lorem ipsum14', 'lorem ipsum14', 1),
+(24, 'CUR54326d8ac8a8b', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum15', 'COU54326c7558ca0', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum15', 'lorem ipsum15', 'lorem ipsum15', 1),
+(25, 'CUR54326da481f34', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum16', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '4', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum16', 'lorem ipsum16', 'lorem ipsum16', 1),
+(26, 'CUR54326dba94ea8', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum17', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '4', 'FAC542fc870f3677', 'lorem ipsum17', 'lorem ipsum17', 'lorem ipsum17', 1),
+(27, 'CUR54326dcc024c2', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum18', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '4', 'FAC542fc870f3677', 'lorem ipsum18', 'lorem ipsum18', 'lorem ipsum18', 1),
+(28, 'CUR54326ddc547f4', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum19', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '4', 'FAC542fc870f3677', 'lorem ipsum19', 'lorem ipsum19', 'lorem ipsum19', 1),
+(29, 'CUR54326dedad9b8', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum20', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '4', 'FAC542fc870f3677', 'lorem ipsum20', 'lorem ipsum20', 'lorem ipsum20', 1),
+(30, 'CUR54326e0d1d465', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum22', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '5', 'FAC542fc870f3677', 'lorem ipsum22', 'lorem ipsum22', 'lorem ipsum22', 1),
+(31, 'CUR54326e1d9c7c5', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum23', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '5', 'FAC542fc870f3677', 'lorem ipsum23', 'lorem ipsum23', 'lorem ipsum23', 1),
+(32, 'CUR54326e2dd2086', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum24', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '5', 'FAC542fc870f3677', 'lorem ipsum24', 'lorem ipsum24', 'lorem ipsum24', 1),
+(33, 'CUR54326e3dc44e3', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum25', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '5', 'FAC542fc870f3677', 'lorem ipsum25', 'lorem ipsum25', 'lorem ipsum25', 1),
+(34, 'CUR54326e4d38a22', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum26', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '6', 'FAC542fc870f3677', 'lorem ipsum26', 'lorem ipsum26', 'lorem ipsum26', 1),
+(35, 'CUR54326e5d35514', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum27', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '6', 'FAC542fc870f3677', 'lorem ipsum27', 'lorem ipsum27', 'lorem ipsum27', 1),
+(36, 'CUR54326e6c986c2', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum28', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '6', 'FAC542fc870f3677', 'lorem ipsum28', 'lorem ipsum28', 'lorem ipsum28', 1),
+(37, 'CUR54326e8147bb5', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum29', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '6', 'FAC542fc870f3677', 'lorem ipsum29', 'lorem ipsum29', 'lorem ipsum29', 1),
+(38, 'CUR54326e915e477', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum30', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '6', 'FAC542fc870f3677', 'lorem ipsum30', 'lorem ipsum30', 'lorem ipsum30', 1),
+(39, 'CUR54326ea03b92f', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum31', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '7', 'FAC542fc870f3677', 'lorem ipsum31', 'lorem ipsum31', 'lorem ipsum31', 1),
+(40, 'CUR54326eb0475ce', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum32', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '7', 'FAC542fc870f3677', 'lorem ipsum32', 'lorem ipsum32', 'lorem ipsum32', 1),
+(41, 'CUR54326ebf62459', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum33', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '7', 'FAC542fc870f3677', 'lorem ipsum33', 'lorem ipsum33', 'lorem ipsum33', 1),
+(42, 'CUR54326ece5e1c7', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum34', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU542fe042d4acf,COU54326c7558ca0', '7', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum34', 'lorem ipsum34', 'lorem ipsum34', 1),
+(43, 'CUR54326ede72042', 'INS53a5869e3e469', 'admin', '2014-10-06', 'lorem ipsum35', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb,COU542fc3e451bba,COU542fc8de47e84,COU542fc93a6caaf,COU542fcf89a123e,COU542fd6d7aa8df,COU54326c7558ca0,COU542fe042d4acf', '7', 'FAC53ef4db80cc92,FAC542fc870f3677', 'lorem ipsum35', 'lorem ipsum35', 'lorem ipsum35', 1);
 
 -- --------------------------------------------------------
 
@@ -721,7 +754,7 @@ CREATE TABLE IF NOT EXISTS `students_info` (
   `student_status` varchar(300) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `students_info`
@@ -733,7 +766,21 @@ INSERT INTO `students_info` (`id`, `user_id`, `institute_id`, `course_id`, `curr
 (5, 'STU53d6543aa2eb2', 'INS539f1ac5a08d3', '', '', 'sfdkljkjsdfh', 'jhjkhkldfhashf', 'jhjksdlahjh', 'jkhkjdhslakfhj', 'hjhfdslahjshdfkjlh', 'jhjkhsdfkahkjf@ajit.com', '', '2014-07-01', '2', 'male', 'asdfhjkgl', 'tex', 'ljsdkjfkhki', 'kjhldfjhklasjfhj', '1643', '106', 'hjdfhlash', 'hsdklfjahjhksdfjahkj', 'jksdfhajkh', 'kjhjdfhasjkhjhk', 'jhjkdsfhkajhjksfh', 'jkhjkdsfhjkhkdfjs', '1', 1),
 (6, 'STU53ef87bdb2f4a', 'INS53a5869e3e469', '', '', 'Test Edem', 'm', 'l', 'mr', 'o', 'aaa@student.com', '12365489', '1989-06-23', '4', 'male', 'asdf', 'asdf', 'asdf', 'test city', '3624', '223', 'test zip code', 'www.yourdomain.com', 'test phone', '0test phone', '1test phone', '2test phone', '1', 1),
 (7, 'STU542fc7fd6c390', 'INS53a5869e3e469', '', '', '4 oct1', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '2014-10-14', '2', 'male', '4 oct', '4 oct', '4 oct', '4 oct', '1506', '99', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '1', 1),
-(8, 'STU542ff47751bb1', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '2014-08-28', '2', 'male', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '147', '9', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '1', 1);
+(8, 'STU542ff47751bb1', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '2014-08-28', '2', 'male', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '147', '9', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', 'studenttest1', '1', 1),
+(9, 'STU54323d6435228', 'INS53a5869e3e469', 'COU542a56d46d3d8', '', '1222', '1222', '1222', '1222', '1222', '1222', '1222', '0000-00-00', '4', 'male', '1222', '1222', '1222', '1222', '315', '17', '1222', '1222', '1222', '1222', '1222', '1222', '1', 1),
+(10, 'STU54324067d400e', 'INS53a5869e3e469', 'COU542a56d46d3d8', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '2014-10-16', '4', 'male', 'lorem', 'lorem', 'lorem', 'lorem', '33', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(11, 'STU543240eca76a2', 'INS53a5869e3e469', 'COU542a56d46d3d8', '', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', '2014-10-03', '2', 'male', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', '284', '16', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', 'test_faculty', '1', 1),
+(12, 'STU543241594ba4c', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'edem1234', 'edem1234', 'edem1234', 'edem1234', 'edem1234', 'edem1234', 'edem1234', '2014-10-09', '2', 'male', 'edem1234', 'edem1234', 'edem1234', 'edem1234', '320', '18', 'edem1234', 'edem1234', 'edem1234', 'edem1234', 'edem1234', 'edem1234', '1', 1),
+(13, 'STU5432419791609', 'INS539f1b7ab50b0', 'COU53a18ff010188', '', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', '2014-10-15', '2', 'male', 'admin', 'admin', 'admin', 'admin', '129', '6', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', '1', 1),
+(14, 'STU54324d4dbdabe', '/', 'COU53da2f4c1d2d1', '', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', '2014-10-22', '2', 'male', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', '199', '14', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', 'lorem ipsum', '1', 1),
+(15, 'STU54324e1a50337', '/', 'COU53da2f4c1d2d1', '', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', '2014-10-22', '2', 'male', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', '284', '16', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', 'lorem latest', '1', 1),
+(16, 'STU54324ee0ad964', 'INS53a5869e3e469', 'COU542a63e11accb', '', '1', '1', '1', '1', '1', '1', '1', '2014-10-14', '2', 'male', '1', '1', '1', '1', '284', '16', '1', '1', '1', '1', '1', '1', '1', 1),
+(17, 'STU543263e8a245d', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', '2014-10-22', '2', 'male', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', '191', '13', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', 'lateststudent', '1', 1),
+(18, 'STU54326fa52dc96', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '2014-10-15', '5', 'male', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '284', '16', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '1', 1),
+(19, 'STU54328ad1b6a29', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '2014-10-22', '7', 'male', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '284', '16', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '1', 1),
+(20, 'STU54328af6da1a5', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '2014-10-16', '5', 'male', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '180', '11', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '1', 1),
+(21, 'STU54328b204c84c', 'INS539f1af709988', 'COU53db2c906dbc1', '', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '2014-10-15', '4', 'male', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '284', '16', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '1', 1),
+(22, 'STU54328b52407bb', 'INS53db864177664', 'COU542a59fd1d450', '', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '2014-10-16', '2', 'male', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '320', '18', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -803,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(500) NOT NULL,
   `user_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
 
 --
 -- Dumping data for table `users`
@@ -835,7 +882,26 @@ INSERT INTO `users` (`id`, `username`, `user_id`, `password`, `date`, `user_type
 (51, '4 oct', 'FAC542fc870f3677', '4 oct4 oct', '2014-10-04', 'student', 1),
 (52, '4 oct', 'CHR542fc8ae1e974', '4 oct', '2014-10-04', 'chairperson', 1),
 (53, 'studenttest', 'STU542ff3a26717d', 'studenttest', '2014-10-04', 'student', 1),
-(54, 'studenttest1', 'STU542ff47751bb1', 'studenttest1', '2014-10-04', 'student', 1);
+(54, 'studenttest1', 'STU542ff47751bb1', 'studenttest1', '2014-10-04', 'student', 1),
+(55, '1222', 'STU54323c2e4eb7b', '1222', '2014-10-06', 'student', 1),
+(56, '1222', 'STU54323cb3a0812', '1222', '2014-10-06', 'student', 1),
+(57, '1222', 'STU54323d6435228', '1222', '2014-10-06', 'student', 1),
+(58, 'lorem', 'STU54323e82680db', 'lorem', '2014-10-06', 'student', 1),
+(59, 'lorem', 'STU54323eae0a807', 'lorem', '2014-10-06', 'student', 1),
+(60, 'lorem', 'STU54323f1e8c70d', 'lorem', '2014-10-06', 'student', 1),
+(61, 'lorem', 'STU54324067d400e', 'lorem', '2014-10-06', 'student', 1),
+(62, 'test_faculty', 'STU543240eca76a2', 'test_faculty', '2014-10-06', 'student', 1),
+(63, 'edem1234', 'STU543241594ba4c', 'edem1234', '2014-10-06', 'student', 1),
+(64, 'admin', 'STU5432419791609', 'admin', '2014-10-06', 'student', 1),
+(65, 'lorem ipsum', 'STU54324d4dbdabe', 'lorem ipsum', '2014-10-06', 'student', 1),
+(66, 'lorem latest', 'STU54324e1a50337', 'lorem latest', '2014-10-06', 'student', 1),
+(67, '1', 'STU54324ee0ad964', '1', '2014-10-06', 'student', 1),
+(68, 'lateststudent', 'STU543263e8a245d', 'lateststudent', '2014-10-06', 'student', 1),
+(69, 'lorem ipsum student', 'STU54326fa52dc96', 'lorem ipsum student', '2014-10-06', 'student', 1),
+(70, 'lorem ipsum student2', 'STU54328ad1b6a29', 'lorem ipsum student2', '2014-10-06', 'student', 1),
+(71, 'lorem ipsum student3', 'STU54328af6da1a5', 'lorem ipsum student3', '2014-10-06', 'student', 1),
+(72, 'lorem ipsum student4', 'STU54328b204c84c', 'lorem ipsum student4', '2014-10-06', 'student', 1),
+(73, 'lorem ipsum student5', 'STU54328b52407bb', 'lorem ipsum student5', '2014-10-06', 'student', 1);
 
 -- --------------------------------------------------------
 

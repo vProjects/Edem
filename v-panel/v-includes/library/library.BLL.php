@@ -295,34 +295,6 @@
 		 }
 		 
 		 /*
-		 - method to get institute name
-		 - Auth: Debojyoti 
-		 */
-		 function getInstituteId($userId, $creator_type)
-		 {
-		 	if($creator_type == 'chairperson')
-			{
-				$column_name = array('user_id','chairperson_status');	
-		 		$column_values = array($userId,1);	
-				$institute = $this->_DAL_Obj->getValueMultipleCondtn('chairperson_info', '*', $column_name, $column_values);
-				$instituteId = $institute[0]['institute_id'];
-				return $instituteId;
-			}	
-			elseif ($creator_type == 'faculty') 
-			{
-				$column_name = array('user_id','faculty_status');	
-		 		$column_values = array($userId,1);	
-				$institute = $this->_DAL_Obj->getValueMultipleCondtn('faculty_info', '*', $column_name, $column_values);
-				$instituteId = $institute[0]['institute_id'];
-				return $instituteId;
-			}
-			elseif ($creator_type == 'institute') 
-			{
-				return $userId;
-			}
-		}
-		 
-		 /*
 		 - Method to get the student status select box UI
 		 - Auth Anand 
 		 */
@@ -387,18 +359,6 @@
 				return $creatorName;
 			}
 		  }
-		 
-		 /*
-		 - method to get creator type
-		 - Auth: Debojyoti 
-		 */
-		 function getCreatorType($userId)
-		 {
-		 	$column_name = array('user_id','user_status');	
-		 	$column_values = array($userId,1); 
-		 	$creator_data = $this->_DAL_Obj->getValueMultipleCondtn('users', '*', $column_name, $column_values);
-			return $creator_data[0]['user_type'];
-		 }
 		 
 		 /*
 		 - Method to get the course list 
@@ -619,6 +579,60 @@
 					 }
 				 }
 			 }
+		}
+		
+		/*
+		- Method to find institute id 
+		- Auth: Debojyoti 
+		*/
+		public function getInstituteId($userId, $userType)
+		{
+			if($userType == 'chairperson')
+			{
+				$instituteId = $this->_DAL_Obj->getValueWhere('chairperson_info', '*', 'user_id', $userId);
+				return $instituteId[0]['institute_id'];
+			}
+			else if($userType == 'institute')
+			{
+				return $userId;
+			}
+			else if($userType == 'faculty')
+			{
+				$instituteId = $this->_DAL_Obj->getValueWhere('faculty_info', '*', 'user_id', $userId);
+				return $instituteId[0]['institute_id'];
+			}
+		}
+
+		/*
+		- Method to find course of student upon his login 
+		- Auth: Debojyoti 
+		*/
+		public function getCourseIdOfStudent($userId)
+		{
+			$column_name = array('user_id', 'student_status');	
+			$column_values = array($userId, 1);
+			$courseId = $this->_DAL_Obj->getValueMultipleCondtn('students_info', '*', $column_name, $column_values);
+			return $courseId[0]['course_id'];
+		}
+
+		/*
+		- Method to find curriculum of student upon his login
+		- Auth: Debojyoti		 
+		*/
+		public function getCurriculumListOfStudent($courseId, $edu_level)
+		{
+			if(!empty($courseId))
+			{	
+				$curriculum_info = $this->_DAL_Obj->getValue_wildcard('curriculum_info', '*', 'course', $courseId);
+				foreach($curriculum_info as $curriculum)
+				{
+					if($curriculum['curriculum_status'] == 1 && $curriculum['edu_level'] == $edu_level)
+					{
+						$curriculum_array[$curriculum['curriculum_id']] = $curriculum['name'];
+					}
+				}
+				return $curriculum_array;
+			}
 		}
 	 }
 ?>

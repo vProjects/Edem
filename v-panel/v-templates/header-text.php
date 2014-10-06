@@ -25,6 +25,9 @@
     
     <!-- Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  
 
 </head>
 

@@ -58,13 +58,11 @@
                     <label class="cs_form_label">Faculty Assigned</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
-                    		//get the instituteid from the BLL
-        					$instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id'], $_SESSION['type']);
                     		//getting multiple selected item
 							$advisor_list = explode(',',$getValues[0]['advisor']);
 							//get multiple select box
 							$condition_column_names = array('institute_id');
-							$condition_column_values = array($instituteId);
+							$condition_column_values = array($getValues[0]['institute_id']);
 							$BLL_Obj->getSelectedFromList('faculty_info','user_id',$advisor_list,'f_name','m_name','l_name',$condition_column_names,$condition_column_values);
 						?>  
                     </select>

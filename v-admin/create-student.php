@@ -27,7 +27,7 @@
         <div class="row stu_adm_row">
             <div class="col-lg-6">
             	<form role="form" action="v-includes/functions/function.create-student.php" method="post">
-                	<h4 class="cs_page_form_caption">Fill Up Faculty Information</h4>
+                	<h4 class="cs_page_form_caption">Fill Up Student Information</h4>
                 	<div class="form-group">
 	                    <label class="cs_form_label">First Name</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="f_name">

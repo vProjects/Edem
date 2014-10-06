@@ -4,7 +4,7 @@
 		<h3 class="dashboard-heading">FRESHMAN YEAR</h3>
 	</div>
 </div>
-<div class="row stu_adm_row"> 	
+<!--<div class="row stu_adm_row"> 	
     <div class="col-lg-3">
     	<div class="black-block">
     		<div class="course-group text-center">
@@ -12,15 +12,6 @@
     		</div>
         </div>
     </div>
-    
-    <div class="col-lg-3">
-    	<div class="green-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Prep for Excellence<br /><span>1</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
     <div class="col-lg-3">
     	<div class="red-block">
     		<div class="course-group text-center">
@@ -28,7 +19,6 @@
     		</div>
         </div>
     </div>
-    
     <div class="col-lg-3">
     	<?php 
     		//static codes
@@ -65,64 +55,40 @@
     		</div>
         </div>
     </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Intro to Atmospheric Science<br /><span>4</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Composition II<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Introduction to Sociology<br /><span>2</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Computer Appl And Prog<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Survey of U.S. History<br /><span>4</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Princ & App of Bio Science<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-		<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Environmental Science<br /><span>4</span></p></a>
-    		</div>
-        </div>
-	</div>
+</div>-->
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
+			if(!empty($curriculums1))
+			{
+				$count = 0;	
+				foreach ($curriculums1 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
 </div>
 <!-- fresh year block end-->
 <!-- sophomore year block start-->
@@ -131,129 +97,39 @@
 		<h3 class="dashboard-heading">SOPHOMORE YEAR</h3>
 	</div>
 </div>
-<div class="row stu_adm_row"> 	
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Introduction to Literature<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>African Amarican History<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Values and Society<br /><span>2</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Art Appreciation<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>   
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Music Appreciation<br /> <span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Elementary French I<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Elementary Spanish I<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Fund and Tech of Activities I<br /><span>1</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Elementary French II<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Elementary Spanish II<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Problems of Philosophy<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>World Religion<br /><span>2</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Intro To Psychology<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Social Science Statictics<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Fund and Tech of Activities II<br /><span>1</span></p></a>
-    		</div>
-        </div>
-    </div>
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
+			if(!empty($curriculums2))
+			{
+				$count = 0;	
+				foreach ($curriculums2 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
 </div>
 <!-- sophomore year block end-->
 <!-- junior year block start-->
@@ -262,120 +138,39 @@
 		<h3 class="dashboard-heading">JUNIOR YEAR</h3>
 	</div>
 </div>
-<div class="row stu_adm_row"> 	
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Deviant Behavior<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Marriage and the Family<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Cultural Anthropology<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Intro to Social Work<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>   
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Sociology and Aging<br /> <span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Sociology of Health & Medicine<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Elective<br /><span>2</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Social Psychology<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Sociological Theory<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>United State Government<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>State/Local Government<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Community and Urban Life<br /><span>OR</span></p></a>
-    		</div>
-        </div>
-    </div>               
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Sociology of Organizations<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Elective<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
+			if(!empty($curriculums4))
+			{
+				$count = 0;	
+				foreach ($curriculums4 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
 </div>
 <!-- junior year block end-->
 <!-- senior year block start-->
@@ -384,87 +179,120 @@
 		<h3 class="dashboard-heading">SENIOR YEAR</h3>
 	</div>
 </div>
-<div class="row stu_adm_row"> 	
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Demography<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Soc. of the Black Experience<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Methods of Research<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Minority Groups<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>   
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Elective<br /> <span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Economics<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>World Geography<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>Senior Field Paper<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-</div>
-<div class="row stu_adm_row">
-	<div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Elective<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
-    
-    <div class="col-lg-3">
-    	<div class="blue-block">
-    		<div class="course-group text-center">
-    			<a href="#"><p>General Elective<br /><span>3</span></p></a>
-    		</div>
-        </div>
-    </div>
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
+			if(!empty($curriculums5))
+			{
+				$count = 0;	
+				foreach ($curriculums5 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
 </div>
 <!-- senior year block end-->
+<!-- transfer year block start-->
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="dashboard-heading">TRANSFER YEAR</h3>
+	</div>
+</div>
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId6 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums6 = $BLL_Obj->getCurriculumListOfStudent($courseId6, 6);
+			if(!empty($curriculums6))
+			{
+				$count = 0;	
+				foreach ($curriculums6 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
+</div>
+<!-- transfer year block end-->
+<!-- graduate year block start-->
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="dashboard-heading">GRADUATE YEAR</h3>
+	</div>
+</div>
+<div class="column">
+	<div class="portlet">
+		<div class="row stu_adm_row">
+		<?php
+			//get the course of the student
+			$courseId7 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+			//get the curriculum of the student
+			$curriculums7 = $BLL_Obj->getCurriculumListOfStudent($courseId7, 7);
+			if(!empty($curriculums7))
+			{
+				$count = 0;	
+				foreach ($curriculums7 as $curriculumid => $curriculum) 
+				{
+					if(($count % 4) == 0 && $count!=0)
+					{
+						echo '</div><div class="row stu_adm_row">';
+					}	
+					echo '<div class="portlet-header"></div>
+    						<div class="portlet-content">
+	    						<div class="col-lg-3">
+								<div class="blue-block">
+						    		<div class="course-group text-center">
+						    			<a href="#"><p>'.$curriculum.'</p></a>
+						    		</div>
+						        </div>
+							  </div>
+						  </div>';
+					$count++;	  
+				}	
+			}
+		?>
+		</div>
+	</div>	
+</div>
+<!-- graduate year block end-->

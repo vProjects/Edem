@@ -68,8 +68,6 @@
                     	<?php
 							//getting multiple selected item
 							$course_list = explode(',',$getValues[0]['course']);
-							//get multiple select box
-							//$BLL_Obj->getSelectedMultipleItemName('faculty_info','user_id',$advisor_list);
 							$instituteId = $getValues[0]['institute_id'];
 							$condition_column_names = array('institute_id');
 							$condition_column_values = array($instituteId);

@@ -24,6 +24,7 @@
 	{
 		$name = $_POST['name'] ;
 		$course = $_POST['course'];
+		$edu_level = $_POST['edu_level'];
 		$advisor = $_POST['advisor'] ;
 		$session = $_POST['session'] ;
 		$duration = $_POST['duration'] ;
@@ -52,6 +53,7 @@
 										'created_on' => date('Y-m-d') ,
 										'name' => $name ,
 										'course' => $course_str ,
+										'edu_level' => $edu_level ,
 										'advisor' => $advisor_str ,
 										'session' => $session ,
 										'hours' => $duration ,

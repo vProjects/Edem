@@ -36,7 +36,7 @@
 		}
 	?>
     <?php
-		//get faculty user id from get method
+		//get curriculum id from get method
 		$curriculum_id = $GLOBALS['_GET']['cid'];
 		//get values from bll
 		$getValues = $BLL_Obj->getUserInfo('curriculum_info','curriculum_id',$curriculum_id);
@@ -56,8 +56,9 @@
                     	<?php
 							//getting multiple selected item
 							$course_list = explode(',',$getValues[0]['course']);
-							//get multiple select box
-							$BLL_Obj->getSelectedMultipleItemList('course_info','course_id',$course_list,'name');
+							$condition_column_names = array('institute_id');
+							$condition_column_values = array($getValues[0]['institute_id']);
+							$BLL_Obj->getSelectedFromList('course_info', 'course_id', $course_list, 'name','','', $condition_column_names, $condition_column_values);
 						?>                    	
                     </select>
                 </div>
@@ -65,13 +66,11 @@
                     <label class="cs_form_label">Add Advisor</label>
                     <select class="form-control cs_form_textbox" multiple="multiple" name="advisor[]">
                     	<?php
-                    		//get the instituteid from the BLL
-        					$instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id'], $_SESSION['type']);
                     		//getting multiple selected item
 							$advisor_list = explode(',',$getValues[0]['advisor']);
 							//get multiple select box
 							$condition_column_names = array('institute_id');
-							$condition_column_values = array($instituteId);
+							$condition_column_values = array($getValues[0]['institute_id']);
 							$BLL_Obj->getSelectedFromList('faculty_info','user_id',$advisor_list,'f_name','m_name','l_name',$condition_column_names,$condition_column_values);
 						?> 
                     </select>

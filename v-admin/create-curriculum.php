@@ -54,6 +54,15 @@
                     </select>
                 </div>
                 <div class="form-group">
+	                    <label class="cs_form_label">Education Level</label>
+	                    <select class="form-control cs_form_textbox" name="edu_level">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getStudentStatus_SelectBox();
+	                    	?>
+	                    </select>
+	                </div>
+                <div class="form-group">
                     <label class="cs_form_label">Session</label>
                     <input type="text" class="form-control cs_form_textbox" name="session">
                 </div>
