@@ -56,39 +56,32 @@
         </div>
     </div>
 </div>-->
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
-			if(!empty($curriculums1))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
+	if(!empty($curriculums1))
+	{
+		$count = 0;	
+		foreach ($curriculums1 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums1 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- fresh year block end-->
 <!-- sophomore year block start-->
@@ -97,39 +90,32 @@
 		<h3 class="dashboard-heading">SOPHOMORE YEAR</h3>
 	</div>
 </div>
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
-			if(!empty($curriculums2))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
+	if(!empty($curriculums2))
+	{
+		$count = 0;	
+		foreach ($curriculums2 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums2 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- sophomore year block end-->
 <!-- junior year block start-->
@@ -138,39 +124,32 @@
 		<h3 class="dashboard-heading">JUNIOR YEAR</h3>
 	</div>
 </div>
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
-			if(!empty($curriculums4))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
+	if(!empty($curriculums4))
+	{
+		$count = 0;	
+		foreach ($curriculums4 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums4 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- junior year block end-->
 <!-- senior year block start-->
@@ -179,39 +158,32 @@
 		<h3 class="dashboard-heading">SENIOR YEAR</h3>
 	</div>
 </div>
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
-			if(!empty($curriculums5))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
+	if(!empty($curriculums5))
+	{
+		$count = 0;	
+		foreach ($curriculums5 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums5 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- senior year block end-->
 <!-- transfer year block start-->
@@ -220,39 +192,32 @@
 		<h3 class="dashboard-heading">TRANSFER YEAR</h3>
 	</div>
 </div>
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId6 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums6 = $BLL_Obj->getCurriculumListOfStudent($courseId6, 6);
-			if(!empty($curriculums6))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId6 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums6 = $BLL_Obj->getCurriculumListOfStudent($courseId6, 6);
+	if(!empty($curriculums6))
+	{
+		$count = 0;	
+		foreach ($curriculums6 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums6 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- transfer year block end-->
 <!-- graduate year block start-->
@@ -261,38 +226,31 @@
 		<h3 class="dashboard-heading">GRADUATE YEAR</h3>
 	</div>
 </div>
-<div class="column">
-	<div class="portlet">
-		<div class="row stu_adm_row">
-		<?php
-			//get the course of the student
-			$courseId7 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-			//get the curriculum of the student
-			$curriculums7 = $BLL_Obj->getCurriculumListOfStudent($courseId7, 7);
-			if(!empty($curriculums7))
+<div class="row stu_adm_row">
+<?php
+	//get the course of the student
+	$courseId7 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+	//get the curriculum of the student
+	$curriculums7 = $BLL_Obj->getCurriculumListOfStudent($courseId7, 7);
+	if(!empty($curriculums7))
+	{
+		$count = 0;	
+		foreach ($curriculums7 as $curriculumid => $curriculum) 
+		{
+			if(($count % 4) == 0 && $count!=0)
 			{
-				$count = 0;	
-				foreach ($curriculums7 as $curriculumid => $curriculum) 
-				{
-					if(($count % 4) == 0 && $count!=0)
-					{
-						echo '</div><div class="row stu_adm_row">';
-					}	
-					echo '<div class="portlet-header"></div>
-    						<div class="portlet-content">
-	    						<div class="col-lg-3">
-								<div class="blue-block">
-						    		<div class="course-group text-center">
-						    			<a href="#"><p>'.$curriculum.'</p></a>
-						    		</div>
-						        </div>
-							  </div>
-						  </div>';
-					$count++;	  
-				}	
-			}
-		?>
-		</div>
-	</div>	
+				echo '</div><div class="row stu_adm_row">';
+			}	
+			echo '<div class="col-lg-3">
+					<div class="blue-block">
+			    		<div class="course-group text-center">
+			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    		</div>
+			        </div>
+				  </div>';
+			$count++;	  
+		}	
+	}
+?>
 </div>
 <!-- graduate year block end-->

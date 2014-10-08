@@ -39,103 +39,130 @@
 	?>
 	<!-- fresh year block start-->
 	<div class="row">
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    FRESHMAN YEAR
-			    <span class="caret"></span>
-			  </button>
-			  <ul id ="one" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
-					if(!empty($curriculums1))
-					{
-						foreach ($curriculums1 as $curriculumid => $curriculum) 
+		
+			<div class="col-lg-3">
+				<div class="dropdown">
+				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    FRESHMAN YEAR
+				    <span class="caret"></span>
+				  </button>
+				  <ul id ="one" class="dropdown-menu dropdwn-bg" style = "display: block" role="menu" aria-labelledby="dropdownMenu1">
+				  	<?php
+						//get the course of the student
+						$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+						//get the curriculum of the student
+						$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
+						if(!empty($curriculums1))
 						{
-							echo '<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
-						}	
-					}
-				?>
-			   </ul>
-			</div>			
-		</div>
-		 <!-- sophomore year block start-->
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    SOPHOMORE YEAR
-			    <span class="caret"></span>
-			  </button>
-			  <ul id ="two" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
-					if(!empty($curriculums2))
-					{
-						foreach ($curriculums2 as $curriculumid => $curriculum) 
-						{
-							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
-						}	
-					}
-				?>  
-			  </ul>
+							echo '<div class="column year1">';	
+							foreach ($curriculums1 as $curriculumid => $curriculum) 
+							{
+								echo '<div class="portlet portlet-bg-transparent">
+										<div class="portlet-content">
+											<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+										</div>
+									  </div>';
+							}
+							echo '</div>';	
+						}
+					?>
+				   </ul>
+				</div>			
 			</div>
-		</div>
+		
+		 <!-- sophomore year block start-->
+			<div class="col-lg-3">
+				<div class="dropdown">
+				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    SOPHOMORE YEAR
+				    <span class="caret"></span>
+				  </button>
+				  <ul id ="two" class="dropdown-menu dropdwn-bg " style = "display: block" role="menu" aria-labelledby="dropdownMenu1">
+				  	<?php
+						//get the course of the student
+						$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+						//get the curriculum of the student
+						$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
+						if(!empty($curriculums2))
+						{
+							echo '<div class="column year2">';	
+							foreach ($curriculums2 as $curriculumid => $curriculum) 
+							{
+								echo '<div class="portlet portlet-bg-transparent">
+										<div class="portlet-content">
+											<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+										</div>
+									  </div>';
+							}
+							echo '</div>';	
+						}
+					?>
+				   </ul>
+				</div>
+			</div>
+		
 	<!-- sophomore year block end-->
 	 <!-- junior year block start-->
 		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    JUNIOR YEAR
-			    <span class="caret"></span>
-			  </button>
-			  <ul id ="three" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			    <?php
-					//get the course of the student
-					$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
-					if(!empty($curriculums4))
-					{
-						foreach ($curriculums4 as $curriculumid => $curriculum) 
+				<div class="dropdown">
+				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    JUNIOR YEAR
+				    <span class="caret"></span>
+				  </button>
+				  <ul id ="two" class="dropdown-menu dropdwn-bg " style = "display: block" role="menu" aria-labelledby="dropdownMenu1">
+				  	<?php
+						//get the course of the student
+						$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+						//get the curriculum of the student
+						$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
+						if(!empty($curriculums4))
 						{
-							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
-						}	
-					}
-				?>			   		 		     
-			  </ul>
+							echo '<div class="column year4">';	
+							foreach ($curriculums4 as $curriculumid => $curriculum) 
+							{
+								echo '<div class="portlet portlet-bg-transparent">
+										<div class="portlet-content">
+											<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+										</div>
+									  </div>';
+							}
+							echo '</div>';	
+						}
+					?>
+				   </ul>
+				</div>
 			</div>
-		</div>
 	 <!-- junior year block end-->
 	 <!-- senior year block start-->
 		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    SENIOR YEAR
-			    <span class="caret"></span>
-			  </button>
-			  <ul id ="four" class="dropdown-menu dropdwn-bg" role="menu" aria-labelledby="dropdownMenu1">
-			     <?php
-					//get the course of the student
-					$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
-					if(!empty($curriculums5))
-					{
-						foreach ($curriculums5 as $curriculumid => $curriculum) 
+				<div class="dropdown">
+				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    SENIOR YEAR
+				    <span class="caret"></span>
+				  </button>
+				  <ul id ="two" class="dropdown-menu dropdwn-bg " style = "display: block" role="menu" aria-labelledby="dropdownMenu1">
+				  	<?php
+						//get the course of the student
+						$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+						//get the curriculum of the student
+						$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 5);
+						if(!empty($curriculums5))
 						{
-							echo '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>';
-						}	
-					}
-				?>		  		   		 		     
-			  </ul>
+							echo '<div class="column year5">';	
+							foreach ($curriculums5 as $curriculumid => $curriculum) 
+							{
+								echo '<div class="portlet portlet-bg-transparent">
+										<div class="portlet-content">
+											<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+										</div>
+									  </div>';
+							}
+							echo '</div>';	
+						}
+					?>
+				   </ul>
+				</div>
 			</div>
-		</div>
 	<!-- senior year block end-->
 </div><!--  dropdown row end-->
 	<!--textboxrow start-->
@@ -143,28 +170,28 @@
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose Your Subject">
+			    <input type="hidden" class="form-control" id="input1" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Choose Your Subject">
+			    <input type="hidden" class="form-control" id="input2" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Choose Your Subject">
+			    <input type="hidden" class="form-control" id="input3" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
 		<div class="col-lg-3">
 			<div class="form-group">
 			    <label for="exampleInputEmail1" class="sr-only">Select Subject</label>
-			    <input type="text" class="form-control" id="exampleInputEmail4" placeholder="Choose Your Subject">
+			    <input type="hidden" class="form-control" id="input4" placeholder="Choose Your Subject">
 			 </div>
 			 <button type="submit" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
 		</div>
@@ -302,7 +329,7 @@
 			              	</div>
 			              	<div class="form-group mrgn-cust-mdl">
 			              		<div class="col-sm-1"><span class="glyphicon glyphicon-asterisk text-glyph-sign danger-glyph"></span></div>
-			              		<div class="col-sm-11 txt-lt">Hign chance of rejection.</div>
+			              		<div class="col-sm-11 txt-lt">High chance of rejection.</div>
 			              		<div class="clearfix"></div>
 			              	</div>
 	              		</div>

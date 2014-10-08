@@ -29,25 +29,89 @@
 
 	<script type = "text/javascript">
   $(function() {
-    $( ".column" ).sortable({
+  	var id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
+  	$( ".column" ).sortable({
+      start: function(event, ui)
+      {
+      	childrenstr1 = $(".year1 .portlet-content").length;
+      	childrenstr2 = $(".year2 .portlet-content").length;
+      	childrenstr4 = $(".year4 .portlet-content").length;
+      	childrenstr5 = $(".year5 .portlet-content").length;
+      	//alert(childrenstr1);
+      	//alert(childrenstr2);
+      	//alert(childrenstr4);
+      	//alert(childrenstr5);
+      },	
+      stop: function(event, ui)
+      {
+      	childrenstp1 = $(".year1 .portlet-content").length;
+      	childrenstp2 = $(".year2 .portlet-content").length;
+      	childrenstp4 = $(".year4 .portlet-content").length;
+      	childrenstp5 = $(".year5 .portlet-content").length;
+      	//alert(childrenstp1);
+      	//alert(childrenstp2);
+      	//alert(childrenstp4);
+      	//alert(childrenstp5);
+      	compare(id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
+      },
+      remove: function(event, ui)
+      {
+      	id = ui.item.children(".portlet-content").children("li").attr("id");
+      	//alert(id);
+      	div = ui.placeholder.html();
+      	//alert(div);
+      },
       connectWith: ".column",
-      handle: ".portlet-header",
+      handle: ".portlet-content",
       cancel: ".portlet-toggle",
       placeholder: "portlet-placeholder ui-corner-all"
     });
  
     $( ".portlet" )
-      .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+      .addClass( "ui-widget ui-widget-content ui-corner-all" )
       .find( ".portlet-header" )
         .addClass( "ui-widget-header ui-corner-all" )
-        .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+       
  
     $( ".portlet-toggle" ).click(function() {
       var icon = $( this );
       icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
       icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
     });
-  });
+   });
+    
+    function compare(id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5)
+    {
+    	var year;
+    	if(childrenstr1 != childrenstp1)
+    	{
+    		//alert("changed");
+    		//alert(id);
+    		//alert("year1");
+    		year = 1;
+    	}
+    	if(childrenstr2 != childrenstp2)
+    	{
+    		//alert("changed");
+    		//alert(id);
+    		//alert("year2");
+    		year = 2;
+    	}
+    	if(childrenstr4 != childrenstp4)
+    	{
+    		//alert("changed");
+    		//alert(id);
+    		//alert("year4");
+    		year = 4;
+    	}
+    	if(childrenstr5 != childrenstp5)
+    	{
+    		//alert("changed");
+    		//alert(id);
+    		//alert("year5");
+    		year = 5;
+    	}	
+    }
   </script>
 	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
