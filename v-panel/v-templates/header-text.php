@@ -31,6 +31,9 @@
   		.portlet-bg-transparent{
   			background:transparent;
   		}
+  		.display-block{
+  			display:block;
+  		}
   	</style>
 
 </head>

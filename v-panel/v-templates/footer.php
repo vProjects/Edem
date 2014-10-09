@@ -28,91 +28,97 @@
     <script src="js/admin.js"></script>
 
 	<script type = "text/javascript">
-  $(function() {
-  	var id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
-  	$( ".column" ).sortable({
-      start: function(event, ui)
-      {
-      	childrenstr1 = $(".year1 .portlet-content").length;
-      	childrenstr2 = $(".year2 .portlet-content").length;
-      	childrenstr4 = $(".year4 .portlet-content").length;
-      	childrenstr5 = $(".year5 .portlet-content").length;
-      	//alert(childrenstr1);
-      	//alert(childrenstr2);
-      	//alert(childrenstr4);
-      	//alert(childrenstr5);
-      },	
-      stop: function(event, ui)
-      {
-      	childrenstp1 = $(".year1 .portlet-content").length;
-      	childrenstp2 = $(".year2 .portlet-content").length;
-      	childrenstp4 = $(".year4 .portlet-content").length;
-      	childrenstp5 = $(".year5 .portlet-content").length;
-      	//alert(childrenstp1);
-      	//alert(childrenstp2);
-      	//alert(childrenstp4);
-      	//alert(childrenstp5);
-      	compare(id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
-      },
-      remove: function(event, ui)
-      {
-      	id = ui.item.children(".portlet-content").children("li").attr("id");
-      	//alert(id);
-      	div = ui.placeholder.html();
-      	//alert(div);
-      },
-      connectWith: ".column",
-      handle: ".portlet-content",
-      cancel: ".portlet-toggle",
-      placeholder: "portlet-placeholder ui-corner-all"
-    });
- 
-    $( ".portlet" )
-      .addClass( "ui-widget ui-widget-content ui-corner-all" )
-      .find( ".portlet-header" )
-        .addClass( "ui-widget-header ui-corner-all" )
-       
- 
-    $( ".portlet-toggle" ).click(function() {
-      var icon = $( this );
-      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
-      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
-    });
-   });
+	  $(function() {
+	  	//publicly defining variables
+	  	var id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
+	  	$( ".column" ).sortable({
+	      start: function(event, ui)
+	      {
+	      	//counting number of children of each div of each different year before sorting
+	      	childrenstr1 = $(".year1 .portlet-content").length;
+	      	childrenstr2 = $(".year2 .portlet-content").length;
+	      	childrenstr4 = $(".year4 .portlet-content").length;
+	      	childrenstr5 = $(".year5 .portlet-content").length;
+	      },	
+	      stop: function(event, ui)
+	      {
+	      	//counting number of children of each div of each different year after sorting
+	      	childrenstp1 = $(".year1 .portlet-content").length;
+	      	childrenstp2 = $(".year2 .portlet-content").length;
+	      	childrenstp4 = $(".year4 .portlet-content").length;
+	      	childrenstp5 = $(".year5 .portlet-content").length;
+	      	//calling the function compare
+	      	compare(id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
+	      },
+	      remove: function(event, ui)
+	      {
+	      	//getting id of moved item
+	      	id = ui.item.children(".portlet-content").children("li").attr("id");
+	      },
+	      connectWith: ".column",
+	      handle: ".portlet-content",
+	      cancel: ".portlet-toggle",
+	      placeholder: "portlet-placeholder ui-corner-all"
+	    });
+	 	
+	 	$( ".portlet" )
+	      .addClass( "ui-widget ui-widget-content ui-corner-all" )
+	      .find( ".portlet-header" )
+	        .addClass( "ui-widget-header ui-corner-all" )
+	       
+	 
+	    $( ".portlet-toggle" ).click(function() {
+	      var icon = $( this );
+	      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+	      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+	    });
+	   });
     
-    function compare(id, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5)
-    {
-    	var year;
-    	if(childrenstr1 != childrenstp1)
-    	{
-    		//alert("changed");
-    		//alert(id);
-    		//alert("year1");
-    		year = 1;
-    	}
-    	if(childrenstr2 != childrenstp2)
-    	{
-    		//alert("changed");
-    		//alert(id);
-    		//alert("year2");
-    		year = 2;
-    	}
-    	if(childrenstr4 != childrenstp4)
-    	{
-    		//alert("changed");
-    		//alert(id);
-    		//alert("year4");
-    		year = 4;
-    	}
-    	if(childrenstr5 != childrenstp5)
-    	{
-    		//alert("changed");
-    		//alert(id);
-    		//alert("year5");
-    		year = 5;
-    	}	
-    }
-  </script>
+	    function compare(id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5)
+	    {
+	    	/*if number of items in a div at sorting start is greater than number of items
+	    	in the same div at sorting end , that div will be the starting div and vice versa*/
+	    	if(childrenstr1 > childrenstp1)
+	    	{
+	    		stryear = 1;
+	    	}
+	    	if(childrenstr2 > childrenstp2)
+	    	{
+	    		stryear = 2;
+	    	}
+	    	if(childrenstr4 > childrenstp4)
+	    	{
+	    		stryear = 4;
+	    	}
+	    	if(childrenstr5 > childrenstp5)
+	    	{
+	    		stryear = 5;
+	    	}	
+	    	if(childrenstr1 < childrenstp1)
+	    	{
+	    		stpyear = 1;
+	    	}
+	    	if(childrenstr2 < childrenstp2)
+	    	{
+	    		stpyear = 2;
+	    	}
+	    	if(childrenstr4 < childrenstp4)
+	    	{
+	    		stpyear = 4;
+	    	}
+	    	if(childrenstr5 < childrenstp5)
+	    	{
+	    		stpyear = 5;
+	    	}
+	    	$("#input1").val(stryear);
+	    	$("#input2").val(stpyear);
+	    	$("#input3").val(id);
+	    }
+	    
+	    $("#buttonSubmit").click(function(){
+	    	$("#formupdcurri").submit();
+	    });
+  	</script>
 	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
