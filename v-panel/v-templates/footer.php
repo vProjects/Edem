@@ -30,7 +30,12 @@
 	<script type = "text/javascript">
 	  $(function() {
 	  	//publicly defining variables
-	  	var id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
+	  	var positions, curId, dataArray_pos, id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
+	  	var dataArray = [];
+	  	var jsonData = { };
+	  	var d = new Date();
+		var timeVal = d.getHours()+d.getMinutes()+d.getSeconds();
+		
 	  	$( ".column" ).sortable({
 	      start: function(event, ui)
 	      {
@@ -48,7 +53,7 @@
 	      	childrenstp4 = $(".year4 .portlet-content").length;
 	      	childrenstp5 = $(".year5 .portlet-content").length;
 	      	//calling the function compare
-	      	compare(id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
+	      	compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
 	      },
 	      remove: function(event, ui)
 	      {
@@ -61,20 +66,24 @@
 	      placeholder: "portlet-placeholder ui-corner-all"
 	    });
 	 	
+	  	
 	 	$( ".portlet" )
 	      .addClass( "ui-widget ui-widget-content ui-corner-all" )
 	      .find( ".portlet-header" )
-	        .addClass( "ui-widget-header ui-corner-all" )
-	       
-	 
-	    $( ".portlet-toggle" ).click(function() {
+	      .addClass( "ui-widget-header ui-corner-all" )
+	      
+	     $( ".portlet-toggle" ).click(function() {
 	      var icon = $( this );
 	      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
 	      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
 	    });
+	    
+	    $("#buttonSubmit").click(function(){
+	    	jsonInsertion(dataArray, jsonData);
+	    });
 	   });
     
-	    function compare(id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5)
+	    function compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5,timeVal)
 	    {
 	    	/*if number of items in a div at sorting start is greater than number of items
 	    	in the same div at sorting end , that div will be the starting div and vice versa*/
@@ -110,14 +119,41 @@
 	    	{
 	    		stpyear = 5;
 	    	}
-	    	$("#input1").val(stryear);
-	    	$("#input2").val(stpyear);
-	    	$("#input3").val(id);
+	    	if( typeof stryear != "undefined" && typeof stpyear != "undefined" )
+	    	{
+	    		dataArray_pos = stryear+'_'+stpyear;
+		    	dataArray.push({
+		    		positions : dataArray_pos,
+		    		curId : id 
+		    	});
+	    	}
+		    console.log(dataArray[0]);
+	    	console.log(dataArray[1]);
+	    	console.log(dataArray[2]);
 	    }
 	    
-	    $("#buttonSubmit").click(function(){
-	    	$("#formupdcurri").submit();
-	    });
+	    function jsonInsertion(dataArray, jsonData)
+	    {
+	    	if(dataArray != "")
+	    	{
+		    	for(var i = 0, l = dataArray.length; i < l; i++) {
+				  jsonData[dataArray[i].positions] = dataArray[i].curId;
+				 }
+				 console.log(jsonData);
+				 $.ajax({
+				 	type: "POST",
+				    url: "v-includes/functions/function.student-update-curriculum.php",
+				    data: jsonData,
+				    success: function(e){
+				    	alert(e);
+				    }});
+			}
+			else
+			{
+				alert("Please make some valid changes.");
+			}
+	    }
+	    
   	</script>
 	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
