@@ -131,19 +131,21 @@
 	    	if(dataArray != "")
 	    	{
 		    	var jsonString ="";
+		    	var studentid = "<?php echo $_SESSION['user_id'];?>";
 		    	for(var i = 0, l = dataArray.length; i < l; i++) {
 				  jsonString = jsonString+' "'+dataArray[i].positions+'":"'+dataArray[i].curId+'",';
 				 }
-				 jsonString = jsonString.replace(/,\s*$/, "");
-				 var finalString = '{'+jsonString+' }';
-				 $.ajax({
-				 	type: "POST",
-				    url: "v-includes/functions/function.student-update-curriculum.php",
-				    datatype: "json",
-				    data: "c="+finalString,
-				    success: function(e){
+				jsonString = jsonString.replace(/,\s*$/, "");
+				var finalString = '{ "studentId":"'+studentid+'",'+jsonString+' }';
+				console.log(finalString);
+				$.ajax({
+				   type: "POST",
+				   url: "v-includes/functions/function.student-update-curriculum.php",
+				   datatype: "json",
+				   data: "data="+finalString,
+				   success: function(e){
 				    	console.log(e);
-				 }});
+				}});
 			}
 			else
 			{
