@@ -496,8 +496,7 @@ table.dataTable thead .sorting:after {
 	font-size: 0.85714em;
 }
 .dropdwn-bg li a:hover {
-	background-color: #464646 !important;
-	color: #cdcbcb;
+	background-color: transparent;
 }
 .textbox-topgap {
 	margin-top: 40%;
@@ -667,4 +666,47 @@ table.dataTable thead .sorting:after {
 .list-pagination{
 	margin-top:-40px;
 	margin-bottom:5px;
+}
+
+/*
+ -css for sortable table
+ -by Debo  
+*/
+.portlet-bg-transparent{
+  	background:transparent;
+}
+
+.display-block{
+	display:block;
+}
+
+.ui-widget-content-border{
+	border:1px solid white;
+}
+
+.curriculum-position-center{
+	text-align:center;
+}
+
+.curriculum-position-center:hover{
+	text-decoration:none;
+}
+
+.placeholder-bgcolor{
+	background-color: #5cb8c8;
+	min-width: 100%;
+}
+
+.sortable-z-index-initial{
+	z-index: initial;
+}
+
+.float-right-button{
+	float: right;
+}
+
+.sortable-padding-margin-fontstyle{
+	padding: 0px 0;
+	margin: 18px 0 0;
+	font-size: 18px;
 }

@@ -44,7 +44,7 @@
 			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 			    FRESHMAN YEAR
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
 			  	<?php
 					//get the course of the student
 					$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
@@ -55,9 +55,9 @@
 						echo '<div class="column year1">';	
 						foreach ($curriculums1 as $curriculumid => $curriculum) 
 						{
-							echo '<div class="portlet portlet-bg-transparent">
-									<div class="portlet-content">
-										<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+									<div class="portlet-content placeholder-bgcolor">
+										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
 									</div>
 								  </div>';
 						}
@@ -73,7 +73,7 @@
 			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 			    SOPHOMORE YEAR
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
 			  	<?php
 					//get the course of the student
 					$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
@@ -84,9 +84,9 @@
 						echo '<div class="column year2">';	
 						foreach ($curriculums2 as $curriculumid => $curriculum) 
 						{
-							echo '<div class="portlet portlet-bg-transparent">
-									<div class="portlet-content">
-										<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+									<div class="portlet-content placeholder-bgcolor">
+										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
 									</div>
 								  </div>';
 						}
@@ -103,7 +103,7 @@
 			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 			    JUNIOR YEAR
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
 			  	<?php
 					//get the course of the student
 					$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
@@ -114,9 +114,9 @@
 						echo '<div class="column year4">';	
 						foreach ($curriculums4 as $curriculumid => $curriculum) 
 						{
-							echo '<div class="portlet portlet-bg-transparent">
-									<div class="portlet-content">
-										<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+									<div class="portlet-content placeholder-bgcolor">
+										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
 									</div>
 								  </div>';
 						}
@@ -133,7 +133,7 @@
 			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 			    SENIOR YEAR
 			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block" role="menu" aria-labelledby="dropdownMenu1">
+			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
 			  	<?php
 					//get the course of the student
 					$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
@@ -144,9 +144,9 @@
 						echo '<div class="column year5">';	
 						foreach ($curriculums5 as $curriculumid => $curriculum) 
 						{
-							echo '<div class="portlet portlet-bg-transparent">
-									<div class="portlet-content">
-										<li id ='.$curriculumid.' role="presentation"><a role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+									<div class="portlet-content placeholder-bgcolor">
+										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
 									</div>
 								  </div>';
 						}
@@ -161,7 +161,7 @@
 <!--  dropdown row end-->
 <!--textboxrow start-->
 	<div class="row textbox-topgap">
-		<button type="button" class="btn btn-default submit-btn center-block" data-toggle="modal" data-target="#updCurri">Submit</button>
+		<button type="button" class="btn btn-default submit-btn center-block float-right-button" data-toggle="modal" data-target="#updCurri">Submit</button>
 	</div>
 	<!--textboxrow end-->
 </div>

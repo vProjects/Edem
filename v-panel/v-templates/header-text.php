@@ -23,19 +23,11 @@
     <!-- css for calender view -->
 	<link href="css/calendar.css" rel="stylesheet">
     
+    <!-- Sortable List CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    
     <!-- Admin CSS - Include with every page -->
     <link href="css/style.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-  	<style>
-  		.portlet-bg-transparent{
-  			background:transparent;
-  		}
-  		.display-block{
-  			display:block;
-  		}
-  	</style>
-
 </head>
 
 <body>

@@ -1,4 +1,5 @@
 <?php
-	$rcv_data = $GLOBALS["_POST"];
-	print_r($rcv_data);
+	$b = $GLOBALS["_POST"];
+	$json_decoded = json_decode($b['c']);
+	print_r($json_decoded);
 ?>
