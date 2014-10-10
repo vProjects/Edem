@@ -32,8 +32,8 @@
 	  	//publicly defining variables
 	  	var positions, curId, dataArray_pos, id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
 	  	var dataArray = [];
-	  	$( ".column" ).sortable({
-	      start: function(event, ui)
+	  	$( ".column1, .column2, .column4, .column5" ).sortable({
+	  	  start: function(event, ui)
 	      {
 	      	//counting number of children of each div of each different year before sorting
 	      	childrenstr1 = $(".year1 .portlet-content").length;
@@ -57,7 +57,7 @@
 	      	//calling the function compare
 	      	compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
 	      },
-	      connectWith: ".column",
+	      connectWith: ".column1, .column2, .column4, .column5",
 	      handle: ".portlet-content",
 	      cancel: ".portlet-toggle",
 	      placeholder: "portlet-placeholder ui-corner-all placeholder-bgcolor",
@@ -82,6 +82,22 @@
     
 	    function compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5,timeVal)
 	    {
+	    	if($(".column1").children(".portlet").children(".portlet-content").length < 3)
+		    {
+		     	$( ".column1" ).sortable( "cancel" );
+		    }	
+		    if($(".column2").children(".portlet").children(".portlet-content").length < 3)
+		    {
+		      	$( ".column2" ).sortable( "cancel" );
+		    }
+		    if($(".column4").children(".portlet").children(".portlet-content").length < 3)
+		    {
+		      	$( ".column4" ).sortable( "cancel" );
+		    }
+		    if($(".column5").children(".portlet").children(".portlet-content").length < 3)
+		    {
+		      	$( ".column5" ).sortable( "cancel" );
+		    }
 	    	/*if number of items in a div at sorting start is greater than number of items
 	    	in the same div at sorting end , that div will be the starting div and vice versa*/
 	    	if(childrenstr1 > childrenstp1)

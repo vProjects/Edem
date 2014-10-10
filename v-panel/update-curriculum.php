@@ -52,7 +52,7 @@
 					$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
 					if(!empty($curriculums1))
 					{
-						echo '<div class="column year1">';	
+						echo '<div class="column1 year1">';	
 						foreach ($curriculums1 as $curriculumid => $curriculum) 
 						{
 							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
@@ -81,7 +81,7 @@
 					$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
 					if(!empty($curriculums2))
 					{
-						echo '<div class="column year2">';	
+						echo '<div class="column2 year2">';	
 						foreach ($curriculums2 as $curriculumid => $curriculum) 
 						{
 							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
@@ -111,7 +111,7 @@
 					$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
 					if(!empty($curriculums4))
 					{
-						echo '<div class="column year4">';	
+						echo '<div class="column4 year4">';	
 						foreach ($curriculums4 as $curriculumid => $curriculum) 
 						{
 							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
@@ -141,7 +141,7 @@
 					$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 5);
 					if(!empty($curriculums5))
 					{
-						echo '<div class="column year5">';	
+						echo '<div class="column5 year5">';	
 						foreach ($curriculums5 as $curriculumid => $curriculum) 
 						{
 							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
