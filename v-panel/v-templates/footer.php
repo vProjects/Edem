@@ -69,7 +69,7 @@
 	      .find( ".portlet-header" )
 	      .addClass( "ui-widget-header ui-corner-all" )
 	      
-        $( ".portlet-toggle" ).click(function() {
+	    $( ".portlet-toggle" ).click(function() {
 		    var icon = $( this );
 		    icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
 		    icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
@@ -79,58 +79,78 @@
 	    	jsonInsertion(dataArray);
 	    });
 	   });
+	   
+			  
+		function disableSorting()
+	    {
+	    	$( ".column1, .column2, .column4, .column5" ).sortable({ disabled: true });
+	    }
     
+    	function cancelSorting()
+    	{
+    		$( ".column1" ).sortable( "cancel" );
+    	}
+    	
 	    function compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5,timeVal)
 	    {
+	    	//sortable method of a column will be disabled if the number of its items is less than 3
 	    	if($(".column1").children(".portlet").children(".portlet-content").length < 3)
 		    {
-		     	$( ".column1" ).sortable( "cancel" );
+		     	cancelSorting();
 		    }	
 		    if($(".column2").children(".portlet").children(".portlet-content").length < 3)
 		    {
-		      	$( ".column2" ).sortable( "cancel" );
+		      	cancelSorting();
 		    }
 		    if($(".column4").children(".portlet").children(".portlet-content").length < 3)
 		    {
-		      	$( ".column4" ).sortable( "cancel" );
+		      	cancelSorting();
 		    }
 		    if($(".column5").children(".portlet").children(".portlet-content").length < 3)
 		    {
-		      	$( ".column5" ).sortable( "cancel" );
+		      	cancelSorting();
 		    }
 	    	/*if number of items in a div at sorting start is greater than number of items
 	    	in the same div at sorting end , that div will be the starting div and vice versa*/
 	    	if(childrenstr1 > childrenstp1)
 	    	{
 	    		stryear = 1;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr2 > childrenstp2)
 	    	{
 	    		stryear = 2;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr4 > childrenstp4)
 	    	{
 	    		stryear = 4;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr5 > childrenstp5)
 	    	{
 	    		stryear = 5;
+	    		disableSorting();
 	    	}	
 	    	if(childrenstr1 < childrenstp1)
 	    	{
 	    		stpyear = 1;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr2 < childrenstp2)
 	    	{
 	    		stpyear = 2;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr4 < childrenstp4)
 	    	{
 	    		stpyear = 4;
+	    		disableSorting();
 	    	}
 	    	if(childrenstr5 < childrenstp5)
 	    	{
 	    		stpyear = 5;
+	    		disableSorting();
 	    	}
 	    	if( typeof stryear != "undefined" && typeof stpyear != "undefined" )
 	    	{
@@ -152,15 +172,16 @@
 				  jsonString = jsonString+' "'+dataArray[i].positions+'":"'+dataArray[i].curId+'",';
 				 }
 				jsonString = jsonString.replace(/,\s*$/, "");
-				var finalString = '{ "studentId":"'+studentid+'",'+jsonString+' }';
-				console.log(finalString);
+				var finalString = '{ '+jsonString+' }';
 				$.ajax({
 				   type: "POST",
 				   url: "v-includes/functions/function.student-update-curriculum.php",
 				   datatype: "json",
 				   data: "data="+finalString,
 				   success: function(e){
-				    	console.log(e);
+				    	//console.log(e);
+				    	location.reload();
+				    	return false;
 				}});
 			}
 			else

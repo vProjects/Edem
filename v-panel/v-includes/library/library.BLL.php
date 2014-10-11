@@ -634,5 +634,66 @@
 				return $curriculum_array;
 			}
 		}
+		
+		/*
+		- Method to find curriculum change log list 
+		- Auth: Debojyoti 
+		*/
+		public function getCurriculumChangeList($studentId)
+		{
+			//get all values from database
+		 	 $curriculumChange = $this->_DAL_Obj->getValueWhereDesc('curriculum_change_log','*','user_id',$studentId,'datetime');
+			
+			if(!empty($curriculams[0]))
+			{
+				foreach ($curriculams as $curriculam)
+				{
+					//getting curriculam status
+					if($curriculam['curriculum_status'] == 1)
+					{
+						$btn = '<button class="btn btn-success">Active</button>';
+					}
+					else
+					{
+						$btn = '<button class="btn btn-danger">Deactive</button>';
+					}
+					echo '<tr>
+							<td>'.$curriculam['name'].'</td>
+							<td>'.$this->getInstituteName('institute_info','institute_id',$curriculam['institute_id'],'name').'</td>
+							<td>'.$curriculam['created_by'].'</td>
+							<td>'.$curriculam['created_on'].'</td>';
+					
+					//getting course list
+					$courses = explode(',',$curriculam['course']);
+					if(!empty($courses[0]))
+					{
+						echo '<td>';
+						foreach($courses as $key1=>$value1)
+						{
+							echo ($key1+1).') '.$this->getInstituteName('course_info','course_id',$value1,'name').'<br>';
+						}
+						echo '</td>';
+					}
+					
+					//getting advisor list
+					$advisors = explode(',',$curriculam['advisor']);
+					if(!empty($advisors[0]))
+					{
+						echo '<td>';
+						foreach($advisors as $key2=>$value2)
+						{
+							echo ($key2+1).') '.$this->getInstituteName('faculty_info','user_id',$value2,'name').'<br>';
+						}
+						echo '</td>';
+					}
+					
+					echo	'<td>'.$curriculam['session'].'</td>
+							<td>'.$curriculam['hours'].'</td>
+							<td><a href="edit-curriculum.php?cid='.$curriculam['curriculum_id'].'"><button class="btn btn-info">Edit</button></a></td>
+							<td>'.$btn.'</td>
+						</tr>';
+				}
+			}
+		}
 	 }
 ?>

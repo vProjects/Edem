@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2014 at 08:41 PM
+-- Generation Time: Oct 11, 2014 at 08:06 PM
 -- Server version: 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.3
 
@@ -413,6 +413,37 @@ INSERT INTO `course_info` (`id`, `course_id`, `institute_id`, `created_by`, `cou
 (25, 'COU542fd6d7aa8df', 'INS53a5869e3e469', 'admin', 'testing3', 'testing3', 'testing3', '5', 'FAC542fc870f3677', '2014-10-04', 'testing3', 2, 1),
 (26, 'COU542fe042d4acf', 'INS53a5869e3e469', 'admin', 'testing4', 'testing4', 'testing4', '5', 'FAC542fc870f3677', '2014-10-04', 'testing4', 2, 1),
 (27, 'COU54326c7558ca0', 'INS53a5869e3e469', 'admin', 'lorem ipsum3', 'lorem ipsum3', 'lorem ipsum3', '2', 'FAC53ef4db80cc92,FAC542fc870f3677', '2014-10-06', 'lorem ipsum3', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `curriculum_change_log`
+--
+
+CREATE TABLE IF NOT EXISTS `curriculum_change_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) NOT NULL,
+  `curriculum_id` varchar(255) NOT NULL,
+  `from_edulevel` varchar(255) NOT NULL,
+  `to_edulevel` varchar(255) NOT NULL,
+  `user_ip` varchar(255) NOT NULL,
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `curriculum_change_log`
+--
+
+INSERT INTO `curriculum_change_log` (`id`, `user_id`, `curriculum_id`, `from_edulevel`, `to_edulevel`, `user_ip`, `datetime`) VALUES
+(1, 'STU54326fa52dc96', 'CUR54326cfb325a9', '1', '2', '127.0.0.1', '2014-10-11 07:27:33'),
+(2, 'STU54326fa52dc96', 'CUR54326e1d9c7c5', '5', '1', '127.0.0.1', '2014-10-11 07:28:05'),
+(3, 'STU54326fa52dc96', 'CUR54326cbbc9113', '1', '2', '127.0.0.1', '2014-10-11 08:01:51'),
+(4, 'STU54326fa52dc96', 'CUR54326cbbc9113', '1', '2', '127.0.0.1', '2014-10-11 08:02:17'),
+(5, 'STU54326fa52dc96', 'CUR54326e0d1d465', '5', '1', '127.0.0.1', '2014-10-11 08:03:07'),
+(6, 'STU54326fa52dc96', 'CUR54326cda2631f', '1', '2', '127.0.0.1', '2014-10-11 08:04:23'),
+(7, 'STU54326fa52dc96', 'CUR54326cda2631f', '1', '2', '127.0.0.1', '2014-10-11 08:04:30'),
+(8, 'STU54326fa52dc96', 'CUR54326cbbc9113', '1', '2', '127.0.0.1', '2014-10-11 08:05:35');
 
 -- --------------------------------------------------------
 

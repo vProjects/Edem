@@ -98,6 +98,9 @@
             <li>
                 <a href="submit-ticket.php"><i class="fa fa-envelope-o fa-fw"></i> Submit Ticket</a>
             </li>
+            <li>
+                <a href="cur-changelog.php"><i class="fa fa-envelope-o fa-fw"></i> Curriculum Change Log</a>
+            </li>
         </ul>
         <!-- /#side-menu -->
     </div>
