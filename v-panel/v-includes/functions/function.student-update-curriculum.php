@@ -4,9 +4,10 @@
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
 	
-	$jsonData = $GLOBALS["_POST"];
-	$json_decoded = json_decode($jsonData['data'], 1);
-	print_r($json_decoded);
+	$jsonData = $GLOBALS["_POST"]['data'];
+	$jsonData = stripslashes($jsonData);
+	$json_decoded = json_decode($jsonData);
+	//print_r($json_decoded);
 	
 	//get the year change
 	$yearChange = key($json_decoded);
@@ -14,9 +15,9 @@
 	$fromYear = substr($yearChange, 0, 1);	
 	//get to year
 	$toYear = substr($yearChange, 2, 1);
-	echo $_SERVER['REMOTE_ADDR'];
 	//get curriculumId
-	$curriculum_id = $json_decoded[$yearChange];	
+	$curriculum_id = $json_decoded->$yearChange;	
+	
 	//insert curriculum change log data into database
 	$insert_change_log = array(
 							'table' => 'curriculum_change_log' ,

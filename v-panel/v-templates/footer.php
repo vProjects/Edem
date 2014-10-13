@@ -180,8 +180,8 @@
 				   datatype: "json",
 				   data: "data="+finalString,
 				   success: function(e){
-				    	//console.log(e);
-				    	location.reload();
+				    	console.log(e);
+				    	//location.reload();
 				    	return false;
 				}});
 			}
