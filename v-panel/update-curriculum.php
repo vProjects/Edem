@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Update Curriculum</h1>
-            <h4 class="cs_page_info">Please create your own currinculum here.</h4>
+            <h4 class="cs_page_info">If you placed a curriculum in the wrong year,try refreshing the page.</h4>
         </div>
         <!-- /.col-lg-12 -->
     </div>

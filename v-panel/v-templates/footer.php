@@ -80,12 +80,13 @@
 	    });
 	   });
 	   
-			  
+		//this allows to disable sorting after allowing sorting of the presently moving item	  
 		function disableSorting()
 	    {
 	    	$( ".column1, .column2, .column4, .column5" ).sortable({ disabled: true });
 	    }
     
+        //this allows to disable sorting and not allowing sorting of the presently moving item  
     	function cancelSorting()
     	{
     		$( ".column1" ).sortable( "cancel" );

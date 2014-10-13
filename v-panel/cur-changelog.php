@@ -40,8 +40,8 @@
                         	<tr>
                             	<th>Sl.No.</th>
                                 <th>Curriculum</th>
-                                <th>From Edulevel</th>
-                                <th>To Edulevel</th>
+                                <th>From Year</th>
+                                <th>To Year</th>
                                 <th>User IP</th>
                                 <th>Date</th>
                                 <th>Time</th>
