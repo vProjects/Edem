@@ -169,6 +169,7 @@
 	                    <label class="cs_form_label">Cellular Phone</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone">
 	                </div>
+	                <input type="hidden" name="action" value="studentForm" />
 	                <input type = "hidden" name = "institute" value = <?php echo $instituteId; ?> />
                     <button type="submit" class="btn btn-success btn-lg">Submit Data</button>
                     <button type="reset" class="btn btn-danger btn-lg">Reset Data</button>
@@ -176,17 +177,18 @@
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">	
-            	<form role="form" enctype="multipart/form-data">
+            	<form role="form" id="studinfo" action="v-includes/functions/function.insert-excel.php" method="post"  enctype="multipart/form-data">
                 	<h4 class="cs_page_form_caption">Upload The File</h4>
                     <div class="form-group">
                         <label class="cs_form_label">Information File</label>
-                        <input type="file">
+                        <input type="file" name="stdInfoFile">
                     </div>
                     <div class="form-group">
                         <label class="cs_form_label">NOTE</label>
                         <input type="text" class="form-control cs_form_textbox" placeholder="Upload Info">
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    <input type="hidden" name="action" value="studentFile" />
+                    <input type="submit" class="btn btn-success btn-lg">
                 </form>
             </div>
             <!-- /.col-lg-6 -->

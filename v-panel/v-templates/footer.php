@@ -190,6 +190,32 @@
 				alert("Please make some valid changes.");
 			}
 	    }
+	    
+	    //jquery to send excel files to function.insert-excel.php
+		$("form#studinfo").submit(function(event){
+	 
+		  //disable the default form submission
+		  event.preventDefault();
+		 
+		  //grab all form data  
+		  var formData = new FormData($(this)[0]);
+		 
+		  $.ajax({
+		    url: 'v-includes/functions/function.create-student.php',
+		    type: 'POST',
+		    data: formData,
+		    async: false,
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    success: function (returndata) {
+		      //alert(returndata);
+		      console.log(returndata);
+		    }
+		  });
+		 
+		  return false;
+		});
 	</script>
 	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
