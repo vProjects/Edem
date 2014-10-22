@@ -4,6 +4,22 @@
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
 	
+	//function to convert array into string separated by commas
+	function convertArrayToString($val_array)
+	{
+		if( !empty($val_array) )
+		{
+			$val_str = "";
+			
+			foreach ($val_array as $val)
+			{
+					$val_str .= $val.",";
+			}
+			
+			return substr($val_str, 0, -1);
+		}
+	}
+	
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	{
 		$f_name = $_POST['f_name'] ;
@@ -14,6 +30,7 @@
 		$email = $_POST['email'] ;
 		$dob = $_POST['dob'] ;
 		$institute = $_POST['institute'] ;
+		$course = $_POST['course'] ;
 		$edu_level = $_POST['edu_level'] ;
 		$gender = $_POST['gender'] ;
 		$department = $_POST['department'] ;
@@ -36,6 +53,9 @@
 		$password = $_POST['password'];
 		$r_password = $_POST['r_password'];
 	}
+	
+	//array to string
+	$course_str = convertArrayToString($course);
 	
 	//generate the user id
 	$user_id = "FAC".uniqid();
@@ -66,6 +86,7 @@
 						'table' => 'faculty_info' ,
 						'values' => array(
 										'user_id' => $user_id ,
+										'course_id' => $course_str,
 										'institute_id' => $institute ,
 										'curriculum_id' => "" ,
 										'f_name' => $f_name ,

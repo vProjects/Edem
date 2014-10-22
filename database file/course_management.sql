@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2014 at 08:06 PM
+-- Generation Time: Oct 22, 2014 at 08:38 PM
 -- Server version: 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.3
 
@@ -16,6 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+--
+-- Database: `course_management`
+--
 
 -- --------------------------------------------------------
 
@@ -74,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `chairperson_info` (
   `chairperson_status` varchar(300) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `chairperson_info`
@@ -83,7 +86,12 @@ CREATE TABLE IF NOT EXISTS `chairperson_info` (
 INSERT INTO `chairperson_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `f_name`, `m_name`, `l_name`, `suffix`, `o_name`, `email`, `dob`, `edu_level`, `gender`, `department`, `street_1`, `street_2`, `city`, `state`, `country`, `postal_code`, `website`, `home_phone`, `work_phone`, `work_fax`, `cellular_phone`, `chairperson_status`, `status`) VALUES
 (1, 'CHR53d7bd9e1b926', 'INS539f4abf3f572', '', 'jjjjjjjj', 'sdfkjahjkjkjkjkjk', 'hsdgkhghj', 'hgdsfajhg', 'ghjdfskgj', 'dddddddddd', '2014-07-01', '2', 'male', 'trttt', 'ttt', 'tttt', 'kkkkkk', '110', '5', '45654', '45465464', '654', '564564', '64', '64', '1', 1),
 (2, 'CHR53ef4ebf103c4', 'INS53a5869e3e469', '', 'Edems Chairperson', 'm test', 'l test', 'Mr', 'test', 'aa@xyz.com', '1989-09-14', '7', 'male', 'test ', 'test street 1', 'test street 2', 'test city', '3624', '223', 'test zip code', 'www.yourdomain.com', 'test phone', '0test phone', '1test phone', '2test phone', '1', 1),
-(3, 'CHR542fc8ae1e974', 'INS53a5869e3e469', '', '4 oct1', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '2014-10-15', '4', 'male', '4 oct', '4 oct', '4 oct', '4 oct', '119', '4', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '1', 1);
+(3, 'CHR542fc8ae1e974', 'INS53a5869e3e469', '', '4 oct1', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '2014-10-15', '4', 'male', '4 oct', '4 oct', '4 oct', '4 oct', '119', '4', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '1', 1),
+(4, 'CHR5447c2c59bd9b', 'INS53a5869e3e469', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '2014-10-17', '', 'male', 'lorem', 'lorem', 'lorem', 'lorem', '33', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(5, 'CHR5447c61eac027', 'INS53a5869e3e469', '', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'Work Fax', 'Cellular Phone', '1', 1),
+(6, 'CHR5447c634b0b2a', 'INS53a5869e3e469', '', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'Work Fax', 'Cellular Phone', '1', 1),
+(7, 'CHR5447c6614f9fd', 'INS53a5869e3e469', '', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'Work Fax', 'Cellular Phone', '1', 1),
+(8, 'CHR5447c709b8843', 'INS53a5869e3e469', '', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'Work Fax', 'Cellular Phone', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -558,6 +566,7 @@ CREATE TABLE IF NOT EXISTS `faculty_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(500) NOT NULL,
   `institute_id` varchar(500) NOT NULL,
+  `course_id` varchar(255) NOT NULL,
   `curriculum_id` varchar(500) NOT NULL,
   `f_name` varchar(500) NOT NULL,
   `m_name` varchar(300) NOT NULL,
@@ -583,17 +592,56 @@ CREATE TABLE IF NOT EXISTS `faculty_info` (
   `faculty_status` varchar(300) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `faculty_info`
 --
 
-INSERT INTO `faculty_info` (`id`, `user_id`, `institute_id`, `curriculum_id`, `f_name`, `m_name`, `l_name`, `suffix`, `o_name`, `email`, `dob`, `edu_level`, `gender`, `department`, `street_1`, `street_2`, `city`, `state`, `country`, `postal_code`, `website`, `home_phone`, `work_phone`, `work_fax`, `cellular_phone`, `faculty_status`, `status`) VALUES
-(7, 'FAC53d65ace4e18c', 'INS539f1af709988', '', '14744774', 'kkkkkkkkkkkkk', 'rrrrrrrrrrrrrrr', 'rrrrrrrrrrrrrrr', 'ttttttttttt', 'ggg', '2014-07-16', '6', 'male', 'dsafasdf', 'fsdasdfasd', 'ljsdkjfkhki', 'kkk', '4', '12', '5454564', '54546', '54654', '564', '564', '654', '1', 1),
-(8, 'FAC53d8f44ee7872', 'INS539f1ac5a08d3', '', 'fsdjkhj', 'khhsdfakjhjh', 'ghsdfajkgh', 'hjsdgjkg', 'ghasdfjkgj', 'hghjgsdafjhg', '2014-07-30', '4', 'male', 'dksfjh', 'kjdfsajkhjk', 'hkjhsdfjhakjdfhkh', 'jksdafhjk', '1643', '106', 'hkjhsdfjkahkjh', 'khjkhsdfkajhjkh', 'jkhjkasdfhkjhjk', 'jkhdfsjhakfh', 'hdfjkashkjhk', 'jkhsdfkajhjkfsdh', '1', 1),
-(9, 'FAC53ef4db80cc92', 'INS53a5869e3e469', '', 'Edem''s Faculty', 'test', 'l test', 'Mr', 'test', 'testcp@chairp.com', '1989-06-15', '5', 'male', 'test', 'street test 1', 'street test 2', 'test city', '3624', '223', 'test zip code', 'www.yourdomain.com', 'test phone', '0test phone', '1test phone', '2test phone', '1', 1),
-(10, 'FAC542fc870f3677', 'INS53a5869e3e469', '', '4 oct1', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '2014-10-14', '2', 'male', '4 oct', '4 oct', '4 oct', '4 oct', '1475', '99', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '1', 1);
+INSERT INTO `faculty_info` (`id`, `user_id`, `institute_id`, `course_id`, `curriculum_id`, `f_name`, `m_name`, `l_name`, `suffix`, `o_name`, `email`, `dob`, `edu_level`, `gender`, `department`, `street_1`, `street_2`, `city`, `state`, `country`, `postal_code`, `website`, `home_phone`, `work_phone`, `work_fax`, `cellular_phone`, `faculty_status`, `status`) VALUES
+(7, 'FAC53d65ace4e18c', 'INS539f1af709988', '', '', '14744774', 'kkkkkkkkkkkkk', 'rrrrrrrrrrrrrrr', 'rrrrrrrrrrrrrrr', 'ttttttttttt', 'ggg', '2014-07-16', '6', 'male', 'dsafasdf', 'fsdasdfasd', 'ljsdkjfkhki', 'kkk', '4', '12', '5454564', '54546', '54654', '564', '564', '654', '1', 1),
+(8, 'FAC53d8f44ee7872', 'INS539f1ac5a08d3', '', '', 'fsdjkhj', 'khhsdfakjhjh', 'ghsdfajkgh', 'hjsdgjkg', 'ghasdfjkgj', 'hghjgsdafjhg', '2014-07-30', '4', 'male', 'dksfjh', 'kjdfsajkhjk', 'hkjhsdfjhakjdfhkh', 'jksdafhjk', '1643', '106', 'hkjhsdfjkahkjh', 'khjkhsdfkajhjkh', 'jkhjkasdfhkjhjk', 'jkhdfsjhakfh', 'hdfjkashkjhk', 'jkhsdfkajhjkfsdh', '1', 1),
+(9, 'FAC53ef4db80cc92', 'INS53a5869e3e469', '', '', 'Edem''s Faculty', 'test', 'l test', 'Mr', 'test', 'testcp@chairp.com', '1989-06-15', '5', 'male', 'test', 'street test 1', 'street test 2', 'test city', '3624', '223', 'test zip code', 'www.yourdomain.com', 'test phone', '0test phone', '1test phone', '2test phone', '1', 1),
+(10, 'FAC542fc870f3677', 'INS53a5869e3e469', '', '', '4 oct1', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '2014-10-14', '2', 'male', '4 oct', '4 oct', '4 oct', '4 oct', '1475', '99', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '4 oct', '1', 1),
+(11, 'FAC54478ead555f3', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', '2014-10-09', '2', 'male', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', '69', '3', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', 'lorem faculty', '1', 1),
+(12, 'FAC54478f57896a3', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '2014-10-13', '0', 'male', 'lorem', 'lorem', 'lorem', 'lorem', '33', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(14, 'FAC54479008cea77', 'INS53a5869e3e469', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5', '', 'ipsum', 'ipsum', 'ipsum', 'ipsum', 'ipsum', 'ipsum', '2014-10-03', '2', 'male', 'ipsum', 'ipsum', 'ipsum', 'ipsum', '33', '2', 'ipsum', 'ipsum', 'ipsum', 'ipsum', 'ipsum', 'ipsum', '1', 1),
+(15, 'FAC54479c8ae7f54', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(16, 'FAC54479d00c1675', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(17, 'FAC54479d3c1e0bb', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(18, 'FAC5447a05c34459', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(19, 'FAC5447a75cec17a', 'INS53a5869e3e469', 'lorem ipsum3', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(20, 'FAC5447a7dc947ea', 'INS53a5869e3e469', 'lorem ipsum3,lorem ipsum3', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(21, 'FAC5447a85014258', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(22, 'FAC5447aa1f4d8c5', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(23, 'FAC5447aa917c82d', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(24, 'FAC5447ab4a73d21', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(25, 'FAC5447ab9441fa0', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(26, 'FAC5447abb7df54d', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(27, 'FAC5447ac25323e9', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(28, 'FAC5447ac4c0efdb', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(29, 'FAC5447ac4e598c2', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(30, 'FAC5447ac6605a6e', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(31, 'FAC5447ac71ee571', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(32, 'FAC5447ace08c9dd', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0,', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(33, 'FAC5447ad2605ba7', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(34, 'FAC5447ad5487a36', 'INS53a5869e3e469', 'COU54326c7558ca0,COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(35, 'FAC5447adb491b9a', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(36, 'FAC5447aef8d9633', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(37, 'FAC5447af4533333', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(38, 'FAC5447afecdcfa7', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(39, 'FAC5447aff308374', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(40, 'FAC5447b1134fedd', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(41, 'FAC5447b1142f74d', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(42, 'FAC5447b11be376d', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(43, 'FAC5447b14ba0a0c', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(44, 'FAC5447b1a99c89b', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(45, 'FAC5447b2072bfca', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(46, 'FAC5447b24f97f04', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(47, 'FAC5447b3051130e', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(48, 'FAC5447b38bf0616', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(49, 'FAC5447b3a49368f', 'INS53a5869e3e469', 'COU54326c7558ca0,COU542fe042d4acf', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(50, 'FAC5447bae7183bf', 'INS53a5869e3e469', 'COU542a56d46d3d8,COU542a58642d82e,COU542a5a57c65c5,COU542a63e11accb', '', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', '2014-10-17', '2', 'male', 'abc', 'abc', 'abc', 'abc', '69', '3', 'abc', 'abc', 'abc', 'abc', 'abc', 'abc', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -782,7 +830,7 @@ CREATE TABLE IF NOT EXISTS `students_info` (
   `student_status` varchar(300) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=142 ;
 
 --
 -- Dumping data for table `students_info`
@@ -808,7 +856,40 @@ INSERT INTO `students_info` (`id`, `user_id`, `institute_id`, `course_id`, `curr
 (19, 'STU54328ad1b6a29', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '2014-10-22', '7', 'male', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '284', '16', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', 'lorem ipsum student2', '1', 1),
 (20, 'STU54328af6da1a5', 'INS53a5869e3e469', 'COU54326c7558ca0', '', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '2014-10-16', '5', 'male', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '180', '11', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', 'lorem ipsum student3', '1', 1),
 (21, 'STU54328b204c84c', 'INS539f1af709988', 'COU53db2c906dbc1', '', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '2014-10-15', '4', 'male', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '284', '16', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', 'lorem ipsum student4', '1', 1),
-(22, 'STU54328b52407bb', 'INS53db864177664', 'COU542a59fd1d450', '', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '2014-10-16', '2', 'male', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '320', '18', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '1', 1);
+(22, 'STU54328b52407bb', 'INS53db864177664', 'COU542a59fd1d450', '', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '2014-10-16', '2', 'male', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '320', '18', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', 'lorem ipsum student5', '1', 1),
+(23, 'STU5446418b7286a', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '0000-00-00', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(24, 'STU5446418b8b5fd', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '0000-00-00', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(111, 'STU54475d7b671e1', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(112, 'STU54475e4fae340', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(113, 'STU54475e9a24fd9', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(114, 'STU54475f13288b5', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(115, 'STU54475f1335f0f', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(116, 'STU54475f28437a4', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(117, 'STU54475f2853bd7', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(118, 'STU54475f849d998', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(119, 'STU5447602b252ad', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(120, 'STU544761c578415', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(121, 'STU544763f566ecd', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(122, 'STU5447651a04f5f', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(123, 'STU544768f522c23', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(124, 'STU54476bc85f0ff', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(125, 'STU54476c4424cfb', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'Balkh', '4', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(126, 'STU54476c8c8ea3f', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(127, 'STU54477697d120f', 'INS53db84a47133c', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(128, 'STU544776bfbd87a', 'INS53db84a47133c', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(129, 'STU54477a96b7781', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(130, 'STU54477acbc0f65', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(131, 'STU54477daf8238f', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(132, 'STU5447838e17336', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(133, 'STU544785f683bf8', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(134, 'STU54478b1350b99', 'INS53a5869e3e469', 'COU542a5a57c65c5', '', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '2014-10-23', '2', 'male', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '69', '3', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', 'lorem ipsum student', '1', 1),
+(135, 'STU54479e8dd9ed7', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(136, 'STU54479f39ddba0', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(137, 'STU54479f7e736cd', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-29', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(138, 'STU54479ff1f3614', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(139, 'STU5447a0046b2e2', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1', 1),
+(140, 'STU5447a34e84dd3', 'INS53a5869e3e469', 'COU54326c7558ca0', 'lorem', 'lorem2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '1989-06-20', '2', 'lorem', 'lorem', 'lorem', 'lorem', 'lorem', '4', '1', 'lorem', 'lorem', 'lorem', 'lorem', 'Work Fax', 'Cellular Phone', '1', 1),
+(141, 'STU5447b99810135', 'INS53a5869e3e469', 'COU542a56d46d3d8', '', 'abx', 'abx', 'abx', 'abx', 'abx', 'abx', 'abx', '2014-10-17', '2', 'male', 'abx', 'abx', 'abx', 'abx', '33', '2', 'abx', 'abx', 'abx', 'abx', 'abx', 'abx', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -878,7 +959,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(500) NOT NULL,
   `user_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=128 ;
 
 --
 -- Dumping data for table `users`
@@ -929,7 +1010,61 @@ INSERT INTO `users` (`id`, `username`, `user_id`, `password`, `date`, `user_type
 (70, 'lorem ipsum student2', 'STU54328ad1b6a29', 'lorem ipsum student2', '2014-10-06', 'student', 1),
 (71, 'lorem ipsum student3', 'STU54328af6da1a5', 'lorem ipsum student3', '2014-10-06', 'student', 1),
 (72, 'lorem ipsum student4', 'STU54328b204c84c', 'lorem ipsum student4', '2014-10-06', 'student', 1),
-(73, 'lorem ipsum student5', 'STU54328b52407bb', 'lorem ipsum student5', '2014-10-06', 'student', 1);
+(73, 'lorem ipsum student5', 'STU54328b52407bb', 'lorem ipsum student5', '2014-10-06', 'student', 1),
+(74, 'lorem', 'STU544785f683bf8', 'lorem', '2014-10-22', 'student', 1),
+(75, 'lorem ipsum student', 'STU54478b1350b99', 'lorem ipsum student', '2014-10-22', 'student', 1),
+(76, 'lorem faculty', 'FAC54478ead555f3', 'lorem faculty', '2014-10-22', 'faculty', 1),
+(77, 'lorem', 'FAC54478f57896a3', 'lorem', '2014-10-22', 'faculty', 1),
+(78, 'lorem', 'FAC54478fc2e9817', 'lorem', '2014-10-22', 'faculty', 1),
+(79, 'ipsum', 'FAC54479008cea77', 'ipsum', '2014-10-22', 'faculty', 1),
+(80, 'lorem', 'FAC54479c8ae7f54', 'lorem', '2014-10-22', 'faculty', 1),
+(81, 'lorem', 'FAC54479d00c1675', 'lorem', '2014-10-22', 'faculty', 1),
+(82, 'lorem', 'FAC54479d3c1e0bb', 'lorem', '2014-10-22', 'faculty', 1),
+(83, 'lorem', 'STU54479e8dd9ed7', 'lorem', '2014-10-22', 'student', 1),
+(84, 'lorem', 'STU54479f39ddba0', 'lorem', '2014-10-22', 'student', 1),
+(85, 'lorem', 'STU54479f7e736cd', 'lorem', '2014-10-22', 'student', 1),
+(86, 'lorem', 'STU54479ff1f3614', 'lorem', '2014-10-22', 'student', 1),
+(87, 'lorem', 'STU5447a0046b2e2', 'lorem', '2014-10-22', 'student', 1),
+(88, 'lorem', 'FAC5447a05c34459', 'lorem', '2014-10-22', 'faculty', 1),
+(89, 'User Name', 'STU5447a34e84dd3', 'Password', '2014-10-22', 'student', 1),
+(90, 'lorem', 'FAC5447a75cec17a', 'lorem', '2014-10-22', 'faculty', 1),
+(91, 'lorem', 'FAC5447a7dc947ea', 'lorem', '2014-10-22', 'faculty', 1),
+(92, 'lorem', 'FAC5447a85014258', 'lorem', '2014-10-22', 'faculty', 1),
+(93, 'lorem', 'FAC5447aa1f4d8c5', 'lorem', '2014-10-22', 'faculty', 1),
+(94, 'lorem', 'FAC5447aa917c82d', 'lorem', '2014-10-22', 'faculty', 1),
+(95, 'lorem', 'FAC5447ab4a73d21', 'lorem', '2014-10-22', 'faculty', 1),
+(96, 'lorem', 'FAC5447ab9441fa0', 'lorem', '2014-10-22', 'faculty', 1),
+(97, 'lorem', 'FAC5447abb7df54d', 'lorem', '2014-10-22', 'faculty', 1),
+(98, 'lorem', 'FAC5447ac25323e9', 'lorem', '2014-10-22', 'faculty', 1),
+(99, 'lorem', 'FAC5447ac4c0efdb', 'lorem', '2014-10-22', 'faculty', 1),
+(100, 'lorem', 'FAC5447ac4e598c2', 'lorem', '2014-10-22', 'faculty', 1),
+(101, 'lorem', 'FAC5447ac6605a6e', 'lorem', '2014-10-22', 'faculty', 1),
+(102, 'lorem', 'FAC5447ac71ee571', 'lorem', '2014-10-22', 'faculty', 1),
+(103, 'lorem', 'FAC5447ace08c9dd', 'lorem', '2014-10-22', 'faculty', 1),
+(104, 'lorem', 'FAC5447ad2605ba7', 'lorem', '2014-10-22', 'faculty', 1),
+(105, 'lorem', 'FAC5447ad5487a36', 'lorem', '2014-10-22', 'faculty', 1),
+(106, 'lorem', 'FAC5447adb491b9a', 'lorem', '2014-10-22', 'faculty', 1),
+(107, 'lorem', 'FAC5447aef8d9633', 'lorem', '2014-10-22', 'faculty', 1),
+(108, 'lorem', 'FAC5447af4533333', 'lorem', '2014-10-22', 'faculty', 1),
+(109, 'lorem', 'FAC5447afecdcfa7', 'lorem', '2014-10-22', 'faculty', 1),
+(110, 'lorem', 'FAC5447aff308374', 'lorem', '2014-10-22', 'faculty', 1),
+(111, 'lorem', 'FAC5447b1134fedd', 'lorem', '2014-10-22', 'faculty', 1),
+(112, 'lorem', 'FAC5447b1142f74d', 'lorem', '2014-10-22', 'faculty', 1),
+(113, 'lorem', 'FAC5447b11be376d', 'lorem', '2014-10-22', 'faculty', 1),
+(114, 'lorem', 'FAC5447b14ba0a0c', 'lorem', '2014-10-22', 'faculty', 1),
+(115, 'lorem', 'FAC5447b1a99c89b', 'lorem', '2014-10-22', 'faculty', 1),
+(116, 'lorem', 'FAC5447b2072bfca', 'lorem', '2014-10-22', 'faculty', 1),
+(117, 'lorem', 'FAC5447b24f97f04', 'lorem', '2014-10-22', 'faculty', 1),
+(118, 'lorem', 'FAC5447b3051130e', 'lorem', '2014-10-22', 'faculty', 1),
+(119, 'lorem', 'FAC5447b38bf0616', 'lorem', '2014-10-22', 'faculty', 1),
+(120, 'lorem', 'FAC5447b3a49368f', 'lorem', '2014-10-22', 'faculty', 1),
+(121, 'abx', 'STU5447b99810135', 'abx', '2014-10-22', 'student', 1),
+(122, 'abc', 'FAC5447bae7183bf', 'abc', '2014-10-22', 'student', 1),
+(123, 'lorem', 'CHR5447c2c59bd9b', 'lorem', '2014-10-22', 'chairperson', 1),
+(124, 'User Name', 'CHR5447c61eac027', 'Password', '2014-10-22', 'chairperson', 1),
+(125, 'User Name', 'CHR5447c634b0b2a', 'Password', '2014-10-22', 'chairperson', 1),
+(126, 'User Name', 'CHR5447c6614f9fd', 'Password', '2014-10-22', 'chairperson', 1),
+(127, 'User Name', 'CHR5447c709b8843', 'Password', '2014-10-22', 'chairperson', 1);
 
 -- --------------------------------------------------------
 

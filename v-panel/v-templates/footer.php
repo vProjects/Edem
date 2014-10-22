@@ -191,14 +191,14 @@
 			}
 	    }
 	    
-	    //jquery to send excel files to function.insert-excel.php
-		$("form#studinfo").submit(function(event){
+	    //jquery to send student excel files to function.insert-excel.php
+		$("#studfile").click(function(event){
 	 
 		  //disable the default form submission
 		  event.preventDefault();
 		 
 		  //grab all form data  
-		  var formData = new FormData($(this)[0]);
+		  var formData = new FormData($("form#studinfo")[0]);
 		 
 		  $.ajax({
 		    url: 'v-includes/functions/function.create-student.php',
@@ -216,6 +216,59 @@
 		 
 		  return false;
 		});
+		
+		//jquery to send faculty excel files to function.insert-excel.php
+		$("#facfile").click(function(event){
+	 
+		  //disable the default form submission
+		  event.preventDefault();
+		 
+		  //grab all form data  
+		  var formData = new FormData($("form#facinfo")[0]);
+		 
+		  $.ajax({
+		    url: 'v-includes/functions/function.create-faculty.php',
+		    type: 'POST',
+		    data: formData,
+		    async: false,
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    success: function (returndata) {
+		      //alert(returndata);
+		      console.log(returndata);
+		    }
+		  });
+		 
+		  return false;
+		});
+		
+		//jquery to send chairperson excel files to function.insert-excel.php
+		$("#chrfile").click(function(event){
+	 
+		  //disable the default form submission
+		  event.preventDefault();
+		 
+		  //grab all form data  
+		  var formData = new FormData($("form#chrinfo")[0]);
+		 
+		  $.ajax({
+		    url: 'v-includes/functions/function.create-chairperson.php',
+		    type: 'POST',
+		    data: formData,
+		    async: false,
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    success: function (returndata) {
+		      //alert(returndata);
+		      console.log(returndata);
+		    }
+		  });
+		 
+		  return false;
+		});
+		
 	</script>
 	
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->

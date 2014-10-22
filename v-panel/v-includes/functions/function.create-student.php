@@ -23,18 +23,17 @@
 			$upload->upload_file($desired_file_name, $_FILES['stdInfoFile'], $path);
 			//copying contents from file to database
 			//declaring the table name
-			//$tablename = "excel1";
-			//$column_names_arr = array('FILE', 'LINENO', 'ACTION');
 			$tablename = "students_info";
 			// //declaring the column names
 			$column_names_arr = array('Course','Curriculum','First Name','Middle Name','Last Name','Suffix',
 										 'Other Name','Email','Student Id','DOB(YYYY-MM-DD)','EduLevel','Gender',
 										'Department','Street 1','Street 2','City','State','Country',
-										'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone');
+										'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone',
+										'User Name','Password');
 			//declaring filename with path
 			$inputFileNameWithPath = $path.$_FILES['stdInfoFile']['name'];
 			//inserting file contents into database
-			$result = $insert_excel_obj->insertExcel($tablename, $column_names_arr, $inputFileNameWithPath);
+			$result = $insert_excel_obj->insertExcelStudent($tablename, $column_names_arr, $inputFileNameWithPath);
 			echo $result;
 			break;
 			
@@ -91,9 +90,6 @@
 			//generate the user id
 			$user_id = "STU".uniqid();
 			
-			//initialize the variables
-			$username_insert_flg = 0 ;
-			
 			//codes for inserting the username and password of the institute
 			if(!empty($username) && !empty($password) && !empty($r_password))
 			{
@@ -144,7 +140,6 @@
 												'home_phone' => $home_phone ,
 												'work_phone' => $work_phone ,
 												'work_fax' => $work_fax ,
-												'home_phone' => $home_phone ,
 												'cellular_phone' => $cellular_phone ,
 												'student_status' => 1 ,
 												'status' => 1
