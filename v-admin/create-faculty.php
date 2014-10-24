@@ -157,22 +157,39 @@
 	                    <label class="cs_form_label">Cellular Phone</label>
 	                    <input type="text" class="form-control cs_form_textbox" name="cellular_phone">
 	                </div>
+	                <input type="hidden" name="action" value="facultyForm" />
                     <button type="submit" class="btn btn-success btn-lg">Create Faculty</button>
                 </form>
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">	
-            	<form role="form" enctype="multipart/form-data">
+            	<form role="form" id="facinfo" method="post" enctype="multipart/form-data">
                 	<h4 class="cs_page_form_caption">Upload The File</h4>
                     <div class="form-group">
                         <label class="cs_form_label">Information File</label>
-                        <input type="file">
+                        <input type="file" name="facInfoFile">
                     </div>
+                    <div class="form-group">
+	                    <label class="cs_form_label">Institution</label>
+	                    <select class="form-control cs_form_textbox" name="institute" id="course_inst_excel">
+	                    	<?php
+	                    		//get the institute from the BLL
+	                    		$BLL_Obj->getInstitute_SelectBox();
+	                    	?>
+	                    </select>
+	                </div>
+	                <div class="form-group">
+	                    <label class="cs_form_label">Add Course</label>
+	                    <select class="form-control cs_form_textbox" name="course[]" id="curri_course_excel" multiple="multiple">
+	                    
+	                    </select>
+                	</div>
                     <div class="form-group">
                         <label class="cs_form_label">NOTE</label>
                         <input type="text" class="form-control cs_form_textbox" placeholder="Upload Info">
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    <input type="hidden" name="action" value="facultyFile" />
+                    <button id="facfile" type="button" class="btn btn-success btn-lg">Submit</button>
                 </form>
             </div>
             <!-- /.col-lg-6 -->
