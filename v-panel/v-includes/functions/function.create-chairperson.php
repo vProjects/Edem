@@ -8,34 +8,40 @@
 		
 		case 'chairpersonFile':
 			
-			//include the phpexcel file
-			include '../library/library.InsertExcel.php';
-			$insert_excel_obj = new Insert_Excel_Library();
-			//include the class upload file 
-			include '../library/class.upload_file.php';
-		    $upload = new FileUpload();
-			//declaring the path to upload
-			$path = "../../../phpexcel/excelfiles/";
-			//getting filename without extension
-			$fileName = explode('.', $_FILES['chrInfoFile']['name']);
-			$desired_file_name = $fileName[0];
-			//uploading the file with desired filename and desired path
-			$upload->upload_file($desired_file_name, $_FILES['chrInfoFile'], $path);
-			//copying contents from file to database
-			//declaring the table name
-			$tablename = "chairperson_info";
-			// //declaring the column names
-			$column_names_arr = array('First Name','Middle Name','Last Name','Suffix',
-										 'Other Name','Email','DOB(YYYY-MM-DD)','Gender',
-										'Department','Street 1','Street 2','City','State','Country',
-										'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone',
-										'User Name','Password');
-			//declaring filename with path
-			$inputFileNameWithPath = $path.$_FILES['chrInfoFile']['name'];
-			//inserting file contents into database
-			$result = $insert_excel_obj->insertExcelChairperson($tablename, $column_names_arr, $inputFileNameWithPath);
-			echo $result;
-			break;
+			if(!empty($_FILES['chrInfoFile']['name']))
+			{
+				//include the phpexcel file
+				include '../library/library.InsertExcel.php';
+				$insert_excel_obj = new Insert_Excel_Library();
+				//include the class upload file 
+				include '../library/class.upload_file.php';
+			    $upload = new FileUpload();
+				//declaring the path to upload
+				$path = "../../../phpexcel/excelfiles/panel_excel/";
+				//getting filename without extension
+				$fileName = explode('.', $_FILES['chrInfoFile']['name']);
+				$desired_file_name = $fileName[0];
+				//uploading the file with desired filename and desired path
+				$upload->upload_file($desired_file_name, $_FILES['chrInfoFile'], $path);
+				//copying contents from file to database
+				//declaring the table name
+				$tablename = "chairperson_info";
+				// //declaring the column names
+				$column_names_arr = array('First Name','Middle Name','Last Name','Suffix',
+											 'Other Name','Email','DOB(YYYY-MM-DD)','Gender',
+											'Department','Street 1','Street 2','City','State','Country',
+											'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone',
+											'User Name','Password');
+				//declaring filename with path
+				$inputFileNameWithPath = $path.$_FILES['chrInfoFile']['name'];
+				//inserting file contents into database
+				$result = $insert_excel_obj->insertExcelChairperson($tablename, $column_names_arr, $inputFileNameWithPath);
+			}
+			else
+			{
+				$result = "Select a file";
+			}
+			break;	
 			
 		case 'chairpersonForm':
 			
@@ -150,5 +156,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	//header('Location: ../../create-chairperson.php');
+	header('Location: ../../create-chairperson.php');
 ?>

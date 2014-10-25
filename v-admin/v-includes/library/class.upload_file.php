@@ -36,7 +36,7 @@ class FileUpload{
 	public function fileuploader($filename_desired, $location,$input_name){
 		$filename = $input_name['name'];
 		
-		$ext = substr($filename,strpos($filename,'.'),4);
+		$ext = substr($filename,strpos($filename,'.'));
 		
 		if(!in_array($ext,$this->allowed_filetypes)){
 			$this->error = 'The file you attempted to upload is not allowed';

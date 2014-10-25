@@ -157,7 +157,7 @@
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">	
-            	<form role="form" id="chrinfo" method="post" enctype="multipart/form-data">
+            	<form role="form" method="post" action="v-includes/functions/function.create-chairperson.php" enctype="multipart/form-data">
                 	<h4 class="cs_page_form_caption">Upload The File</h4>
                     <div class="form-group">
                         <label class="cs_form_label">Information File</label>
@@ -167,8 +167,13 @@
                         <label class="cs_form_label">NOTE</label>
                         <input type="text" class="form-control cs_form_textbox" placeholder="Upload Info">
                     </div>
+                    <?php
+	                //get the institute from the BLL
+	                $instituteId = $BLL_Obj->getInstituteId($_SESSION['user_id'], $_SESSION['type']);
+	                ?>
+                    <input type="hidden" name="instituteId" value="<?php echo $instituteId;?>" />
                     <input type="hidden" name="action" value="chairpersonFile" />
-                    <button id="chrfile" type="button" class="btn btn-success btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
                 </form>
             </div>
             <!-- /.col-lg-6 -->

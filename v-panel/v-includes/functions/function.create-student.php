@@ -8,33 +8,39 @@
 		
 		case 'studentFile':
 			
-			//include the phpexcel file
-			include '../library/library.InsertExcel.php';
-			$insert_excel_obj = new Insert_Excel_Library();
-			//include the class upload file 
-			include '../library/class.upload_file.php';
-		    $upload = new FileUpload();
-			//declaring the path to upload
-			$path = "../../../phpexcel/excelfiles/";
-			//getting filename without extension
-			$fileName = explode('.', $_FILES['stdInfoFile']['name']);
-			$desired_file_name = $fileName[0];
-			//uploading the file with desired filename and desired path
-			$upload->upload_file($desired_file_name, $_FILES['stdInfoFile'], $path);
-			//copying contents from file to database
-			//declaring the table name
-			$tablename = "students_info";
-			// //declaring the column names
-			$column_names_arr = array('Course','Curriculum','First Name','Middle Name','Last Name','Suffix',
-										 'Other Name','Email','Student Id','DOB(YYYY-MM-DD)','EduLevel','Gender',
-										'Department','Street 1','Street 2','City','State','Country',
-										'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone',
-										'User Name','Password');
-			//declaring filename with path
-			$inputFileNameWithPath = $path.$_FILES['stdInfoFile']['name'];
-			//inserting file contents into database
-			$result = $insert_excel_obj->insertExcelStudent($tablename, $column_names_arr, $inputFileNameWithPath);
-			echo $result;
+			if(!empty($_FILES['stdInfoFile']['name']))
+			{
+				//include the phpexcel file
+				include '../library/library.InsertExcel.php';
+				$insert_excel_obj = new Insert_Excel_Library();
+				//include the class upload file 
+				include '../library/class.upload_file.php';
+			    $upload = new FileUpload();
+				//declaring the path to upload
+				$path = "../../../phpexcel/excelfiles/panel_excel/";
+				//getting filename without extension
+				$fileName = explode('.', $_FILES['stdInfoFile']['name']);
+				$desired_file_name = $fileName[0];
+				//uploading the file with desired filename and desired path
+				$upload->upload_file($desired_file_name, $_FILES['stdInfoFile'], $path);
+				//copying contents from file to database
+				//declaring the table name
+				$tablename = "students_info";
+				// //declaring the column names
+				$column_names_arr = array('First Name','Middle Name','Last Name','Suffix',
+											 'Other Name','Email','Student Id','DOB(YYYY-MM-DD)','EduLevel','Gender',
+											'Department','Street 1','Street 2','City','State','Country',
+											'Postal Code','Website','Home Phone','Work Phone','Work Fax','Cellular Phone',
+											'User Name','Password');
+				//declaring filename with path
+				$inputFileNameWithPath = $path.$_FILES['stdInfoFile']['name'];
+				//inserting file contents into database
+				$result = $insert_excel_obj->insertExcelStudent($tablename, $column_names_arr, $inputFileNameWithPath);
+			}
+			else
+			{
+				$result = "Select a file";
+			}
 			break;
 			
 		case 'studentForm':
@@ -170,5 +176,5 @@
 	$_SESSION['result'] = $result;
 	
 	//redirect
-	//header('Location: ../../create-student.php');
+	header('Location: ../../create-student.php');
 ?>
