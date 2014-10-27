@@ -1,5 +1,5 @@
 <?php
-	$title = 'Create Room';
+	$title = 'Event Details';
 	//checking for login status
 	if(!isset($GLOBALS['_COOKIE']['course_management']) && !isset($_SESSION['user_id']))
 	{
@@ -20,6 +20,9 @@
 	if(!empty($GLOBALS["_GET"]))
 	{
 		$event_detail = $BLL_Obj->getEventDetails($GLOBALS["_GET"]["eid"]);
+		$chairpersonName = $BLL_Obj->getCreatorName($event_detail['chairperson_id'],'chairperson');
+		$facultyName = $BLL_Obj->getCreatorName($event_detail['faculty_id'],'faculty');
+		$groupName = $BLL_Obj->getCreatorName($event_detail['group_id'],'group');
 	}
 ?>
 	<div id="page-wrapper">
@@ -38,9 +41,9 @@
 	                <div class="panel-body">
 	                	<div class="row">
 	                		<div class="col-lg-6">
-		                		<p><strong>Chairperson</strong>: <?php echo $event_detail['chairperson_id']; ?></p>
-			                	<p><strong>Faculty</strong>: <?php echo $event_detail['faculty_id']; ?></p>
-			                	<p><strong>Group</strong>: <?php echo $event_detail['group_id']; ?></p>
+		                		<p><strong>Chairperson</strong>: <?php echo $chairpersonName; ?></p>
+			                	<p><strong>Faculty</strong>: <?php echo $facultyName; ?></p>
+			                	<p><strong>Group</strong>: <?php echo $groupName; ?></p>
 		                	</div>
 		                	<div class="col-lg-6">
 		                		<p><strong>Date</strong>: <?php echo $event_detail['date']; ?></p>

@@ -1,4 +1,4 @@
-	</div>
+</div>
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
@@ -30,16 +30,20 @@
 	<script type = "text/javascript">
 	  $(function() {
 	  	//publicly defining variables
-	  	var positions, curId, dataArray_pos, id, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5; 
+	  	var positions, curId, dataArray_pos, id, stryear, stpyear, childrenstr, childrenstp; 
 	  	var dataArray = [];
-	  	$( ".column1, .column2, .column4, .column5" ).sortable({
+	  	var columnId = '<?php echo($columnId);?>';
+	  	var columnIdArray = '<?php echo json_encode($columnIdArray);?>';
+	  	var columnIdArray = $.parseJSON(columnIdArray);
+	  	var childrenstr = [];
+	  	var childrenstp = [];
+	  	$( columnId ).sortable({
 	  	  start: function(event, ui)
 	      {
 	      	//counting number of children of each div of each different year before sorting
-	      	childrenstr1 = $(".year1 .portlet-content").length;
-	      	childrenstr2 = $(".year2 .portlet-content").length;
-	      	childrenstr4 = $(".year4 .portlet-content").length;
-	      	childrenstr5 = $(".year5 .portlet-content").length;
+	      	$.each(columnIdArray, function( index, value ){
+	      		childrenstr[value] = $(".year"+value+" .portlet-content").length;
+	      	});
 	      },
 	      remove: function(event, ui)
 	      {
@@ -49,15 +53,13 @@
 	      stop: function(event, ui)
 	      {
 	      	//counting number of children of each div of each different year after sorting
-	      	childrenstp1 = $(".year1 .portlet-content").length;
-	      	childrenstp2 = $(".year2 .portlet-content").length;
-	      	childrenstp4 = $(".year4 .portlet-content").length;
-	      	childrenstp5 = $(".year5 .portlet-content").length;
-	      	
+	      	$.each(columnIdArray, function( index, value ){
+	      		childrenstp[value] = $(".year"+value+" .portlet-content").length;
+	      	});
 	      	//calling the function compare
-	      	compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5);
+	      	compare(columnIdArray, columnId, positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr, childrenstp);
 	      },
-	      connectWith: ".column1, .column2, .column4, .column5",
+	      connectWith: columnId,
 	      handle: ".portlet-content",
 	      cancel: ".portlet-toggle",
 	      placeholder: "portlet-placeholder ui-corner-all placeholder-bgcolor",
@@ -81,78 +83,42 @@
 	   });
 	   
 		//this allows to disable sorting after allowing sorting of the presently moving item	  
-		function disableSorting()
+		function disableSorting(columnId)
 	    {
-	    	$( ".column1, .column2, .column4, .column5" ).sortable({ disabled: true });
+	    	$( columnId ).sortable({ disabled: true });
+	    	return;
 	    }
     
         //this allows to disable sorting and not allowing sorting of the presently moving item  
-    	function cancelSorting()
+    	function cancelSorting(columnNo)
     	{
-    		$( ".column1" ).sortable( "cancel" );
+    		$( columnNo ).sortable( "cancel" );
     	}
     	
-	    function compare(positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr1, childrenstr2, childrenstr4, childrenstr5, childrenstp1, childrenstp2, childrenstp4, childrenstp5,timeVal)
+	    function compare(columnIdArray, columnId, positions, curId, dataArray_pos, id, dataArray, stryear, stpyear, childrenstr, childrenstp, timeVal)
 	    {
 	    	//sortable method of a column will be disabled if the number of its items is less than 3
-	    	if($(".column1").children(".portlet").children(".portlet-content").length < 3)
-		    {
-		     	cancelSorting();
-		    }	
-		    if($(".column2").children(".portlet").children(".portlet-content").length < 3)
-		    {
-		      	cancelSorting();
-		    }
-		    if($(".column4").children(".portlet").children(".portlet-content").length < 3)
-		    {
-		      	cancelSorting();
-		    }
-		    if($(".column5").children(".portlet").children(".portlet-content").length < 3)
-		    {
-		      	cancelSorting();
-		    }
+	    	$.each(columnIdArray, function( index, value ){
+	      		if($(".column"+value).children(".portlet").children(".portlet-content").length < 3)
+			    {
+			     	cancelSorting(".column"+value);
+			     	return;
+			    }	
+	      	});
 	    	/*if number of items in a div at sorting start is greater than number of items
 	    	in the same div at sorting end , that div will be the starting div and vice versa*/
-	    	if(childrenstr1 > childrenstp1)
-	    	{
-	    		stryear = 1;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr2 > childrenstp2)
-	    	{
-	    		stryear = 2;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr4 > childrenstp4)
-	    	{
-	    		stryear = 4;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr5 > childrenstp5)
-	    	{
-	    		stryear = 5;
-	    		disableSorting();
-	    	}	
-	    	if(childrenstr1 < childrenstp1)
-	    	{
-	    		stpyear = 1;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr2 < childrenstp2)
-	    	{
-	    		stpyear = 2;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr4 < childrenstp4)
-	    	{
-	    		stpyear = 4;
-	    		disableSorting();
-	    	}
-	    	if(childrenstr5 < childrenstp5)
-	    	{
-	    		stpyear = 5;
-	    		disableSorting();
-	    	}
+	    	$.each(columnIdArray, function(index,value){
+	    		if(childrenstr[value] > childrenstp[value])
+		    	{
+		    		stryear = value;
+		    		disableSorting(columnId);
+		    	}
+		    	if(childrenstr[value] < childrenstp[value])
+		    	{
+		    		stpyear = value;
+		    		disableSorting(columnId);
+		    	}
+		    });
 	    	if( typeof stryear != "undefined" && typeof stpyear != "undefined" )
 	    	{
 	    		dataArray_pos = stryear+'_'+stpyear;
@@ -181,6 +147,7 @@
 				   data: "data="+finalString,
 				   success: function(e){
 				    	console.log(e);
+				    	alert(finalString);
 				    	//location.reload();
 				    	return false;
 				}});
@@ -198,7 +165,7 @@
     
     <!-- codes country and states -->
     <script type="text/javascript">
-		$('#country').change(function(){
+        $('#country').change(function(){
 			var data = "id="+$(this).val();
 			
 			//make the ajax request

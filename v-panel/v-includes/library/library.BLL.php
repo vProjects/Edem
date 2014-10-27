@@ -358,6 +358,14 @@
 				$creatorName = $creator[0]['name'];
 				return $creatorName;
 			}
+			elseif ($creator_type == 'group'); 
+			{
+				$column_name = array('group_id','group_status');	
+		 		$column_values = array($userId,1);	
+				$creator = $this->_DAL_Obj->getValueMultipleCondtn('group_info', '*', $column_name, $column_values);
+				$creatorName = $creator[0]['group_name'];
+				return $creatorName;
+			}
 		  }
 		 
 		 /*
@@ -672,6 +680,16 @@
 			 {
 				echo '<tr><td colspan=7 align="center">No Value</td></tr>';	
 			 }
+		}
+
+		/*
+		- Method to get student status array 
+		- Auth: Debojyoti 
+		*/
+		public function get_student_status_arr()
+		{
+			$statuses = $this->_DAL_Obj->getValue('student_status','*');
+			return $statuses;
 		}
 	 }
 ?>

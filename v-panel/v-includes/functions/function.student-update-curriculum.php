@@ -4,10 +4,9 @@
 	include '../library/library.DAL.php';
 	$DAL_Obj = new DAL_Library() ;
 	
-	$jsonData = $GLOBALS["_POST"]['data'];
+	$jsonData = $GLOBALS['_POST']['data'];
 	$jsonData = stripslashes($jsonData);
 	$json_decoded = json_decode($jsonData);
-	//print_r($json_decoded);
 	
 	//get the year change
 	$yearChange = key($json_decoded);
@@ -27,9 +26,28 @@
 											'from_edulevel' => $fromYear,
 											'to_edulevel' => $toYear,
 											'user_ip' => $_SERVER['REMOTE_ADDR'],
-											'datetime' => date('Y-m-d h:i:s')
+											'datetime' => date('Y-m-d h:i:s A')
 										)
 						);
 	$DAL_Obj->insertValue($insert_change_log);
 	
+	//inserting curriculum change data into database
+	$curriculumNew_id = 'CUR'.uniqid();
+	$studentData = $DAL_Obj->getValueWhere('students_info', '*', 'user_id', $_SESSION['user_id']);
+	$studentCourseId = $studentData[0]['course_id'];
+	$insert_curriculum_change = array(
+									'table' => 'curriculum_change' ,
+									'values' => array(
+													'student_id' =>	$_SESSION['user_id'],
+													'parent_curriculum_id' => $curriculum_id,
+													'new_curriculum_id' => $curriculumNew_id,
+													'freshman' => $freshmanCurriString,
+													'sophomore' => $sophomoreCurriString,
+													'junior' => $juniorCurriString,
+													'senior' => $seniorCurriString,
+													'transfer' => $transferCurriString,
+													'graduate' => $graduateCurriString,
+												)
+								);
+	$DAL_Obj->insertValue($insert_curriculum_change);
 ?>

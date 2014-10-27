@@ -36,128 +36,60 @@
 			echo '</div>';
 			unset( $_SESSION['result'] );
 		}
+		//get the course of the student
+		$courseId = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		$student_status_array = $BLL_Obj->get_student_status_arr();
+		$count = 0;
+		//to be used in jquery
+		$columnId = '';
+		$columnIdArray = array();
+		$curriculumChangeArray = array();
+		echo '<div class="row sortable-button-topmargin">';
+		foreach ($student_status_array as $statusid) {
+	?>		
+			<div class="col-lg-4">
+				<div class="dropdown">
+				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				    <?php echo $statusid['status_name'];?>
+				  </button>
+				  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle positioning-disable" role="menu" aria-labelledby="dropdownMenu1">
+				  	<?php
+						
+						//get the curriculum of the student
+						$curriculums = $BLL_Obj->getCurriculumListOfStudent($courseId, $statusid['id']);
+						if(!empty($curriculums))
+						{
+							echo '<div class="column'.$statusid['id'].' year'.$statusid['id'].'">';	
+							foreach ($curriculums as $curriculumid => $curriculum) 
+							{
+								echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+										<div class="portlet-content placeholder-bgcolor">
+											<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+										</div>
+									  </div>';
+									  //$curriculumChangeArray[$statusid['id']] = 
+							}
+							echo '</div>';	
+						}
+					?>
+				   </ul>
+				</div>			
+			</div>
+		
+	<?php
+			$count++;	
+			if(($count%3)==0)	
+			{
+				echo '</div><div class="row sortable-button-topmargin">';
+			}
+			$columnId = $columnId.'.column'.$statusid['id'].', ';
+			$columnIdArray[] = $statusid['id'];
+		}
+		$columnId = rtrim($columnId, ', ');
+		echo '</div>';
 	?>
 	<!-- fresh year block start-->
-	<div class="row">
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    FRESHMAN YEAR
-			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
-					if(!empty($curriculums1))
-					{
-						echo '<div class="column1 year1">';	
-						foreach ($curriculums1 as $curriculumid => $curriculum) 
-						{
-							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
-									<div class="portlet-content placeholder-bgcolor">
-										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
-									</div>
-								  </div>';
-						}
-						echo '</div>';	
-					}
-				?>
-			   </ul>
-			</div>			
-		</div>
-		<!-- sophomore year block start-->
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    SOPHOMORE YEAR
-			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
-					if(!empty($curriculums2))
-					{
-						echo '<div class="column2 year2">';	
-						foreach ($curriculums2 as $curriculumid => $curriculum) 
-						{
-							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
-									<div class="portlet-content placeholder-bgcolor">
-										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
-									</div>
-								  </div>';
-						}
-						echo '</div>';	
-					}
-				?>
-			   </ul>
-			</div>
-		</div>
-	 <!-- sophomore year block end-->
-	 <!-- junior year block start-->
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    JUNIOR YEAR
-			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
-					if(!empty($curriculums4))
-					{
-						echo '<div class="column4 year4">';	
-						foreach ($curriculums4 as $curriculumid => $curriculum) 
-						{
-							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
-									<div class="portlet-content placeholder-bgcolor">
-										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
-									</div>
-								  </div>';
-						}
-						echo '</div>';	
-					}
-				?>
-			   </ul>
-			</div>
-		</div>
-	 <!-- junior year block end-->
-	 <!-- senior year block start-->
-		<div class="col-lg-3">
-			<div class="dropdown">
-			  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    SENIOR YEAR
-			  </button>
-			  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle" role="menu" aria-labelledby="dropdownMenu1">
-			  	<?php
-					//get the course of the student
-					$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-					//get the curriculum of the student
-					$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 5);
-					if(!empty($curriculums5))
-					{
-						echo '<div class="column5 year5">';	
-						foreach ($curriculums5 as $curriculumid => $curriculum) 
-						{
-							echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
-									<div class="portlet-content placeholder-bgcolor">
-										<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
-									</div>
-								  </div>';
-						}
-						echo '</div>';	
-					}
-				?>
-			   </ul>
-			</div>
-		</div>
-	<!-- senior year block end-->
-	</div>
+	
 <!--  dropdown row end-->
 <!--textboxrow start-->
 	<div class="row textbox-topgap">
