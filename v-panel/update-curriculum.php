@@ -1,17 +1,21 @@
 <?php
 	$title = 'Update Curriculum';
+	
 	//checking for login status
 	if(!isset($GLOBALS['_COOKIE']['course_management']) && !isset($_SESSION['user_id']))
 	{
 		header("Location: ../index.php");
 	}
+	
 	//include the template files
 	include 'v-templates/header.php';
+	
 	//checkingfor level
 	if($level > 1)
 	{
 		header("Location: admin.php");
 	}
+	
 	//include other files
 	include 'v-templates/header-text.php';
 	include 'v-templates/sidebar.php';
@@ -36,46 +40,50 @@
 			echo '</div>';
 			unset( $_SESSION['result'] );
 		}
+		//checking if student has changed his curriculum or not
+		$curriculum_change = $BLL_Obj->checkingCurriculumChange($_SESSION['user_id']);
 		//get the course of the student
 		$courseId = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
 		$student_status_array = $BLL_Obj->get_student_status_arr();
+		
 		$count = 0;
+		
 		//to be used in jquery
 		$columnId = '';
 		$columnIdArray = array();
 		$curriculumChangeArray = array();
 		echo '<div class="row sortable-button-topmargin">';
 		foreach ($student_status_array as $statusid) {
-	?>		
-			<div class="col-lg-4">
-				<div class="dropdown">
-				  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-				    <?php echo $statusid['status_name'];?>
-				  </button>
-				  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle positioning-disable" role="menu" aria-labelledby="dropdownMenu1">
-				  	<?php
-						
-						//get the curriculum of the student
-						$curriculums = $BLL_Obj->getCurriculumListOfStudent($courseId, $statusid['id']);
-						if(!empty($curriculums))
-						{
-							echo '<div class="column'.$statusid['id'].' year'.$statusid['id'].'">';	
-							foreach ($curriculums as $curriculumid => $curriculum) 
+			?>
+				<div class="col-lg-4">
+					<div class="dropdown">
+					  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+					    <?php echo $statusid['status_name'];?>
+					  </button>
+					  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle positioning-disable" role="menu" aria-labelledby="dropdownMenu1">
+					  	<?php
+							//get the curriculum of the student
+							$curriculums = $BLL_Obj->getCurriculumListOfStudent($courseId, $statusid['id']);
+							if(!empty($curriculums))
 							{
-								echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
-										<div class="portlet-content placeholder-bgcolor">
-											<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
-										</div>
-									  </div>';
-									  //$curriculumChangeArray[$statusid['id']] = 
+								echo '<div class="column'.$statusid['id'].' year'.$statusid['id'].'">';	
+								$curriculumCount = 0;
+								foreach ($curriculums as $curriculumid => $curriculum) 
+								{
+									$curriculumCount++;	
+									echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+											<div class="portlet-content placeholder-bgcolor">
+												<li class="curriculum-position-center" id ='.$curriculumid.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculum.'</a></li>
+											</div>
+										  </div>';
+										  $curriculumChangeArray[$statusid['id']][$curriculumCount] = $curriculumid;
+								}
+								echo '</div>';	
 							}
-							echo '</div>';	
-						}
-					?>
-				   </ul>
-				</div>			
-			</div>
-		
+						?>
+					   </ul>
+					</div>			
+				</div>
 	<?php
 			$count++;	
 			if(($count%3)==0)	
@@ -85,6 +93,7 @@
 			$columnId = $columnId.'.column'.$statusid['id'].', ';
 			$columnIdArray[] = $statusid['id'];
 		}
+		$curriculumChangeArray = json_encode($curriculumChangeArray);
 		$columnId = rtrim($columnId, ', ');
 		echo '</div>';
 	?>

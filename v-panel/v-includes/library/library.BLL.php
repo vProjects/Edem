@@ -691,5 +691,41 @@
 			$statuses = $this->_DAL_Obj->getValue('student_status','*');
 			return $statuses;
 		}
-	 }
+		
+		/*
+		- Method to find out curriculum change status 
+		- Auth: Debojyoti 
+		*/
+		public function checkingCurriculumChange($userid)
+		{
+			$curriculum_change = $this->_DAL_Obj->getValueWhere('curriculum_change', '*', 'student_id', $userid);
+			if(!empty($curriculum_change[0]))
+			{
+				return $curriculum_change[0];
+			}
+			else 
+			{
+				return 0;	
+			}
+		}
+		
+		/*
+		- Method to find out curriculum name from its id
+		- Auth: Debojyoti 
+		*/
+		public function getCurriculumName($currid)
+		{
+			$column_name = array('curriculum_id', 'curriculum_status');
+			$column_values = array($currid, 1);
+			$curriculumName = $this->_DAL_Obj->getValueMultipleCondtn('curriculum_info', '*', $column_name, $column_values);
+			if(!empty($curriculumName[0]))
+			{
+				return $curriculumName[0]['name'];
+			}
+			else 
+			{
+				return 'Curriculum name not found';	
+			}
+		}
+	}
 ?>

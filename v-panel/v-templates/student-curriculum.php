@@ -1,3 +1,7 @@
+<?php
+	//checking if student has changed his curriculum or not
+	$curriculum_change = $BLL_Obj->checkingCurriculumChange($_SESSION['user_id']);
+	?>
 <!-- fresh year block start-->
 <div class="row">
 	<div class="col-lg-12">
@@ -58,15 +62,39 @@
 </div>-->
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
-	if(!empty($curriculums1))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId1 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums1 = $BLL_Obj->getCurriculumListOfStudent($courseId1, 1);
+		if(!empty($curriculums1))
+		{
+			$count = 0;	
+			foreach ($curriculums1 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums1 as $curriculumid => $curriculum) 
+		$curriculum_change['freshman'] = explode(',', $curriculum_change['freshman']);
+		foreach ($curriculum_change['freshman'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -74,7 +102,7 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
@@ -92,15 +120,39 @@
 </div>
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
-	if(!empty($curriculums2))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId2 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums2 = $BLL_Obj->getCurriculumListOfStudent($courseId2, 2);
+		if(!empty($curriculums2))
+		{
+			$count = 0;	
+			foreach ($curriculums2 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums2 as $curriculumid => $curriculum) 
+		$curriculum_change['sophomore'] = explode(',', $curriculum_change['sophomore']);
+		foreach ($curriculum_change['sophomore'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -108,7 +160,7 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
@@ -126,15 +178,39 @@
 </div>
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
-	if(!empty($curriculums4))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId4 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums4 = $BLL_Obj->getCurriculumListOfStudent($courseId4, 4);
+		if(!empty($curriculums4))
+		{
+			$count = 0;	
+			foreach ($curriculums4 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums4 as $curriculumid => $curriculum) 
+		$curriculum_change['junior'] = explode(',', $curriculum_change['junior']);
+		foreach ($curriculum_change['junior'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -142,13 +218,13 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
 			$count++;	  
 		}	
-	}
+	}	
 ?>
 </div>
 <!-- junior year block end-->
@@ -160,15 +236,39 @@
 </div>
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
-	if(!empty($curriculums5))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId5 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums5 = $BLL_Obj->getCurriculumListOfStudent($courseId5, 5);
+		if(!empty($curriculums5))
+		{
+			$count = 0;	
+			foreach ($curriculums5 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums5 as $curriculumid => $curriculum) 
+		$curriculum_change['senior'] = explode(',', $curriculum_change['senior']);
+		foreach ($curriculum_change['senior'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -176,14 +276,14 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
 			$count++;	  
 		}	
 	}
-?>
+?>		
 </div>
 <!-- senior year block end-->
 <!-- transfer year block start-->
@@ -194,15 +294,39 @@
 </div>
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId6 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums6 = $BLL_Obj->getCurriculumListOfStudent($courseId6, 6);
-	if(!empty($curriculums6))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId6 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums6 = $BLL_Obj->getCurriculumListOfStudent($courseId6, 6);
+		if(!empty($curriculums6))
+		{
+			$count = 0;	
+			foreach ($curriculums6 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums6 as $curriculumid => $curriculum) 
+		$curriculum_change['transfer'] = explode(',', $curriculum_change['transfer']);
+		foreach ($curriculum_change['transfer'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -210,7 +334,7 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
@@ -228,15 +352,39 @@
 </div>
 <div class="row stu_adm_row">
 <?php
-	//get the course of the student
-	$courseId7 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
-	//get the curriculum of the student
-	$curriculums7 = $BLL_Obj->getCurriculumListOfStudent($courseId7, 7);
-	if(!empty($curriculums7))
+	if($curriculum_change == 0)
+	{
+		//get the course of the student
+		$courseId7 = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//get the curriculum of the student
+		$curriculums7 = $BLL_Obj->getCurriculumListOfStudent($courseId7, 7);
+		if(!empty($curriculums7))
+		{
+			$count = 0;	
+			foreach ($curriculums7 as $curriculumid => $curriculum) 
+			{
+				if(($count % 4) == 0 && $count!=0)
+				{
+					echo '</div><div class="row stu_adm_row">';
+				}	
+				echo '<div class="col-lg-3">
+						<div class="blue-block">
+				    		<div class="course-group text-center">
+				    			<a href="#"><p>'.$curriculum.'</p></a>
+				    		</div>
+				        </div>
+					  </div>';
+				$count++;	  
+			}	
+		}
+	}
+	else 
 	{
 		$count = 0;	
-		foreach ($curriculums7 as $curriculumid => $curriculum) 
+		$curriculum_change['graduate'] = explode(',', $curriculum_change['graduate']);
+		foreach ($curriculum_change['graduate'] as $key => $value) 
 		{
+			$curriculum_name = $BLL_Obj->getCurriculumName($value);	
 			if(($count % 4) == 0 && $count!=0)
 			{
 				echo '</div><div class="row stu_adm_row">';
@@ -244,7 +392,7 @@
 			echo '<div class="col-lg-3">
 					<div class="blue-block">
 			    		<div class="course-group text-center">
-			    			<a href="#"><p>'.$curriculum.'</p></a>
+			    			<a href="#"><p>'.$curriculum_name.'</p></a>
 			    		</div>
 			        </div>
 				  </div>';
