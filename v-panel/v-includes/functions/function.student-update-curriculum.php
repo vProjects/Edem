@@ -37,7 +37,7 @@
 	$DAL_Obj->insertValue($insert_change_log);
 	
 	//inserting curriculum change data into database
-	$curriculumNew_id = 'CUR'.uniqid();
+	$courseNew_id = 'NCOU'.uniqid();
 	
 	//from stdobject to php array
 	foreach ($jsonCurriChangeDataDecoded as $key => $value) {
@@ -64,7 +64,7 @@
 	foreach ($curriculumChangeInsert as $key4 => $value4) {
 		if($key4 == $toYear)
 		{
-			$curriculumChangeInsert[$key4][] = $curriculumNew_id;
+			$curriculumChangeInsert[$key4][] = $curriculum_id;
 		}
 	}
 	$freshmanCurriString = $sophomoreCurriString = $juniorCurriString = $seniorCurriString = $transferCurriString = $graduateCurriString = "";
@@ -116,8 +116,10 @@
 	}
 		
 	//checking if student has changed his curriculum or not
-	$curriculum_change = $BLL_Obj->checkingCurriculumChange($_SESSION['user_id']);
-	//inserting curriculum ids into their respective edulevels
+	$curriculum_change = $DAL_Obj->getValueWhere('curriculum_change', '*', 'student_id', $_SESSION['user_id']);
+	if($curriculum_change == 0)
+	{
+		//inserting curriculum ids into their respective edulevels
 		$studentData = $DAL_Obj->getValueWhere('students_info', '*', 'user_id', $_SESSION['user_id']);
 		$studentCourseId = $studentData[0]['course_id'];
 		$insert_curriculum_change = array(
@@ -126,7 +128,7 @@
 														'student_id' =>	$_SESSION['user_id'],
 														'course_id' => $studentCourseId,
 														'parent_curriculum_id' => $curriculum_id,
-														'new_curriculum_id' => $curriculumNew_id,
+														'new_course_id' => $courseNew_id,
 														'freshman' => $freshmanCurriString,
 														'sophomore' => $sophomoreCurriString,
 														'junior' => $juniorCurriString,
@@ -136,6 +138,18 @@
 													)
 									);
 		$DAL_Obj->insertValue($insert_curriculum_change);
+	}
+	else
+	{
+		$DAL_Obj->updateValueWhere('curriculum_change', 'parent_curriculum_id', $curriculum_id, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'new_course_id', $courseNew_id, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'freshman', $freshmanCurriString, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'sophomore', $sophomoreCurriString, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'junior', $juniorCurriString, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'senior', $seniorCurriString, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'transfer', $transferCurriString, 'student_id', $_SESSION['user_id']);
+		$DAL_Obj->updateValueWhere('curriculum_change', 'graduate', $graduateCurriString, 'student_id', $_SESSION['user_id']);
+	}		
 	
 		
 ?>

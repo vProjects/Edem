@@ -44,16 +44,18 @@
 		$curriculum_change = $BLL_Obj->checkingCurriculumChange($_SESSION['user_id']);
 		//get the course of the student
 		$courseId = $BLL_Obj->getCourseIdOfStudent($_SESSION['user_id']);
+		//getting the edulevel names
 		$student_status_array = $BLL_Obj->get_student_status_arr();
-		
+		//initializing a count variable
 		$count = 0;
-		
 		//to be used in jquery
 		$columnId = '';
 		$columnIdArray = array();
 		$curriculumChangeArray = array();
 		echo '<div class="row sortable-button-topmargin">';
 		foreach ($student_status_array as $statusid) {
+			if($curriculum_change == 0)
+			{
 			?>
 				<div class="col-lg-4">
 					<div class="dropdown">
@@ -85,6 +87,38 @@
 					</div>			
 				</div>
 	<?php
+			}
+			else
+			{ ?>
+				<div class="col-lg-4">
+					<div class="dropdown">
+					  <button class="btn btn-default btn-block dropdown-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+					    <?php echo $statusid['status_name'];?>
+					  </button>
+					  <ul class="dropdown-menu dropdwn-bg display-block sortable-z-index-initial sortable-padding-margin-fontstyle positioning-disable" role="menu" aria-labelledby="dropdownMenu1">
+					  	<?php
+							echo '<div class="column'.$statusid['id'].' year'.$statusid['id'].'">';	
+							$curriculumCount = 0;
+							$status_name_lc = strtolower($statusid['status_name']);
+							$curriculumStrtoArr = explode(',', $curriculum_change[$status_name_lc]);
+							foreach ($curriculumStrtoArr as $value) 
+							{
+								//getting name for curriculum
+								$curriculumName = $BLL_Obj->getCurriculumName($value);	
+								$curriculumCount++;	
+								echo '<div class="portlet portlet-bg-transparent ui-widget-content-border">
+										<div class="portlet-content placeholder-bgcolor">
+											<li class="curriculum-position-center" id ='.$value.' role="presentation"><a class="curriculum-position-center" role="menuitem" tabindex="-1" href="#">'.$curriculumName.'</a></li>
+										</div>
+									 </div>';
+								$curriculumChangeArray[$statusid['id']][$curriculumCount] = $value;
+							}
+							echo '</div>';	
+						?>
+					   </ul>
+					</div>			
+				</div>
+	<?php	}	
 			$count++;	
 			if(($count%3)==0)	
 			{
